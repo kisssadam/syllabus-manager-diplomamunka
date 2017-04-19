@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="D4A72C7E-316A-6420-0412-34386A1CD21C" containerWithKeyObject="73A2736F-A110-9580-3FF3-B11B62DF07BA" localFKIndex="66CFB2BE-BBE7-5AD2-4700-A93ECD4FBE27" name="Lecturers_TimetableCourses_Lecturer_FK">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-19 00:11:50 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>32E51D3E-07C8-E4B2-E65E-CF73AEF4FD44</referredTableID>
+<keyObject>4EA67A0B-CEFF-0B69-B68B-CD92ADFF31AE</keyObject>
+<referredKeyID>4EA67A0B-CEFF-0B69-B68B-CD92ADFF31AE</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

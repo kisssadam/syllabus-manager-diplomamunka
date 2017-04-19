@@ -1,0 +1,4 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="main_view" objectID="F4299AC4-105C-AC39-45EA-B1FBE354871A" name="Syllabus_Manager" visible="true"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="syllabus_data_model" id="63F1172E-CA4E-FDC1-EC56-176B56A2B9A6" version="3.5">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:39:26 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>63F1172E-CA4E-FDC1-EC56-176B56A2B9A6</designId>
+</OSDM_Design>

@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="Syllabus_Manager" id="328AD165-B7C7-9BB6-A4EC-AA0B549FB82F" mainViewID="F4299AC4-105C-AC39-45EA-B1FBE354871A">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:52:06 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>3FD120B5-9F4E-6278-D5E2-746D192C8319</selectedRDBMSSite>
+</relationalModel>

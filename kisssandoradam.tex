@@ -1,0 +1,567 @@
+\documentclass[hidelinks, 12pt, a4paper]{report}
+
+\usepackage[left=3cm, top=3cm, right=2cm, bottom=3cm, includeheadfoot]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{libertine}
+\usepackage[magyar]{babel}
+\usepackage{t1enc}
+\usepackage{amsmath, amsthm, amsfonts, amssymb}
+\usepackage{times}
+\usepackage{setspace}
+\usepackage{appendix}
+\usepackage{commath}
+\usepackage[normalem]{ulem}
+\usepackage{enumitem}
+\usepackage{arydshln}
+\usepackage{caption}
+\usepackage{subfigure}
+\usepackage{relsize}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{url}
+\usepackage{bookmark}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{longtable}
+\usepackage{algorithmic}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\setlength{\footskip}{60pt}
+
+\bookmarksetup{startatroot}
+\hypersetup{
+    pdfauthor={Kiss Sándor Ádám},
+    pdftitle={Diplomamunka},
+    pdfsubject={Diplomamunka},
+    pdfkeywords={Diplomamunka},
+    pdfcreator={PdfLaTeX},
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    bookmarksopenlevel=1,
+    pdfstartview=FitV,
+    unicode=true,
+    pdfpagemode=UseOutlines,
+}
+
+% https://en.wikibooks.org/wiki/LaTeX/Paragraph_Formatting
+\onehalfspacing
+
+\begin{document}
+
+\begin{titlepage}
+\pagestyle{empty}
+
+\vspace*{4cm}
+
+\begin{center}
+\vfill
+\begin{minipage}{\linewidth}
+\centering
+\begin{spacing}{2.5}
+{ \huge \bfseries DIPLOMAMUNKA }
+\end{spacing}
+\end{minipage}
+\\[10cm]
+
+\begin{minipage}{1.0\textwidth}
+\begin{flushright} \Large \bfseries
+Kiss Sándor Ádám
+\end{flushright}
+\end{minipage}
+
+\vfill
+
+{\Large \bfseries Debrecen \\ 2017}
+
+\end{center}
+\end{titlepage}
+
+\begin{titlepage}
+\pagestyle{empty}
+\begin{center}
+Debreceni Egyetem \\
+Informatikai Kar
+\end{center}
+
+\begin{center}
+\vfill
+\begin{minipage}{\linewidth}
+\centering
+\begin{spacing}{2.5}
+{ \huge \bfseries Java EE Alkalmazásfejlesztés }
+\end{spacing}
+\end{minipage}
+\\[7cm]
+\begin{minipage}{0.45\textwidth}
+\begin{flushleft} \large
+Témavezető: Dr. Adamkó Attila\\
+Beosztása: egyetemi adjunktus
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{flushright} \large
+Készítette: Kiss Sándor Ádám\\
+Programtervező Informatikus M.Sc.
+\end{flushright}
+\end{minipage}
+
+\vfill
+
+{\large Debrecen \\ 2017}
+
+\end{center}
+\end{titlepage}
+
+\clearpage
+\setcounter{page}{2}
+
+\tableofcontents
+
+\chapter{Bevezetés}
+
+2015 februárjában, amikor még az utolsó félévemet kezdtem el a Debrecen Egytem - Informatikai Karán, Programtervező Informatikus alapképzésen, jelenlegi témavezetőmnek, az egyetemnek és a Liferay Hungary Kft-nek köszönhetően teljesen térítésmentesen részt vehettem egy majdnem 3000 € értékű, \cite{liferay-dev-1} úgynevezett \emph{Developing for the Liferay Platform 1} képzésen, ahol megtanultam a Liferay 6.2 tartalomkezelő rendszer \cite{liferay} használatát, illetve azt is elsajátítottam, hogy hogyan lehet saját alkalmazásokat, portleteket fejleszteni a platformra és hogyan lehet testre szabni a portált mind működésileg, mind kinézetileg az egyéni megrendelői igények szerint. A képzésen való részvétel egyetlen feltétele az volt, hogy a megszerzett tudás segítségével minden, a képzésen résztvevő hallgató készítsen egy olyan használható és működőképes webalkalmazást az egyetem számára, amelyet az új kari honlapon lehetne használatba venni.
+
+A három teljes napot átölelő intenzív kurzus után a témavezetőm egy Redmine \cite{redmine} nevű feladatkezelő rendszerben összegyűjtötte a fejlesztésre váró feladatokat és a képzésen résztvevő csoport minden egyes tagja kiválasztott egyet ezen feladatok közül és elkezdett fejleszteni egy-egy programot. A témavezetőmmel történő többszöri egyeztetés után arra a következtetésre jutottunk, hogy a legmegfelelőbb alkalmazás, amelyet az egyetem is hasznosítani tudna, egy sillabusz menedzselő vagy más néven sillabusz karbantartó alkalmazás lenne, amelyet az egyetem oktatói, hallgatói és esetleg a Tanulmányi Osztály munkatársai vennének használatba az új kari honlap elkészülte után. Amikor ennek az alkalmazásnak a szükségessége felmerült, még senki sem tudta, hogy az új kari honlap már nem a korábban is használt Liferay nevű tartalomkezelő rendszerre fog épülni, ezért belevágtam a fejlesztésébe. Az ötlet felmerülése után két évvel végre elkészült az új honlap, amelyhez már nem Java, hanem főleg PHP programozási nyelvet és egy általam nem ismert tartalomkezelő rendszert használtak a fejlesztői, ezért a továbbiakban az általam készített alkalmazás a jelenlegi formájában már sosem lesz éles körülmények között használva.
+
+Diplomamunkámban egy olyan Java EE technológiákra és a Liferay platforma épülő alkalmazás fejlesztését mutatom be, amely a fent említett sillabusz karbantartó megvalósítási lépéseit tartalmazza. A sillabuszra \cite{sillabusz} nem létezik pontos definíció, de ha rákeresünk az interneten, akkor olyan szavakat, fordításokat és szinonimákat kaphatunk találatként, mint például "kivonat", "vázlat", "összefoglaló" vagy netalántán "útmutató". Általában az egyetemen sillabusznak neveznek minden olyan dokumentumot, amely egy adott tantárgyról tartalmaz kivonatolt, összegző információkat. Kivonatolt információnak tekinthető például egy tantárgy kódja, előfeltételei, a tantárgy teljesítéséhez szükséges követelmények, illetve az ajánlott irodalom is ilyen típusú információnak számít. Természetesen az előbbi felsorolás egyáltalán nem teljes, hogy egészen pontosan mi kerülhet bele és minek kell belekerülnie egy sillabuszba, az mindig az adott egyetemi kartól, az adott tanszéktől illetve az adott tantárgy oktatójától vagy oktatóitól függ. A diplomamunkámhoz készített program szükségességét éppen ez a differenciáltság indokolta, ugyanis az egyetem vezetősége szerette volna elérni, hogy mindenki, aki valamilyen formában az egyetemen oktat, azonos felépítésű sillabuszt készítsen, azaz arra volt szükség, hogy minden sillabusz hasonlóképpen nézzen ki, ugyan azon részegységeket és fejezeteket tartalmazza a könnyebb áttekinthetőség és a szabályzatoknak való megfelelés kedvéért.
+
+A diplomamunkám további fejezeti arról szólnak, hogy hogyan fejlesztettem ki egy, a Java EE technológiákra és a Liferay platformra épülő alkalmazást, milyen problémákba ütköztem, hogyan oldottam meg ezen problémákat és milyen tapasztalatokat szereztem a program készítése közben.
+
+\chapter{Követelmények meghatározása}
+
+\section{A probléma megfogalmazása}
+
+Minden szoftverfejlesztési folyamat a követelmények meghatározásával, a probléma vagy másképpen nevezve a feladat megfogalmazásával kezdődik. Mivel minden program azért jön létre, hogy egy előre meghatározott problémát vagy feladatot oldjon meg, ezért én is egy megoldandó probléma megfogalmazásával kezdem.
+
+Jelen esetben, az egyetem problémája, ahogyan azt már a bevezetésben is leírtam, nem más, mint az, hogy egységes megjelenítést biztosítson az Informatikai Kar által meghirdetett tantárgyakhoz tartozó sillabuszok számára. Ha nincs egységes felület, amelyet kitöltés után egy számítógép érvényesítene, akkor mindenki tetszés szerint, a saját maga számára megfelelő módon törölhetne ki és adhatna hozzá új fejezeteket és részegységeket egy-egy sillabuszhoz.
+
+Természetesen tisztában vagyok vele, hogy a jelenlegi problémára számtalan megoldás létezik, mégis mindenki úgy gondolta, hogy a leghatékonyabb módon egy számítógépes program létrehozásával lehetne megoldani az egyetem sillabuszokkal való problémáit. A fejezetben található további alfejezetek a programmal támasztott követelményeket tartalmazzák rövidebb formában. A diplomamunkán belül azért nem jelenik meg a teljes specifikáció funkcionális és nem funkcionális követelményekre lebontva, mert maga a teljes specifikáció több oldalt venne igénybe, mint amennyi elvárható az egész diplomamunkától.
+
+\section{Webalkalmazás}
+
+Tekintettel arra, hogy a megoldandó probléma még akkor vetődött fel, amikor a  kari honlap még Liferay 6.1-re épült és tervbe volt véve a 6.2-es verzióra történő migrálás, illetve a mai napig bevett szokás az egyetemen, hogy az oktatók a hallgatók számára minden sillabuszt elérhetővé tesznek a kari honalapon keresztül, ezért senki számára nem volt kérdés, hogy a programot szintén a kari honlapon kellene elhelyezni, tehát egy új webalkalmazásra lenne szükség. Az egyetlen kérdés az volt, hogy mit kell tudnia és hogyan kell működnie annak a programnak, amely a sillabuszhoz tartozó adatok megadását, megjelenítését és karbantartását teszi lehetővé.
+
+Szinte fel sem merült annak a lehetősége, hogy asztali, azaz nem webalkalmazás készüljön, ugyanis ezzel számos probléma adódott volna.
+
+Egy asztali alkalmazás során állandó problémát jelent, hogy mely platformok által támogatott (Windows, Linux, macOS, esetleg mobil platformok), illetve az is kérdéses, hogy a felhasználók frissítik-e, naprakészen tartják-e az alkalmazást a saját eszközükön vagy sem. Egy webalkalmazás esetén sosem lehet ilyen problémákkal találkozni, ugyanis egy weboldal megnyitásakor a felhasználónak nem kell frissítésekkel törődnie, mert ezt általában az adott weboldal üzemeltetői és fejlesztői maguktól szokták elvégzik egy olyan időpontban, amikor a lehető legkevesebben használják a rendszert, illetve egy ilyen típusú alkalmazás minden olyan platformon elérhető, ahol van a kornak és az oldalnak támogatottságának megfelelő webböngésző. 
+
+Természetesen azzal, hogy asztali alkalmazás helyett webalkalmazás készül nem oldódik meg minden szoftverfejlesztési probléma. Egy webalkalmazásnak számos előnye van egy asztali alkalmazással szemben, de ugyan ennyi ellenérvet is lehetne ellene felhozni, éppen ezért egy másik fejezetben összeszedtem mindazon problémákat, amelyekkel a sillabusz karbantartó alkalmazás fejlesztése során én is találkoztam.
+
+\section{Portlet - JSR 286}
+
+A korábbiakban már számtalanszor említést tettem a Liferay-re, itt az idő, hogy tisztázzam mit is értek alatta. A Liferay nem más \cite{liferay-in-action}, mint egy nyílt forráskódú, Java EE technológiákra épülő portál és tartalomkezelő rendszer. Portálnak azért nevezhető, mert számos alkalmazást, jelen esetben portletet integráltak össze benne, tartalomkezelő rendszernek pedig azért lehet nevezni, mert támogatja a felhasználók által létrehozott tartalmak dinamikus módon történő kezelését.
+
+Számomra a Liferay az egyik legjobban testre szabható és funkcionálisan a legkönnyebben bővíthető tartalomkezelő rendszer, amellyel valaha is találkoztam és amelyre valódi alkalmazást is fejlesztettem. A portál funkcionalitásának bővítésére az egyik legjobb lehetőség a portletek fejlesztése. A portlet \cite{jsr286} megfelel a JSR 286-nak, azaz a Java Portlet Specification 2.0-nak.
+
+A sillabuszkezelő alkalmazás fejlesztése során törekednem kellett a Liferay platformmal történő szoros integrációra annak érdekében, hogy az egyetem teljes mértékben ki tudja használni a portál adottságait. Ezekből már egyértelműen lehet következtetni arra, hogy a feladatom egy Liferay kompatibilis portlet létrehozása volt.
+
+\section{Űrlap}
+
+Egy sillabusz információkat tárol egy tantárgyról. Ezen információk egy része félévente változik, másik része csak a mintatantervek megújításával kerül megváltoztatásra. Az egyszerű és könnyű használhatóság érdekében szükség van egy olyan űrlapra, amelyen a sillabuszhoz tartozó összes félévente változó adatot meg lehet adni. Mivel a program egy webalkalmazáson belül lesz használva, célszerű úgynevezett \mbox{WYSIWYG}\footnotemark\footnotetext{WYSIWYG - What you see is what you get. - Amit látsz, azt kapod.} szerkesztőket használni azokon a helyeken, ahol hosszabb, több soros szöveg megadására is szükség van. Ez lehetőséget biztosít a végfelhasználók számára arra, hogy HTML kód szerkesztése nélkül rakjanak össze formázott HTML szövegeket, így azok a felhasználók is használatba tudják venni, akik nem rendelkeznek mélyebb informatikai ismeretekkel.
+
+Az űrlap kitöltése után a programnak tudnia kell ellenőrizni a szükséges megszorításokat a létrehozott sillabusszal kapcsolatban és ha a kitöltött adatok nem felelnek meg a rendszernek, akkor jeleznie kell a létrehozó számára a hibát. Jelenleg elég ha csak a kötelező mezők és a helyes beviteli formátumokat ellenőrzi a rendszer, de később elképzelhető, hogy egyéb megszorításoknak is eleget kell majd tenni.
+
+\section{Adminisztrációs felület}
+
+A sillabuszok kezeléséhez szükség van egy olyan felületre, ahol a megfelelő jogosultságokkal rendelkező felhasználók meg tudják adni a sillabuszok alapadatait. Még pontosabban meghatározva egy olyan felülre van szükség, ahol a Tanulmányi Osztály dolgozói vagy megfelelő hatáskörrel rendelkező más személyek fel tudják tölteni vagy meg tudják adni a tantárgyak alapadatait. Ezen alapadatokat, magát a sillabuszokat létrehozó oktatók nem tudják módosítani, ők csak tantárgyat tudnak választani a sillabusz hozzáadása során, amelynek hatására a megfelelő alapadatok automatikusan bekerülnek a sillabuszba.
+
+\section{Nyelvesítés}
+
+Egy olyan intézmény, mint az egyetem, nem engedheti meg magának, hogy csak magyar nyelven tegye elérhetővé adatait a honlapján keresztül, ezért fontos volt, hogy minden alkalmazás amely az új kari honlaphoz készül, egyaránt támogassa az angol és magyar nyelvű lokalizációt. Az általam készített alkalmazásnak csak akkor van értelme, ha az összes tantárgy esetén ezt használják a sillabuszok kezelésére. Ha a külföldi, magyar nyelvet nem értő hallgatóknak más módszer szerint készülne el egy sillabusz, akkor az alkalmazás teljesen hasztalan lenne, mert akkor ismét azon problémákba lehetne belefutni, mint amelyek ennek az alkalmazásnak a létrehozását is indukálták.
+
+\section{Exportálás, Importálás}
+
+Jelenleg az Informatikai Karon félévente több száz tantárgy kerül meghirdetésre, amelyekhez minden félévben, az adott tantárgy oktatóinak sillabuszt kell készíteniük. Mivel már adott a Neptun-nak nevezett tanulmányi rendszer, amely már tartalmazza az összes tantárgy alapadatait, ezért senki sem szeretne azzal foglalkozni, hogy kézzel átvezesse és konzisztensen tartsa a sillabuszkezelőben található tantárgyak alapadatait, ezért szükség van egyfajta automatizmusra ami a Neptun-ból kiexportált adatokat automatikusan, emberi beavatkozás nélkül be tudja importálni a sillabuszkezelő rendszerbe.
+
+A sillabuszkezelőből történő adatok kiexportálására szintén szükség van. Ennek több oka is van. Egyrészt lehetőséget kell teremteni a hallgatók számára a sillabuszok PDF formátumban történő hozzáféréséhez, másrészt pedig, szükség van egy XML vagy CSV exportálási lehetőségre is, mert egy esetleges verziófrissítés miatt lehet, hogy rengeteg adatot kellene módosítani, ami igen sok időt vehet igénybe, ha nem számítógép végzi a módosításokat egy megfelelően formázott szöveges állományon. Az XML, illetve CSV formátumokban történő exportálásnak és importálásnak meg van az az előnye, hogy ha új attribútumokkal bővülnek az adatbázis táblák, akkor a bennük lévő entitások új attribútumait automatizált módszerrel lehet feltölteni egy három lépéses módszerrel:
+
+\begin{enumerate}
+\item Ki kell exportálni a módosítandó adatokat.
+\item Módosítani kell a kiexportált adatokat.
+\item Vissza kell tölteni a módosított adatokat.
+\end{enumerate}
+
+\section{Sillabusz duplikáció}
+
+Általában, ha egy tantárgyat ugyanazon oktató oktat több egymást követő évben vagy félévben, akkor szinte semmit, vagy csak alig szokott változni egy-egy sillabusz tartalma. Mivel a sillabuszok kezelése egy tartalomkezelő rendszerre lesz bízva, ezért célszerű lenne beépíteni egy olyan megoldást a rendszerbe, amely az aktuális félévben egy meghirdetett tantárgy esetén le tudja másolni az ugyanezen a tantárgyhoz tartozó, de egy korábbi félévben meghirdetett tantárgy sillabuszainak adatait. Ha mindez egy kattintással elérhető, akkor ezentúl olyan tantárgyakhoz is lehet sillabusz, amelyekhez évek óta nem készült egy sem, illetve nem kell felesleges időt eltölteni ugyanazon adatok ismételt begépelésével. Magától értetődik, hogy ennek a funkciónak a használata azt feltételezné, hogy valamikor az elmúlt években egy adott tantárgyhoz már létrehoztak egy sillabuszt és a benne lévő adatok továbbra is helytállóak.
+
+\section{Jogosultságkezelés}
+
+Egy olyan webalkalmazás esetén, amely felhasználók által bevitt adatokat tartalmaz, a jogosultságkezelés szinte elkerülhetetlen része a fejlesztésnek. Ha jobban belegondolunk, akkor csakis a sillabuszkezelő rendszer esetén három különböző szerepkörű felhasználót lehet megkülönböztetni:
+\begin{enumerate}
+\item \emph{Adminisztrátor:} kizárólag tantárgyi alapadatokat kezelhet
+\item \emph{Oktató:} kizárólag sillabuszokat hozhat létre
+\item \emph{Hallgató:} kizárólag sillabuszokat tekinthet meg
+\end{enumerate}
+Szinte biztosan kijelenthető, hogy egy élesített weboldal esetén ez a három szerepkör nagyon kevés lenne. Vannak hallgatók, akik demonstrátorként dolgoznak, ezért nekik is lehetőséget kellene adni sillabuszok létrehozására, továbbá az oktatóktól meg kell tiltani azt a lehetőséget, hogy mások által létrehozott sillabuszokat módosítsanak, de a tantárgyfelelősnek mindig minden joggal rendelkeznie kell egy tantárgy esetén. 
+
+Ezt a fajta jogosultságbeli szemcsézettséget lehetne még tovább fokozni, de fejlesztői szemmel nézve nincs értelme elgondolkozni azon, hogy milyen szerepkörökre lesz szükség az alkalmazás élesítése közben, sőt, személy szerint nem is tudhatom, hogy melyik felhasználóhoz milyen jogosultságokat kellene rendelni, ezért elég csak azzal foglalkoznom, hogy valamilyen lehetőséget biztosítsak az oldal üzemeltetőinek és adminisztrátorainak arra, hogy a felhasználói szerepköröket a megfelelő jogosultságokkal saját maguk tetszés szerint alakítsák ki a megfelelő szemcsézettséggel együtt. A lényeg tehát az, hogy lehetőséget kell teremteni a megjeleníthető adatok hozzáférhetőségének korlátozására, illetve a hozzáadási és módosítási jogok megfelelő szintű, futási időben tetszőleges módon történő beállítására.
+
+Jogosultságkezelésre az egyik legjobb példa a tanszékvezető-tantárgyfelelős-oktató hármas között fennálló viszony. Egy oktató létrehozhat egy sillabuszt, ha ő az adott tantárgy oktatója. Ugyanezt a sillabuszt a tantárgyfelelős és tanszékvezető szintén tudja módosítani, de a tantárgy oktatója már nem tudja módosítani a tantárgyfelelős és tanszékvezető által oktatott egyéb tantárgyakhoz tartozó sillabuszokat. Ez szintén igaz a többi oktatóra is: ha egy oktató nem az adott tantárgy oktatója és se nem tantárgyfelelős, se nem tanszékvezető, akkor semmilyen joggal nem rendelkezik ahhoz, hogy az adott sillabuszt módosíthassa.
+
+\section{Munkafolyamat}
+
+Ahhoz, hogy egy sillabusz elérhetővé váljon a hallgatók számára, végig kell mennie egy jóváhagyási folyamaton. Egy sillabuszt tipikusan minden félév első két hetében szokás elkészíteni és ez idő alatt is kell jóváhagyatni a megfelelő illetékes személyekkel. Az egyetemi holnapra csakis jóváhagyás után kerülhetnek ki a sillabuszok, ezért a sillabusz kezelő alkalmazásnak valamilyen módon támogatnia kellene ezt a jóváhagyási folyamatot.
+
+Tekintettel arra, hogy egy Liferay portlet-ről van szó, így adja magát az ötlet, hogy a Liferay saját munkafolyamat kezelési keretrendszerével kellene összeintegrálni az alkalmazást. Ennek a beépített folyamatnak a legnagyobb előnye az, hogy az üzemeltetők által szabadon konfigurálható, így megadja számukra azt a szabadságot, hogy úgy állítsák be, ahogyan azt az egyetem vezetősége megköveteli. Ha valamilyen oknál fogva nem lenne szükség a jóváhagyási folyamatra, akkor egész egyszerűen ki lehet kapcsolni a portlet-hez tartozó munkafolyamatot, ha pedig szigorítani kellene rajta, akkor is elég csak a beállításokon változtatni.
+
+A Liferay munkafolyamat kezelést támogató keretrendszere nemcsak azért jó, mert szabadon konfigurálható, hanem azért is, mert egyszerű használni, teljesen mértékben nyomon követhető, hogy ki, mit és mikor hagyott jóvá, esetleg utasított el. Minden egyes jóváhagyási folyamat során a felelős személyek véleményt is írhatnak, így a kommunikációt is megkönnyíti az egyes felek között.
+
+\section{Asset Framework integráció}
+
+A portletek után a Liferay legjobb és egyben leghasznosabb funkcióit az "Asset Framework", nyers fordításban az "Eszköz Keretrendszer" nyújtja. Ez a keretrendszer teszi lehetővé a Service Builder által létrehozott egyedek tetszőleges módon történő kezelését. A Service Builder-ről és annak működéséről egy későbbi fejezetben ejtek néhány szót, egyelőre elég annyit tudni róla, hogy egyedek definiálására lehet használni.
+
+Az Asset Publisher-nek nevezett portlet az Asset Framework szerves részét képezi, amely az egyedek tetszés szerinti megjelenítéséért felelős. A megjelenítő teljes mértékben testre szabható, egy oldalon akár többet is el lehet helyezni belőle. A rengeteg beállítási lehetőségei közül csak néhányat sorolnék fel:
+\begin{enumerate}
+\item Egyedek lista szerű megjelenítése
+\item Szűrési feltételek használata
+\item Korlátozható hozzáférési jogosultságok
+\item Import/Export lehetőségek különböző formátumokban
+\item Közösségi szolgáltatások integrációja
+\item Egyedek kategorizálhatósága, címkézhetősége
+\end{enumerate}
+
+A sillabusz karbantartó alkalmazást célszerű úgy kialakítani, hogy a sillabuszok létrehozása, módosítása, megjelenítése az Asset Publisher segítségével is megtörténhessen, így nem lesz szükség saját megjelenítő portlet készítésére, elég csak egy az Asset Publish-ert konfigurálni a megfelelő oldalakon.
+
+%\section{Templating}
+
+%Lehetőség szerint implementálni kellene 
+%templating, a könnyű design módosíthatóság érdekében
+
+%\section{Keresőintegráció}
+
+\section{Webszolgáltatás}
+
+Az eredeti elképzelés szerint szükség van egy olyan webszolgáltatásra, amely lehetővé teszi az alkalmazás funkcióinak más rendszerekkel történő integrációját. A Liferay szinte minden portlet-hez nyújt saját REST interfészt, így célszerű a sillabusz kezelőhöz is egy ilyet kialakítani.
+
+\chapter{A webalkalmazások kérdéskörei}
+
+\section{Általánosan a kérdéskörökről}
+
+Ebben a fejezetben szeretném bemutatni, hogy milyen problémákkal, kérdésekkel lehet találkozni egy-egy webalkalmazás fejlesztése közben. Az alábbi alfejezetek között több problémával is szembesültem a sillabusz kezelő alkalmazás fejlesztése közben.
+
+\section{Komplex tudást igényel}
+
+Akármennyire is tűnik egyszerűnek egy webalkalmazás, a kifejlesztése hihetetlenül komplex tudást igényel. Ha valaki akár egyedül, akár csapatban egy rendes webalkalmazást szeretne kifejleszteni, akkor legalább az alábbi felsorolás mindegyik eleméhez kell, hogy a fejlesztők valamilyen szinten értsenek:
+\begin{enumerate}
+\item Adatbázisrendszerek
+\item Alkalmazásszerverek
+\item Üzleti logika
+\item Webszolgáltatások
+\item Megjelenítés
+\end{enumerate}
+
+\subsection{Adatbázisrendszerek}
+
+Egy webalkalmazás adatait jó esetben valamilyen adatbázisrendszer segítségével szokták tárolni. Ahhoz, hogy ez megtörténhessen, minden fejlesztőnek fel kell tudnia telepíteni az adatbázisrendszert és közösen ki kell tudniuk alakítani a megfelelő adatbázis sémát az alkalmazás számára. Az egyes létező adatbázisrendszerek között óriási különbség lehet még annak ellenére is, hogy szinte mindegyik relációs adatbázisrendszer támogatja az SQL lekérdező nyelvet. Egy esetleges adatbázisrendszer csere nagyon meg tudja bonyolítani a fejlesztők életét, ezért nem árt még a program tényleges fejlesztésének megkezdése előtt utánanézni a lehetőségeinknek, illetve az egyes rendszerek költségeinek.
+
+% Liferay esetén MySQL lett, mert a H2-es rossz volt.
+
+\subsection{Alkalmazásszerverek}
+
+Egy webalkalmazás futtatásához szinte minden esetben szükség van egy önálló alkalmazásszerverre is. Ha csak a Java EE alkalmazásszervereket vesszük figyelembe, még akkor is feltűnő, hogy rengeteg van belőlük, és mindegyik más-más tudással és konfigurálási lehetőségekkel rendelkezik. Egy ideális világban egy elkészült webalkalmazás tetszőleges szerveren képes futni, de a gyakorlatban ez közel sem így működik, éppen ezért célszerű egy program fejlesztésének elkezdése előtt tisztázni azt is, hogy mely alkalmazásszerveren fog futni az adott program. A választás során mérlegelni kell, hogy kinek milyen tapasztalata van és melyik szerver lenne a legideálisabb a készülő alkalmazás számára.
+
+A Liferay a 7.0 verzió kiadása óta hivatalosan csak az Apache Tomcat-et és a WildFly szervereket támogatja, de ez nem jelenti azt, hogy a többin ne lehetne működésre bírni. A sillabusz kezelő alkalmazás fejlesztés közben az Apache Tomcat-et használtam, mert észrevételeim szerint ez jóval gyorsabban reagált ugyan azon kérésekre, mint a WildFly.
+
+\subsection{Üzleti logika}
+
+Egy alkalmazás üzleti logikájának kialakítása több dolgot is igényel. Egyrészt a fejlesztőnek meg kell értenie az üzleti folyamatokat, másrészt ezt meg is kell tudnia valósítania. Ha valaki a két dolog közül csak az egyikhez ért, akkor az alkalmazás vagy rossz minőségű lesz vagy nem azt fogja csinálni, mint amit a megrendelő vár a terméktől.
+
+\subsection{Webszolgáltatások}
+
+Manapság már nagyon kevés olyan rendszer létezik, amely ne lenne összeintegrálva más rendszerekkel. Ahhoz, hogy két alkalmazás együtt tudjon működni, szükség van valamilyen kapcsolódási pontra, interfészre, amelyen keresztül meg tudják szólítani egymást, vagyis kommunikálni tudnak egymással. A webszolgáltatások egy ilyen interfészt nyújtanak a külvilág számára HTTP protokollon keresztül.
+
+\subsection{Megjelenítés}
+
+Egy alkalmazás felhasználó felületének kialakítása először egyszerűnek tűnik, de amint elkezd foglalkozni vele valaki, akkor nagyon hamar rengeteg megválaszolatlan kérdéssel és technikai nehézséggel találhatja szembe magát. Nem véletlen, hogy Ian Sommerville - Szoftverrendszerek fejlesztése című \cite{szoftverrendszerek-fejlesztese} könyvében egy teljes fejezetet szánt a felhasználó felületek tervezési kérdéseire. Ha valaki jó felületet szeretne kialakítani, akkor nem árt ha tisztában van a könyvben szereplő elvekkel és kérdésekkel.
+
+\section{Tartalomkezelő rendszerek}
+
+Minden alkalmazás esetén el kell gondolkozni azon, hogy a teljes alkalmazást saját magunk alakítjuk ki, vagy a funkcionalitás egy részét már meglévő szoftverekre bízzuk. Ugyan ezt kell mérlegelni a webalkalmazások esetén is. Ha több olyan funkciót is szeretnénk az oldalon biztosítani, amelyeket mások már jóval előttünk megírtak, akkor célszerű egy, a feladatnak megfelelő tartalomkezelő rendszer köré felépíteni a saját alkalmazásunkat.
+
+Talán nem túlzás azt kijelenteni, hogy tartalomkezelő rendszerből még több található meg a piacon, mint alkalmazásszerverből összesen. Itt is igaz, hogy ahány tartalomkezelő rendszer létezik, annyiféle megoldás is van az egyes problémákra, éppen ezért nehéz megtalálni a legideálisabb rendszert, mert mindegyik számos előnnyel és legalább ugyan ennyi hátránnyal is rendelkezik. Nekem viszonylag egyszerű volt a dolgom, ugyanis az egyetem már jóval azelőtt elkötelezte magát a Liferay mellett, hogy elkezdtem volna a sillabusz kezelő alkalmazás fejlesztését.
+
+Számomra a legnehezebb dolog a Liferay által biztosított fejlesztői eszközök megismerése, a teljes rendszer kiismerése, majd pediglen az eszközök a gyakorlatban történő alkalmazásuk okozta a legnagyobb kihívást, mert korábban még sosem fejlesztettem egyetlen egy tartalomkezelő rendszerre sem semmilyen alkalmazást, éppen ezért jóval több időt vett igénybe a Liferay-re való fejlesztési módszerek elsajátítása, mint amennyi egy tapasztaltabb fejlesztő számára lett volna szükséges.
+
+A tartalomkezelő rendszerek közötti különbség szemléltetésére igen csak jó példa az OpenCms és Liferay rövid összehasonlítása. Néhány hónapja részt vehettem egy projektben, ahol egy teljes alkalmazást az OpenCms nevű alkalmazásszerver köré kellett építenünk. A kettő közötti különbség feltűnően nagy volt. Tapasztalataim szerint az előbbi funkcionalitásban, utóbbi pedig teljesítményben volt jobb a másiknál. A teljesítménykülönbség a kérések kiszolgálásánál másodpercekben, az elindításaikhoz szükséges idő közötti különbség pedig percekben mérhető. Ez a különbség a Liferay testre szabhatósága és gazdag funkcionalitása miatt volt ennyire szembetűnő. Tapasztalataim és mások véleménye szerint is, a Liferay képes volt összerakni egy funkciókban gazdag, a kornak megfelelő tartalomkezelő rendszert, de mindez a teljesítmény rovására ment.
+
+\section{Állandó változás}
+
+A mai világban szinte semmi sem változik olyan gyorsan, mint az informatikai rendszerek. Az internet robbanásszerű elterjedése alapjaiban változtatta meg az emberek életét. Az internet hajnalán a webet olvasott webnek nevezték, de a technológia fejlődésnek köszönhetően igen hamar eljutottunk az írott-olvasott webhez, amelyre web 2.0-ként szokás hivatkozni. A web 2.0 megjelenésével egy időben számos cég fogott tartalomkezelő rendszer fejlesztésébe, köztük a Liferay első verziója is ekkora tehető.
+
+Az elmúlt 17 évben a Liferay is óriási változásokon ment keresztül. A számomra is érzékelhető legnagyobb változások a 6.2 és a 7.0 verziók közötti különbségekben mutatkoznak meg. Eredetileg a sillabusz kezelő alkalmazás Liferay 6.2-re lett tervezve és a fejlesztést is ezen kezdtem el, mert akkor még távol volt az új 7.0 verzió megjelenése. Közel egy évnyi fejlesztés után megjelent az új főverzió a portálból. A portlet migrálása és az új portállal történő kompatibilitás kialakítása majdnem egy teljes hónapot vett igénybe még egy ilyen kis méretű alkalmazás esetén is. Számos új fejlesztői eszköz használatát kellett megtanulnom, köztük a Gradle és a Blade CLI programok használatát is, mert korábban csak az Apache Ant és az Apache Maven volt támogatott a Liferay által, mint a fordítási folyamatot támogató eszközök. Az eszközök használata mellett a Liferay SDK is alapvetően megváltozott, nem is beszélve a rengeteg egyik napról a másikra \emph{Deprecated}, azaz elavult API-ra.
+
+% flash, silverlight -> html5, css3, javascript
+
+\section{Böngésző inkompatibilitás}
+
+Nem létezik olyan webfejlesztő aki ne találkozott volna kompatibilitási problémákkal. Néhány éve, amikor az Internet Explorer még a fénykorát élte, rosszabb volt a helyzet, mint amilyen manapság szokott lenni. Szinte biztos, hogy ami az egyik böngészőben jól jelenik meg, az egy másikban valahol, valamilyen eltérést fog mutatni. Megszámolni sem tudom, hogy hány különböző típusú böngésző létezik. Szerencsére általában elég csak a legelterjedtebb böngészőkre optimalizálni egy oldalt, a látogatók nagy része úgy is csak ezeket használja, a többi böngésző többségét pedig ugyan azon motorok hajtják, melyek a legelterjedtebbeket is.
+
+Az alkalmazás fejlesztése közben számtalanszor találkoztam kompatibilitási problémákkal. Az egyik ilyen hiba a JavaScript-hez és az Internet Explorer-hez volt köthető. Nem is olyan régen egy oldalon képfeltöltés funkciót próbáltam bevezetni, majd mikor azt láttam, hogy Google Chrome és Mozilla Firefox alatt a funkció hibátlanul működik, akkor kipróbáltam Internet Explorer 11 alatt is. Egy viszonylag kis méretű teszt kép feltöltése során szinte azonnal összeomlott a teljes böngésző és az egészet újra kellett indítani. Nem sokkal később kiderült, hogy az Internet Explorer nem rendelkezik egy általam használt JavaScript függvény implementációjával és erre a teljes böngésző összeomlásával reagált. A hibát úgy sikerült kijavítanom, hogy külön feltételben vizsgáltam meg a böngésző típusát és ha az elágazásnál Internet Explorer-t érzékel a program, akkor más módszert használ a képfeltöltés funkcióra, mint amilyet a többi böngésző használ.
+
+A sillabuszkezelő alkalmazás fejlesztése közben is találkoztam hasonló hibával, szerencsére itt nem kellett az Internet Explorer kompatibilitással törődnöm, elég volt csak a Google Chrome-ra és a Mozilla Firefox-ra optimalizálnom. Az egyik ilyen hiba az egymástól függő legördülő menüknél volt megfigyelhető. Valamilyen oknál fogva Chrome esetén ha kiválasztottam egy elemet az első legördülő listában és nem tartozott hozzá elem a második listában, akkor a második lista tartalma módosult a DOM-on belül, de a böngésző rosszul jelenítette meg, továbbra is a régi elemeket listázta ki. A hiba pontos okát sosem sikerült kiderítenem, egyszer csak egy Chrome frissítés után elkezdett jól működni, így nem fordítottam különösebb figyelmet rá. Ha a hiba nem szűnt volna meg magától, akkor igen nehéz dolgom lett volna a hibajavítás során, ugyanis két JavaScript keretrendszert is használtam, az egyik a jQuery a másik pedig a Liferay által is erőszeretettel használt Alloy UI volt.
+
+\section{Biztonsági kérdések}
+
+Egy weboldal esetén mindig kulcsfontosságú kérdés a biztonságosság. Szinte minden évben lehet olyan hírekről hallani, amelyek arról szólnak, hogy több millió személyes adatot loptak el vagy csaltak ki egy oldal felhasználóitól. Jó példa erre a 2011-ben történt Playstation hálózat feltörése vagy a legutoljára nagy port kavaró veszprémi pizzéria weboldala, ahol nem is a weboldalt törték fel, hanem az alkalmazást futtató szervert.
+
+Számtalan oka lehet annak, hogy hogyan lehet illetéktelen adatokhoz jutni, most csak néhányat sorolnék fel ezen lehetőségek közül:
+\begin{enumerate}
+\item Nem biztonságos a webalkalmazás
+\item Nem biztonságos a kiszolgáló
+\item Adathalászattal kicsalt személyes adatok
+\item Social engineering
+\item Stb...
+\end{enumerate}
+
+Ennek a diplomamunkának egyáltalán nem célja az összes létező ok és támadási módszer bemutatása, mégis fontosnak tartom, hogy említést tegyek a biztonsági kérdésekről, mert akárki akármit is gondol, ez mindig elengedhetetlen része az összes alkalmazásnak. Az egyetemen sem örülne senki annak, ha a hallgatók tetszés szerint egy biztonsági hibát kihasználva illetéktelenül módosítanák a sillabuszok adatait, ezért nekem, mint a sillabusz kezelő alkalmazás fejlesztőjének is gondosan ügyelnem kellett, hogy a lehető legbiztonságosabb alkalmazást hozzam létre.
+
+A jogosultságkezelés szorosan összefügg a biztonságosság kérdéskörével. Jogosultságkezeléssel meg lehet szabni, hogy ki, mikor és milyen adatokhoz férhet hozzá. A Liferay esetén erre egy külön alrendszer ad lehetőséget, a fejlesztőknek mindössze annyi a dolguk, hogy saját szabályokat definiáljanak és az oldal megfelelő részein az alrendszer megszólításával ellenőrizzék, hogy a felhasználó rendelkezik-e a megfelelő jogokkal.
+
+% \section{Input validáció}
+
+\section{Megjelenítés}
+
+Mindenki számára egyértelmű, hogy ha a felhasználói felület rosszul van megtervezve, akkor a felhasználók nem fogják használatba venni az oldalt. Manapság elengedhetetlen, hogy nem csak funkcionalitásban, hanem megjelenítésben is megfelelő legyen egy-egy webalkalmazás. Rossz felhasználói felületre rengeteg példa létezik, mégis szerintem az egyik legjobb példa a nemrég bevezetett Ügyfélkapu. Rengeteg funkciója van, de az ember többször is elgondolkozik azon, hogy tényleg használja-e vagy inkább elmenjen a legközelebbi Önkormányzati Hivatalba az egyszerűbb ügyintézés érdekében.
+
+Az okos eszközök széles körben történő elterjedése óta állandó követelmény, hogy minden weboldal legyen megtekinthető kis méretű eszközökön is. Az okostelefonok közel tíz éve robbantak be a köztudatba, azóta folyamatosan fejlődtek, velük együtt a rajtuk futó operációs rendszerek is hatalmas változásokon mentek keresztül, éppen ezért nem meglepő, hogy a StatCounter \cite{statcounter} weboldal szerint 2017 márciusában az Android operációs rendszert futtató eszközök száma meghaladta a Windowst futtató számítógépek számát.
+
+Egyetlen egy webalkalmazás fejlesztése közben sem lehet szó nélkül elmenni az adaptív vagy reszponzív megjelenítés kérdése mellett. Adaptívnak akkor nevezhető az oldal, ha a különböző típusú és méretű eszközök más és más oldalhoz jutnak hozzá. A gyakorlatban ez úgy lett megvalósítva, hogy a HTTP kérések User-Agent fejléce alapján a kiszolgáló el tudja dönteni, hogy mely típusú tartalom továbbítására van szükség, azaz például, ha egy mobilról érkezik a HTTP kérés, akkor a kiszolgáló a mobilos tartalmat, ha pediglen asztali operációs rendszeren futó böngészőtől érkezik be a kérés, akkor meg a neki megfelelő változatot küldi vissza a kiszolgáló. Weboldalak tervezésekor egy másik lehetőség a reszponzív oldalak kialakítása. A reszponzív megjelenítés teljesen szembe megy az adaptív megjelenítés fogalmával. Reszponzív oldalak esetén minden eszköz, a küldött felhasználói ágenstől függetlenül ugyan azt a tartalmat kapja meg válaszként, cserébe az oldalon megjelenített elemek elrendezése csakis kizárólag az oldalt megjelenítő böngésző szélességétől, magasságától, illetve a stíluslapoktól függ.
+
+A reszponzív megjelenítés magával vonja a \emph{mobile first} szemléletmódot, amely mindössze annyit jelent, hogy az oldalt kinézetét először mobilra készítjük el és csak ezután kezdünk el nagyobb méretű kijelzőkre optimalizálni. Sajnos a fejlesztők egy része nem követi ezt a szemléletmódot, ezért igen gyakori, hogy a reszponzívnak nevezett oldalak mobilon teljesen használhatatlanok. Ezt személy szerint én is átéltem, mert nem is olyan régen én is részt vettem egyszer egy olyan projektben, ahol a tervező nem volt tisztában ezzel a szemléletmóddal, ezért hiába mondta azt, hogy az oldal reszponzív, mert mobilon teljesen széthullott az oldal kinézete és nekem kellett több hetet eltölteni ilyen a hibák javításával.
+
+%felmérés, hogy hol vannak az elemek: nem veszik észre a felhasználók
+
+\section{Keresőoptimalizálás}
+
+A keresőoptimalizálás egy igen fontos és egyben nagyon összetett területe a webfejlesztésnek, akár egy teljes diplomamunkát is lehetne róla készíteni, éppen ezért csak néhány megjegyzést tennék róla.
+
+Keresőoptimalizálásra azért van szükség, mert ha valaki nem fizet a keresőszolgáltatóknak a találati listában történő megjelenítésért, akkor ezek a szolgáltatók valamilyen módszer segítségével pontokat rendelnek az egyes oldalakhoz és ezen pontok alapján rangsort állítanak fel az egyes oldalak között. Minél jobbal van rangsorolva egy oldal, annál többször lesz megtalálható egy-egy kulcsszavas keresés esetén a találati listában. Ahhoz, hogy egy weboldal magasan rangsorolt legyen, szükség van néhány szabály és irányelv betartására. Ezen szabályoknak és irányelveknek a keresőszolgáltatóknál lehet utánanézni. Kiindulásként a \emph{Google Keresőmotor-optimalizálási útmutató kezdőknek} című dokumentumot lehet használni, amely bármikor ingyenesen letölthető a Google keresőoptimalizálással foglalkozó oldalairól.
+
+% https://static.googleusercontent.com/media/www.google.hu/en/hu/intl/hu/webmasters/docs/search-engine-optimization-starter-guide-hu.pdf
+
+\chapter{Modellezés}
+
+Mielőtt mélyebben belemennék a sillabuszkezelő alkalmazás implementációs részleteibe,  bemutatnék néhány modellt, amelyek az alkalmazásról adnak áttekinthetőbb képet.
+
+\section{Relációs adatmodell}
+
+Liferay esetén, ha új adatbázis táblákat szeretnénk létrehozni és a portál alatt futó adatbázist szeretnénk használni, akkor nincs más dolgunk, mint a Liferay Service Builder segítségével egyedeket, tulajdonságokat és kapcsolatokat definiálni. Ez a megfelelő projektstruktúra létrehozása után a service.xml állomány módosításával tehető meg. A service.xml állományt kétféleképpen lehet módosítani, vagy a Liferay SDK által biztosított fejlesztői eszközök segítségével egy grafikus felhasználói felületen adjuk meg a megfelelő elemeit, vagy egy fapados szöveges állományként szerkesztjük, mint XML dokumentumot.
+
+
+A Liferay Service Builder segítéségével egyedeket kialakítottam
+
+Az alábbi ábrán tekinthető meg az alkalmazás által használt adatbázis modellje....
+
+Itt az adatmodell ne tartalmazza a Liferay specifikus attribútumokat!
+
+\includegraphics{syllabus_data_model_part1.png}
+
+\includegraphics{syllabus_data_model_part2.png}
+
+\includegraphics{syllabus_data_model_part3.png}
+
+\section{ER modell}
+
+kell ez? :(
+
+\section{Rendszermodell}
+
+ezt át kellene helyezni valahova, ahol már konkrétan az osztályok közötti kapcsolatokat mutatom be
+
+\section{Telepítési diagram}
+
+\chapter{Megvalósítás lépések}
+
+\section{Tartalomkezelő rendszerek}
+
+\subsection{Általános leírás}
+
+1. lépés: tartalomkezelő rendszer választása. Mik azok a tartalomkezelők. Miért van rá szükség? Java EE-ben milyenek vannak? (fontos: OpenCms, és Liferay)
+
+\subsection{OpenCms}
+
+Jelenlegi munkahelyemen ismertem meg, stb, stb... Csak nagyon röviden!
+
+\subsection{Liferay}
+
+\subsubsection{Általános bemutatás}
+
+Miért erre esett a választás? (képzés miatt 6.2)
+Upgrade 7.0-ra hogy történt, mi történt, milyen változás volt.
+
+\subsubsection{Portlet, mint szabvány + a Liferay-en belül, hogy jelenik meg}
+
+JSR akármi van???
+
+\subsubsection{Döntés a Liferay mellett}
+
+Egyrészt nem kérdés, hogy ez, mert ezt tanultam és akkoriban mást még nem ismertem....
+
+\section{Alkalmazásszerver választása}
+
+2. lépés: alkalmazásszerver választása. Tomcat vs WildFly konkrét liferay-es esetben.
+
+\section{Adatbázisrendszer választása}
+
+3. lépés: Adatbázisrendszer választása. Megjegyezni: egyes rendszerekkel gond volt a fejlesztés során, ezért maradt a MySQL.
+
+\section{Implementációs kérdések}
+
+4. lépés implementáció. Konkrét kódrészletek jönnek ide! Egy sima entity hozzáadás (pl.: Syllabus Entity) hogyan lett elkészítve.
+
+\subsection{Fejlesztéshez használt eszközök}
+
+\subsubsection{Eclipse}
+
+\subsubsection{Gradle}
+
+\subsubsection{Git}
+
+\subsection{Liferay Service Builder}
+
+Mi ez? Mire jó? Mit nem csinál? Mit csinál?
+Hogyan épülnek egymásra a rétegek? Megemlíteni a diagramon is!
+
+Service builderben:
+companyId
+groupId
+egyébId-k
+
+\subsection{Portlet class-ról leírás}
+
+\subsection{JSP-kről példa leírás}
+
+Alloy UI http://proliferay.com/liferay-alloy-ui-basics/
+
+Ide jöhet még az AJAX-os dependent dropbdown lista a syllabus hozzáadása példával, mert az jó hosszú.
+
+\subsection{Keresőintegráció}
+
+Mire jó ez? Hogyan lett megvalósítva?
+
+\subsection{Asset integráció}
+
+Mi az az Asset Framework Liferay-en belül? Mire jó? Hogyan kell megvalósítani? (megemlíteni a két *Asset* osztályt.
+Libreoffice-szal konfigurálva mire jó? Export/import.
+
+\subsection{Workflow}
+
+Létrehozok egy syllabuszt, ezután vagy elfogadja valaki vagy elutasítja. Csak akkor látható a nagyvilág számára, ha el lett fogadva. Mindez a Liferay beépített workflow kezelésével lett elérve.
+
+\subsection{Templating}
+
+Apache Velocity, Apache Freemarker-t itt meg lehetne említeni, hogy mit lehetett volna elérni vele.
+
+\subsection{Export/Import}
+
+Lehessen importálni az adatokat csv fájlból és persze exportálni is.
+
+OpenCSV megfelel az RFC csv-nek. Leírni mi az az rfc, hivatkozni rá, stb...
+
+\subsection{nyelvesítés}
+
+Hogyan lett megvalósítva? Konkrét liferay-es példákkal lesz majd leírva.
+
+\subsection{WYSIWYG szerkesztők}
+
+Mi ez? Hol van ez használva? Mire jó?
+
+\chapter{Az alkalmazás bemutatása}
+
+Az alábbiak során felhasználói szemszögből fogom bemutatni az elkészült alkalmazást.
+
+\section{PanelApp portles cucc ide}
+
+ControlPanel volt régen, de most már PanelApp van 7.0 óta.
+
+\section{Sima instanceable portlet}
+
+Ez az a portlet, amely a weboldalakra lesz kihelyezve, instanceable=true és konfigurálható, hogy mit mutasson. (Akár félév halapján, akár egyesével konfigurálható).
+
+\chapter{Összefoglalás}
+
+Röviden, tömören és világosan ismertetni kell a fontosabb megállapításokat és következtetéseket. Bátran és egyértelműen közölni kell, ha valamely célkitűzést nem sikerült megvalósítani. (Megfelelő indoklás mellett ez egyáltalán nem csökkenti a diplomadolgozat értékét!)
+
+\section{Elért eredmények}
+
+\section{Továbbfejlesztési lehetőségek}
+
+\clearpage
+\addcontentsline{toc}{chapter}{Köszönetnyilvánítás}
+\chapter*{Köszönetnyilvánítás}
+
+Köszönet: család, barátok, egyetemnek, témavezetőmnek és a Liferay Hungary Kft. képzésének???
+
+% Ábrajegyzék (nem kell, helyette van függelék!)
+% \listoffigures
+
+% Irodalomjegyzék
+% Tartalomjegyzékhez így lehet hozzáadni: http://latex-community.org/forum/viewtopic.php?t=9446
+\clearpage
+\addcontentsline{toc}{chapter}{Irodalomjegyzék}
+\begin{thebibliography}{10}
+
+\section*{Könyvek}
+
+\bibitem{liferay-in-action} Richard Sezov Jr.: Liferay in Action, 2011, ISBN 9781935182825
+\bibitem{szoftverrendszerek-fejlesztese} Ian Sommerville: Szoftverrendszerek fejlesztése, 2007, ISBN 9789635454785
+
+\section*{Online források}
+
+\bibitem{liferay} Liferay \\ \small\url{https://www.liferay.com/}
+\bibitem{jsr286} JSR 286 - Portlet Specification 2.0 \\ \small\url{https://www.jcp.org/en/jsr/detail?id=286}
+\bibitem{sillabusz} Sillabusz \\ \small\url{https://hu.wiktionary.org/wiki/sillabusz}
+\bibitem{liferay-dev-1} Developing for the Liferay Platform 1 \\ \small\url{https://www.liferay.com/services/training/6.2/topics/developer-1}
+\bibitem{redmine} Redmine \\ \small\url{http://www.redmine.org/}
+\bibitem{statcounter} StatCounter \small\url{http://gs.statcounter.com/os-market-share}
+
+\end{thebibliography}
+
+\appendix
+\chapter{Első függelék}
+
+\section{leírás}
+
+Ide kerülnek azok a nagyobb méretű táblázatok, ábrák.
+Ide helyezhető el továbbá a kérdőíves felmérés alapjául szolgáló dokumentumok, továbbá a statisztikai és matematikai számítások alaptáblái is.
+Egyes esetekben rövidebb szöveges dokumentumok (pl. szerződése, jogszabály részletek, stb.) is helyet kaphatnak itt.
+
+\chapter{Második függelék}
+
+függelékes cucc
+
+\end{document}
+
+% \vspace{10mm}
+
+% \noindent A korrigált, empirikus szórás képlete:
+
+%\begin{equation}
+% s_e^{*} = \sqrt{\frac{\mathlarger{\sum}\limits_{i = 1}^{n} \left( x_i - \bar{x} \right)^2 }{n - 1}}
+% \end{equation}
+
+% \vspace{10mm}
+
+% Irodalom idézése
+
+% \noindent Az \cite{studalccons} forrásban leírtak szerint...
+
+% Félkövér betűstílus
+% \textbf{Az alkalmazott operátorok a következők voltak:}
+
+% Dőlt betűstílus
+% \textit{Amik ezt csinálták}
+
+% Hasonló
+% \emph{De ez lehet, hogy szebb formázás}
+
+% Színezés
+% {\color{red}Színezni is tudsz}
+
+% Nem kell beljebb kezdeni
+% \noindent Ha nem akarod, hogy beljebb kezdje
+
+% \label{results}

@@ -1,0 +1,114 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="98B968ED-F159-E4A4-40D6-F151C917F36B" name="CourseType">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:59:43 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="courseTypeId" id="4967A3E1-F5BC-9432-14E3-9FB5A2EEA1C9">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:59:43 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="groupId" id="02937DE3-8DD3-1693-E59B-4902B2B511D1">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:59:43 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="companyId" id="52EA89EC-D065-F561-A1AA-3DB627EE1A59">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:59:43 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="userId" id="DE0E1D54-AF4A-5510-299C-3ECD4509EE2B">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:59:43 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="userName" id="3E32E865-09F6-4873-2B68-285583B9DD76">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:59:43 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="createDate" id="9F9B7C5B-C459-F87B-11CB-88013AF79FEB">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:59:43 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="modifiedDate" id="9F427EDA-95B7-47CC-4DE8-99E604711E0E">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:59:43 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="typeName" id="B9408E40-DA99-F155-16FD-2C3CD8E7F5A9">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-19 00:00:28 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7F882265-1C3A-A193-29E8-AC123AB0E6BC" name="CourseType_PK">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-19 00:00:08 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4967A3E1-F5BC-9432-14E3-9FB5A2EEA1C9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="47311316-EEC1-1CB3-F06A-5102DDA4E11B" name="CourseType__UN">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-19 00:00:37 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B9408E40-DA99-F155-16FD-2C3CD8E7F5A9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

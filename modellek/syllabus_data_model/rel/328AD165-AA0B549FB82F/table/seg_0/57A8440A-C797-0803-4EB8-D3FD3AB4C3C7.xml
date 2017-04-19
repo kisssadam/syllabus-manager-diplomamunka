@@ -1,0 +1,157 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="57A8440A-C797-0803-4EB8-D3FD3AB4C3C7" name="Subject">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:56:37 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="subjectId" id="A07A36FF-8FF1-2D6F-5236-D06C141C24FF">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:56:37 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="groupId" id="0E96D45D-9492-49F3-73B5-E321D9F16274">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:56:37 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="companyId" id="0181C700-FB2E-BF28-D27A-EBB6772CA4D0">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:56:37 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="userId" id="426B0CEC-69AB-5EC5-D64F-3B87D3AFE9D6">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:56:37 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="userName" id="039ADC51-EDDE-1537-5F3A-1424CAF65119">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:56:37 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="createDate" id="FD08EADC-D44D-27AF-93EA-2886D78329B5">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:56:37 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="modifiedDate" id="97D4109A-314A-DAA4-4ECF-EC7900C19475">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:56:37 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="subjectCode" id="C76985D2-54ED-22BC-956F-61C2CF79BD7B">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:57:38 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="subjectName" id="430DF37F-3595-CF28-896F-406E56EA879C">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:57:38 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="credit" id="4342A605-1DAD-D943-E065-9DD592384E94">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:57:38 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="curriculumId" id="99F6D19E-37F5-7FA7-45C3-BAE73BB83F07">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:57:48 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A82B3152-5362-DF2D-D08A-0327296DB7FE" referredColumn="DC6FA9BA-D69C-CFD2-0E88-F6CE7C419EA4"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1F36A45F-407C-AFCA-8A0E-0E50523BAE79" name="Subject_PK">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:56:55 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A07A36FF-8FF1-2D6F-5236-D06C141C24FF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BD376137-0DD3-75AE-522F-AF71E6610767" name="Subject__UN">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:58:30 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="99F6D19E-37F5-7FA7-45C3-BAE73BB83F07"/>
+<colUsage columnID="C76985D2-54ED-22BC-956F-61C2CF79BD7B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6AF322FA-69E1-CAE4-273C-B15CEE3EDE5C" name="Subject_Curriculum_FK">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:57:59 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="99F6D19E-37F5-7FA7-45C3-BAE73BB83F07"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

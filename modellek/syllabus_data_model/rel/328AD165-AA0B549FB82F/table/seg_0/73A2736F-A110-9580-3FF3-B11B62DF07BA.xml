@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="73A2736F-A110-9580-3FF3-B11B62DF07BA" name="Lecturers_TimetableCourses">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-19 00:10:58 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<ordsAlias>table_11</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="lecturerId" id="9E35090C-585C-7C10-7A28-BFFF20F34071">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-19 00:11:25 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D4A72C7E-316A-6420-0412-34386A1CD21C" referredColumn="21B71A8A-2392-5ECB-9C9D-32E3330C8C82"/>
+</associations>
+</Column>
+<Column name="timetableCourseId" id="183FB432-8BE8-FB28-9BE1-A237ACB3CCC2">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-19 00:11:25 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FE81B095-6C4F-0CE2-89D9-5951951BAD9C" referredColumn="40709541-94A8-32E3-4B9D-F2958EB1855E"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E04384C2-32EB-624C-B703-3FC7DC1C2AD2" name="Lecturers_TimetableCourses_PK">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-19 00:11:37 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9E35090C-585C-7C10-7A28-BFFF20F34071"/>
+<colUsage columnID="183FB432-8BE8-FB28-9BE1-A237ACB3CCC2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="66CFB2BE-BBE7-5AD2-4700-A93ECD4FBE27" name="Lecturers_TimetableCourses_Lecturer_FK">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-19 00:11:50 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9E35090C-585C-7C10-7A28-BFFF20F34071"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4E540B00-5DA6-12D9-7641-273708EA2433" name="Lecturers_TimetableCourses_TimetableCourse_FK">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-19 00:11:50 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="183FB432-8BE8-FB28-9BE1-A237ACB3CCC2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

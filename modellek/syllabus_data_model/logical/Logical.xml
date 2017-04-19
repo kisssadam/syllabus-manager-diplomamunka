@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="6566B24E-CCDB-CA46-D183-964864FFB9C1" mainViewID="6A3D4F43-9887-F03D-CA3A-A05F00504104">
+<createdBy>kisss</createdBy>
+<createdTime>2017-04-18 23:39:26 UTC</createdTime>
+<ownerDesignName>syllabus_data_model</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

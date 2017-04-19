@@ -1,0 +1,48 @@
+tapasztalat diplomamunkába leírni
+=================================
+
+
+webalkalmazások fejlesztésének problémkörei
+===========================================
+komplex tudást igényel
+egyedi saját alkalmazás vagy portálra építve?
+állandó változás
+böngésző kompatibilitás
+biztonsági kérdések (authorizáció)
+input validáció
+reszponzivitiás
+
+
+mi a webalkalmazás
+portlet kifejtése jsr szabvány
+mi a különbség a webalk és asztali cucc között
+változó követelmények és körülményel
+migrációs probléma 6.2 7.0
+sok idő migrálni
+
+design pattern
+role object pattern
+dao pattern localservice-eknél
+mvc -> portlet nem ugyan az
+
+irdoalomjegyzékbe könyv
+
+
+
+EGYÉB
+
+OpenCSV megfelel az RFC csv-nek. Leírni mi az az rfc, hivatkozni rá, stb...
+
+Oktatók hozzárendelése timetable course-hoz hogy történik (+ jel az edit oldalon :) )
+
+http://www.javasavvy.com/liferay-7-mvcactioncommand-example/
+
+https://github.com/liferay/liferay-portal/blob/586f66c629b559e79c744559751ecb960218fe0b/modules/apps/foundation/users-admin/users-admin-web/src/main/java/com/liferay/users/admin/web/portlet/action/ExportUsersMVCResourceCommand.java
+
+https://www.liferay.com/resources/l?title=web-portal&utm_source=linkedin&utm_medium=social
+
+pdf exporthoz libreoffice kell! Lásd: asset publisher beállításokat
+
+WIKI-ben szereplő dolgokat beleírni a szakolgozatba.
+
+

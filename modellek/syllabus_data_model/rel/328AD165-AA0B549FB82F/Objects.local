@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="Table" objectID="2923B3F2-8A1A-9D2F-91AC-77DDAA7E3557" name="TimetableCourse" seqName="seg_0"/>
+   <object objectType="Table" objectID="32E51D3E-07C8-E4B2-E65E-CF73AEF4FD44" name="Lecturer" seqName="seg_0"/>
+   <object objectType="Table" objectID="57A8440A-C797-0803-4EB8-D3FD3AB4C3C7" name="Subject" seqName="seg_0"/>
+   <object objectType="Table" objectID="73A2736F-A110-9580-3FF3-B11B62DF07BA" name="Lecturers_TimetableCourses" seqName="seg_0"/>
+   <object objectType="Table" objectID="7F647469-2DF7-F60C-BD63-DACFD67B0E9A" name="Course" seqName="seg_0"/>
+   <object objectType="Table" objectID="90273A81-862A-A575-3DDD-EEE2FCB33352" name="Semester" seqName="seg_0"/>
+   <object objectType="Table" objectID="91D27860-B4EB-C545-FDAC-64EB6A2DC85E" name="Syllabus" seqName="seg_0"/>
+   <object objectType="Table" objectID="98B968ED-F159-E4A4-40D6-F151C917F36B" name="CourseType" seqName="seg_0"/>
+   <object objectType="Table" objectID="AE795896-E4D0-2512-CAD0-39DF1DBE5EF6" name="Curriculum" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="01F875F8-BBF5-1B52-DD6B-2FC33A05DA38" name="Syllabus_TimetableCourse_FK" containerID="91D27860-B4EB-C545-FDAC-64EB6A2DC85E" refContainerID="2923B3F2-8A1A-9D2F-91AC-77DDAA7E3557" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="735A0216-2CE6-A44C-08D9-FCA4B99519D3" name="TimetableCourse_Course_FK" containerID="2923B3F2-8A1A-9D2F-91AC-77DDAA7E3557" refContainerID="7F647469-2DF7-F60C-BD63-DACFD67B0E9A" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="7B283E81-2953-E280-AE90-DB82E785DE5B" name="Course_CourseType_FK" containerID="7F647469-2DF7-F60C-BD63-DACFD67B0E9A" refContainerID="98B968ED-F159-E4A4-40D6-F151C917F36B" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="7F801186-7025-1880-2B66-89579912464C" name="Course_Subject_FK" containerID="7F647469-2DF7-F60C-BD63-DACFD67B0E9A" refContainerID="57A8440A-C797-0803-4EB8-D3FD3AB4C3C7" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="90920E7A-8C02-5F10-56DC-3CCA86365661" name="TimetableCourse_Semester_FK" containerID="2923B3F2-8A1A-9D2F-91AC-77DDAA7E3557" refContainerID="90273A81-862A-A575-3DDD-EEE2FCB33352" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="A82B3152-5362-DF2D-D08A-0327296DB7FE" name="Subject_Curriculum_FK" containerID="57A8440A-C797-0803-4EB8-D3FD3AB4C3C7" refContainerID="AE795896-E4D0-2512-CAD0-39DF1DBE5EF6" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="D4A72C7E-316A-6420-0412-34386A1CD21C" name="Lecturers_TimetableCourses_Lecturer_FK" containerID="73A2736F-A110-9580-3FF3-B11B62DF07BA" refContainerID="32E51D3E-07C8-E4B2-E65E-CF73AEF4FD44" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="FE81B095-6C4F-0CE2-89D9-5951951BAD9C" name="Lecturers_TimetableCourses_TimetableCourse_FK" containerID="73A2736F-A110-9580-3FF3-B11B62DF07BA" refContainerID="2923B3F2-8A1A-9D2F-91AC-77DDAA7E3557" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>
