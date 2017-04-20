@@ -1,3 +1,14 @@
+Bevezetésbe:
+Diplomamunkám címe "Java EE alkalmazásfejlesztés" nagyon sok mindent foglalhat magában, de én...
+
+Leírni, hogy mi az a Java EE.
+
+
+jó lenne valami kulcsszó magyarázat
+Curriculum - Mintatanterv
+Subject - Tantárgy
+stb...
+
 tapasztalat diplomamunkába leírni
 =================================
 

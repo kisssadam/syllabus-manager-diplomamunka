@@ -25,6 +25,7 @@
 \usepackage{longtable}
 \usepackage{algorithmic}
 \usepackage{indentfirst}
+\usepackage{listings}
 \usepackage{graphicx}
 \graphicspath{ {images/} }
 
@@ -44,6 +45,9 @@
     unicode=true,
     pdfpagemode=UseOutlines,
 }
+
+% ezek nem lesznek elválasztva
+\hyphenation{OpenCms}
 
 % https://en.wikibooks.org/wiki/LaTeX/Paragraph_Formatting
 \onehalfspacing
@@ -173,7 +177,7 @@ Egy olyan intézmény, mint az egyetem, nem engedheti meg magának, hogy csak ma
 
 \section{Exportálás, Importálás}
 
-Jelenleg az Informatikai Karon félévente több száz tantárgy kerül meghirdetésre, amelyekhez minden félévben, az adott tantárgy oktatóinak sillabuszt kell készíteniük. Mivel már adott a Neptun-nak nevezett tanulmányi rendszer, amely már tartalmazza az összes tantárgy alapadatait, ezért senki sem szeretne azzal foglalkozni, hogy kézzel átvezesse és konzisztensen tartsa a sillabuszkezelőben található tantárgyak alapadatait, ezért szükség van egyfajta automatizmusra ami a Neptun-ból kiexportált adatokat automatikusan, emberi beavatkozás nélkül be tudja importálni a sillabuszkezelő rendszerbe.
+Jelenleg az Informatikai Karon félévente több száz tantárgy kerül meghirdetésre, amelyekhez minden félévben, az adott tantárgy oktatóinak sillabuszt kell készíteniük. Mivel már adott a Neptun-nak nevezett tanulmányi rendszer, amely már tartalmazza az összes tantárgy alapadatait, ezért senki sem szeretne azzal foglalkozni, hogy kézzel átvezesse és konzisztensen tartsa a sillabusz kezelőben található tantárgyak alapadatait, ezért szükség van egyfajta automatizmusra ami a Neptun-ból kiexportált adatokat automatikusan, emberi beavatkozás nélkül be tudja importálni a sillabuszkezelő rendszerbe.
 
 A sillabuszkezelőből történő adatok kiexportálására szintén szükség van. Ennek több oka is van. Egyrészt lehetőséget kell teremteni a hallgatók számára a sillabuszok PDF formátumban történő hozzáféréséhez, másrészt pedig, szükség van egy XML vagy CSV exportálási lehetőségre is, mert egy esetleges verziófrissítés miatt lehet, hogy rengeteg adatot kellene módosítani, ami igen sok időt vehet igénybe, ha nem számítógép végzi a módosításokat egy megfelelően formázott szöveges állományon. Az XML, illetve CSV formátumokban történő exportálásnak és importálásnak meg van az az előnye, hogy ha új attribútumokkal bővülnek az adatbázis táblák, akkor a bennük lévő entitások új attribútumait automatizált módszerrel lehet feltölteni egy három lépéses módszerrel:
 
@@ -285,7 +289,7 @@ Talán nem túlzás azt kijelenteni, hogy tartalomkezelő rendszerből még töb
 
 Számomra a legnehezebb dolog a Liferay által biztosított fejlesztői eszközök megismerése, a teljes rendszer kiismerése, majd pediglen az eszközök a gyakorlatban történő alkalmazásuk okozta a legnagyobb kihívást, mert korábban még sosem fejlesztettem egyetlen egy tartalomkezelő rendszerre sem semmilyen alkalmazást, éppen ezért jóval több időt vett igénybe a Liferay-re való fejlesztési módszerek elsajátítása, mint amennyi egy tapasztaltabb fejlesztő számára lett volna szükséges.
 
-A tartalomkezelő rendszerek közötti különbség szemléltetésére igen csak jó példa az OpenCms és Liferay rövid összehasonlítása. Néhány hónapja részt vehettem egy projektben, ahol egy teljes alkalmazást az OpenCms nevű alkalmazásszerver köré kellett építenünk. A kettő közötti különbség feltűnően nagy volt. Tapasztalataim szerint az előbbi funkcionalitásban, utóbbi pedig teljesítményben volt jobb a másiknál. A teljesítménykülönbség a kérések kiszolgálásánál másodpercekben, az elindításaikhoz szükséges idő közötti különbség pedig percekben mérhető. Ez a különbség a Liferay testre szabhatósága és gazdag funkcionalitása miatt volt ennyire szembetűnő. Tapasztalataim és mások véleménye szerint is, a Liferay képes volt összerakni egy funkciókban gazdag, a kornak megfelelő tartalomkezelő rendszert, de mindez a teljesítmény rovására ment.
+A tartalomkezelő rendszerek közötti különbségek szemléltetésére igen csak jó példa az OpenCms és Liferay rövid összehasonlítása. Néhány hónapja részt vehettem egy projektben, ahol egy teljes alkalmazást az OpenCms nevű alkalmazásszerver köré kellett építenünk. A kettő közötti különbség feltűnően nagy volt. Tapasztalataim szerint az előbbi funkcionalitásban, utóbbi pedig teljesítményben volt jobb a másiknál. A teljesítménykülönbség a kérések kiszolgálásánál másodpercekben, az elindításaikhoz szükséges idő közötti különbség pedig percekben mérhető. Ez a különbség a Liferay testre szabhatósága és gazdag funkcionalitása miatt volt ennyire szembetűnő. Tapasztalataim és mások véleménye szerint is, a Liferay képes volt összerakni egy funkciókban gazdag, a kornak megfelelő tartalomkezelő rendszert, de mindez a teljesítmény rovására ment.
 
 \section{Állandó változás}
 
@@ -301,7 +305,7 @@ Nem létezik olyan webfejlesztő aki ne találkozott volna kompatibilitási prob
 
 Az alkalmazás fejlesztése közben számtalanszor találkoztam kompatibilitási problémákkal. Az egyik ilyen hiba a JavaScript-hez és az Internet Explorer-hez volt köthető. Nem is olyan régen egy oldalon képfeltöltés funkciót próbáltam bevezetni, majd mikor azt láttam, hogy Google Chrome és Mozilla Firefox alatt a funkció hibátlanul működik, akkor kipróbáltam Internet Explorer 11 alatt is. Egy viszonylag kis méretű teszt kép feltöltése során szinte azonnal összeomlott a teljes böngésző és az egészet újra kellett indítani. Nem sokkal később kiderült, hogy az Internet Explorer nem rendelkezik egy általam használt JavaScript függvény implementációjával és erre a teljes böngésző összeomlásával reagált. A hibát úgy sikerült kijavítanom, hogy külön feltételben vizsgáltam meg a böngésző típusát és ha az elágazásnál Internet Explorer-t érzékel a program, akkor más módszert használ a képfeltöltés funkcióra, mint amilyet a többi böngésző használ.
 
-A sillabuszkezelő alkalmazás fejlesztése közben is találkoztam hasonló hibával, szerencsére itt nem kellett az Internet Explorer kompatibilitással törődnöm, elég volt csak a Google Chrome-ra és a Mozilla Firefox-ra optimalizálnom. Az egyik ilyen hiba az egymástól függő legördülő menüknél volt megfigyelhető. Valamilyen oknál fogva Chrome esetén ha kiválasztottam egy elemet az első legördülő listában és nem tartozott hozzá elem a második listában, akkor a második lista tartalma módosult a DOM-on belül, de a böngésző rosszul jelenítette meg, továbbra is a régi elemeket listázta ki. A hiba pontos okát sosem sikerült kiderítenem, egyszer csak egy Chrome frissítés után elkezdett jól működni, így nem fordítottam különösebb figyelmet rá. Ha a hiba nem szűnt volna meg magától, akkor igen nehéz dolgom lett volna a hibajavítás során, ugyanis két JavaScript keretrendszert is használtam, az egyik a jQuery a másik pedig a Liferay által is erőszeretettel használt Alloy UI volt.
+A sillabusz kezelő alkalmazás fejlesztése közben is találkoztam hasonló hibával, szerencsére itt nem kellett az Internet Explorer kompatibilitással törődnöm, elég volt csak a Google Chrome-ra és a Mozilla Firefox-ra optimalizálnom. Az egyik ilyen hiba az egymástól függő legördülő menüknél volt megfigyelhető. Valamilyen oknál fogva Chrome esetén ha kiválasztottam egy elemet az első legördülő listában és nem tartozott hozzá elem a második listában, akkor a második lista tartalma módosult a DOM-on belül, de a böngésző rosszul jelenítette meg, továbbra is a régi elemeket listázta ki. A hiba pontos okát sosem sikerült kiderítenem, egyszer csak egy Chrome frissítés után elkezdett jól működni, így nem fordítottam különösebb figyelmet rá. Ha a hiba nem szűnt volna meg magától, akkor igen nehéz dolgom lett volna a hibajavítás során, ugyanis két JavaScript keretrendszert is használtam, az egyik a jQuery a másik pedig a Liferay által is erőszeretettel használt Alloy UI volt.
 
 \section{Biztonsági kérdések}
 
@@ -344,7 +348,7 @@ Keresőoptimalizálásra azért van szükség, mert ha valaki nem fizet a keres�
 
 \chapter{Modellezés}
 
-Mielőtt mélyebben belemennék a sillabuszkezelő alkalmazás implementációs részleteibe,  bemutatnék néhány modellt, amelyek az alkalmazásról adnak áttekinthetőbb képet.
+Mielőtt mélyebben belemennék a sillabusz kezelő alkalmazás implementációs részleteibe,  bemutatnék néhány modellt, amelyek az alkalmazásról adnak áttekinthetőbb képet.
 
 \section{Relációs adatmodell}
 
@@ -357,11 +361,20 @@ Az alábbi ábrán tekinthető meg az alkalmazás által használt adatbázis mo
 
 Itt az adatmodell ne tartalmazza a Liferay specifikus attribútumokat!
 
-\includegraphics{syllabus_data_model_part1.png}
+\begin{figure}
+    \centering
+	\includegraphics{syllabus_data_model_part1.png}
+\end{figure}
 
-\includegraphics{syllabus_data_model_part2.png}
+\begin{figure}
+    \centering
+	\includegraphics{syllabus_data_model_part2.png}
+\end{figure}
 
-\includegraphics{syllabus_data_model_part3.png}
+\begin{figure}
+    \centering
+	\includegraphics{syllabus_data_model_part3.png}
+\end{figure}
 
 \section{ER modell}
 
@@ -373,40 +386,173 @@ ezt át kellene helyezni valahova, ahol már konkrétan az osztályok közötti 
 
 \section{Telepítési diagram}
 
-\chapter{Megvalósítás lépések}
+\chapter{A megvalósítás lépései}
 
-\section{Tartalomkezelő rendszerek}
+\section{Szójegyzék}
 
-\subsection{Általános leírás}
+Mielőtt belemennék bármilyen konkrét dologba, fontosnak tartom, hogy a későbbi fejezetekben megjelenő leggyakoribb szavakat előre bevezessem magyar és angol nyelven egyaránt:
 
-1. lépés: tartalomkezelő rendszer választása. Mik azok a tartalomkezelők. Miért van rá szükség? Java EE-ben milyenek vannak? (fontos: OpenCms, és Liferay)
+\medskip
 
-\subsection{OpenCms}
+\begin{tabular}{ l | l }
+Mintatanterv & Curriculum \\
+Tantárgy & Subject \\
+Kurzus Típus & Course Type \\
+Kurzus & Course \\
+Félév & Semester \\
+Órarendi Kurzus & Timetable Course \\
+Oktató & Lecturer \\
+Sillabusz & Syllabus
+\end{tabular}
 
-Jelenlegi munkahelyemen ismertem meg, stb, stb... Csak nagyon röviden!
 
-\subsection{Liferay}
+\section{Projektstruktúra kialakítása}
 
-\subsubsection{Általános bemutatás}
+Liferay 7.0-tól kezdve minden projekt Gradle alapokra épül. A Gradle egy olyan ingyenes és nyílt forráskódú eszköz, amelyet a fordítási folyamatok egyszerűsítése érdekében hoztak létre, nagyban hasonlít az Apache Ant és az Apache Maven eszközökre. A sillabuszkezelő alkalmazás három projektből épül fel:
+\begin{enumerate}
+\item syllabus-manager-api
+\item syllabus-manager-service
+\item syllabus-manager-web
+\end{enumerate}
+A három projektet a Gradle fogja össze és ez teszi lehetővé, hogy egyetlen parancs kiadásával mind a hármat egyszerre lehessen lefordítani. Ez a fajta projektfelépítés nagyban hasonlít az Apache Maven által használt többmodulos projektekhez.
 
-Miért erre esett a választás? (képzés miatt 6.2)
-Upgrade 7.0-ra hogy történt, mi történt, milyen változás volt.
+A \emph{syllabus-manager-api} és a \emph{syllabus-manager-service} projektek egymással szorosan kapcsolatban állnak. A Liferay Service Builder által generált szolgáltatás interfészek, entitás modellek és egyéb segéd osztályok a syllabus-manager-api, ezek implementációi pedig a syllabus-manager-service projekten belül lettek elhelyezve. Ez a struktúra azért is jó, mert bárki bármikor megváltoztathatja a szolgáltatások működését anélkül, hogy az api-hoz hozzá kellene nyúlnia.
 
-\subsubsection{Portlet, mint szabvány + a Liferay-en belül, hogy jelenik meg}
+A \emph{syllabus-manager-web} projekten belül található meg az összes megjelenítéssel összefüggő dolog. Ez az a projekt, amely tartalmazza az általam létrehozott portlet-et és függőségként használja a másik két projektet. Tehát az api és service projektek szolgáltatásokat nyújtanak, a web projekt pedig igénybe veszi ezen szolgáltatásokat.
 
-JSR akármi van???
+\section{Liferay Service Builder}
 
-\subsubsection{Döntés a Liferay mellett}
+Liferay esetén, ha új adatbázis táblákat szeretnénk létrehozni és a portál alatt futó adatbázist szeretnénk az adatok tárolására használni, akkor nincs más dolgunk, mint a Liferay Service Builder segítségével egyedeket, tulajdonságokat és kapcsolatokat definiálni. Mindez a megfelelő projektstruktúra kialakítása után a service.xml állomány létrehozásával, majd pediglen a módosításával tehető meg. A service.xml állományt kétféleképpen lehet módosítani, vagy a Liferay SDK által biztosított grafikus felület segítéségével adjuk meg a megfelelő elemeket, vagy egy átlagos szöveges állományként szerkesztjük úgy, mint egy XML dokumentumot. Bármelyik módszert is használjuk a végeredmény ugyan az lesz.
 
-Egyrészt nem kérdés, hogy ez, mert ezt tanultam és akkoriban mást még nem ismertem....
+Maga a service.xml a syllabus-manager-service projekt főkönyvtárában található meg. A dev.liferay.com fejlesztőknek szóló oldala szerint egy ilyen service.xml állományt hét lépésben lehet lehet létrehozni, de én ezt nyolcra egészíteném ki:
+\begin{enumerate}
+\item Üres service.xml állomány létrehozása.
+\item Globális információk megadása.
+\item Entitások definiálása.
+\item Tulajdonságok, attribútumok definiálása.
+\item Kapcsolatok definiálása.
+\item Rendezések definiálása.
+\item Finder metódusok definiálása.
+\item Kivételek definiálása.
+\end{enumerate}
 
-\section{Alkalmazásszerver választása}
+A fenti felsorolásban az első öt lépés magáért beszél, viszont a maradék három magyarázatra szorul.
 
-2. lépés: alkalmazásszerver választása. Tomcat vs WildFly konkrét liferay-es esetben.
+\subsection{Rendezések definiálása}
 
-\section{Adatbázisrendszer választása}
+Rendezések definiálása alatt azt kell érteni, hogy a service.xml-en belül külön jelezni kell azon attribútumokat, amelyek alapján rendezve szeretnénk eredményeket visszakapni egy-egy adatbázisból történő lekérdezés esetén.
 
-3. lépés: Adatbázisrendszer választása. Megjegyezni: egyes rendszerekkel gond volt a fejlesztés során, ezért maradt a MySQL.
+Az előző leírást egyszerűbb megérteni egy példa alapján:
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}
+<order by="asc">
+	<order-column name="curriculumCode"
+		order-by="asc"></order-column>
+	<order-column name="curriculumName"
+		order-by="asc"></order-column>
+</order>
+\end{lstlisting}
+\end{minipage}
+
+Az előbbi példakód feltételezi, hogy az entitás, amelynél rendezést szeretnénk használni, már rendelkezik a \emph{curriculumCode} és a \emph{curriculumName} nevű attribútumokkal. A példa azt mondja meg, hogy először a curriculumCode, majd azon belül a curriculumName attribútum szerint kell rendezni a lekérdezések eredményét. Olyan ez, mintha egy SQL SELECT esetén az
+\begin{lstlisting}
+ORDER BY curriculumCode, curriculumName
+\end{lstlisting}
+rész is jelen lenne a lekérdezés esetén.
+
+\subsection{Finder metódusok definiálása}
+
+Java alkalmazások esetén azokat a metódusokat, amelyek közvetlenül az adatbázisból nyernek ki információkat, tipikusan a "find" metódusnév előtaggal szoktuk ellátni. Például:
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}
+public Curriculum findByPrimaryKey(long id) {
+	...
+}
+
+public Curriculum findByCurriculumCode(
+		String curriculumCode) {
+	...
+}
+
+public List<Curriculum> findAll() {
+	...
+}
+\end{lstlisting}
+\end{minipage}
+
+A Service Builder használata esetén ezen finder metódusok automatikusan legenerálódnak, fejlesztőként mindössze csak annyit kell tudni megmondani, hogy mely entitás esetén, mely attribútumok alapján, milyen visszatérési értékekkel jöjjenek létre a szükséges metódusok. Magától értetődik, hogy ezt is a service.xml-en belül lehet megtenni.
+
+Példaként tekintsük meg az alábbi kódot, amelyet a Subject, azaz tantárgy entitás esetén használtam:
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}
+<finder name="C_S" return-type="Subject" unique="true">
+	<finder-column name="curriculumId"></finder-column>
+	<finder-column name="subjectCode"></finder-column>
+</finder>
+<finder name="Curriculum" return-type="Collection">
+	<finder-column name="curriculumId"></finder-column>
+</finder>
+\end{lstlisting}
+\end{minipage}
+
+A példában a tantárgyak entitáshoz két finder metódust definiáltam.
+
+Az egyik a \emph{curriculumId} és \emph{subjectCode} attribútumok alapján tud lekérdezni egy tantárgyat. A finder elem \emph{unique="true"} attribútumával azt határoztam meg, hogy tegyen unique megszorítást az adatbázisbeli Subject tábla két megfelelő oszlopára, így garantálva az egyedek tényleges egyediségét. Magyarán szólva, minden egyednek a Subject táblán belül egyedinek kell lennie a curriculumId és subjectCode attribútumokat együtt nézve.
+
+A második finder Subject entitásokat tartalmazó Java kollekciót tud visszaadni. A visszaadott kollekción belül minden egyed esetén a curriculumId meg fog egyezni a paraméterként átadott azonosítóval, azaz minden olyan tantárgy lekérdezésre kerül, amely az adott mintatantervhez tartozik.
+
+\subsection{Kivételek definiálása}
+
+Liferay esetén a kivételeket nem közvetlenül a java.lang csomagban található Exception és RuntimeException osztályokból szokás származtatni, hanem be kell építeni a Liferay saját kivételosztály hierarchiájába. Erre több módszer is létezik, a legegyszerűbb az, ha a service.xml végén felsoroljuk az általunk szükséges kivétel osztály neveket, hasonlóan, mint ahogyan az a következő példában is látható:
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}
+<exceptions>
+	<exception>CurriculumCode</exception>
+	<exception>CurriculumName</exception>
+</exceptions>
+\end{lstlisting}
+\end{minipage}
+
+Ennek hatására az alábbi kódrészlethez hasonló programkód fog legenerálódni:
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}
+import aQute.bnd.annotation.ProviderType;
+
+import com.liferay.portal.kernel.exception.PortalException;
+
+@ProviderType
+public class CurriculumCodeException
+		extends PortalException {
+
+	public CurriculumCodeException() {
+	}
+
+	public CurriculumCodeException(String msg) {
+		super(msg);
+	}
+
+	public CurriculumCodeException(String msg,
+			Throwable cause) {
+		super(msg, cause);
+	}
+
+	public CurriculumCodeException(Throwable cause) {
+		super(cause);
+	}
+
+}
+\end{lstlisting}
+\end{minipage}
+
+A kivételek ilyen módon történő definiálásának legnagyobb előnye a hibaüzenetekké történő átalakításban rejlik.
+
+
+A service.xml elkészítése után a \emph{gradlew buildService} parancs hatására lefut a Service Builder és minden szükséges interfészt és osztályt legenerál számunkra. A továbbiakban nincs más dolgunk, mint a szolgáltatások tényleges implementálása.
 
 \section{Implementációs kérdések}
 
