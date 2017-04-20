@@ -426,7 +426,7 @@ Liferay esetén, ha új adatbázis táblákat szeretnénk létrehozni és a port
 
 Maga a service.xml a syllabus-manager-service projekt főkönyvtárában található meg. A dev.liferay.com fejlesztőknek szóló oldala szerint egy ilyen service.xml állományt hét lépésben lehet lehet létrehozni, de én ezt nyolcra egészíteném ki:
 \begin{enumerate}
-\item Üres service.xml állomány létrehozása.
+\item A service.xml állomány létrehozása.
 \item Globális információk megadása.
 \item Entitások definiálása.
 \item Tulajdonságok, attribútumok definiálása.
@@ -436,7 +436,94 @@ Maga a service.xml a syllabus-manager-service projekt főkönyvtárában találh
 \item Kivételek definiálása.
 \end{enumerate}
 
-A fenti felsorolásban az első öt lépés magáért beszél, viszont a maradék három magyarázatra szorul.
+%A fenti felsorolásban az első öt lépés magáért beszél, viszont a maradék három magyarázatra szorul.
+
+A további alfejezetekben ezt a nyolc lépést magyarázom el példákkal együtt.
+
+\subsection{A service.xml állomány létrehozása}
+
+A service.xml állományt minden esetben a service projekt főkönyvtárában kell elhelyezni a következő tartalommal:
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[basicstyle=\small]
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC
+"-//Liferay//DTD Service Builder 7.0.0//EN"
+"http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+<service-builder package-path="hu.unideb.inf">
+...
+</service-builder>
+\end{lstlisting}
+\end{minipage}
+
+\subsection{Globális információk megadása}
+
+Globális információk alatt a szerző és a névtér nevét kell érteni. Ezt a két információt közvetlenül a service-builder elem gyermekeiként kell megadni. A sillabuszkezelő alkalmazás esetén ez így néz ki:
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[basicstyle=\small]
+<service-builder package-path="hu.unideb.inf">
+	<author>Adam Kiss</author>
+	<namespace>syllabus_manager</namespace>
+	...
+</service-builder>
+\end{lstlisting}
+\end{minipage}
+
+\subsection{Entitások definiálása}
+
+Az entitások definiálása közvetlenül a namespace elem után lehetséges. A következő példában a Curriculum entitást definiáltam:
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[basicstyle=\small]
+<entity name="Curriculum" local-service="true">
+...
+</entity>
+\end{lstlisting}
+\end{minipage}
+
+\subsection{Tulajdonságok, attribútumok definiálása}
+
+Egy entitásból adatbázisbeli tábla lesz, tulajdonságaiból pedig oszlopnevek. A Curriculum entitás attribútumainak definiálása az alábbi példában tekinthető meg:
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[basicstyle=\small]
+<entity name="Curriculum" local-service="true">
+	<column name="curriculumId" type="long"
+		primary="true"></column>
+	<column name="groupId" type="long"></column>
+	<column name="companyId" type="long"></column>
+	<column name="userId" type="long"></column>
+	<column name="userName" type="String"></column>
+	<column name="createDate" type="Date"></column>
+	<column name="modifiedDate" type="Date"></column>
+	<column name="curriculumCode" type="String"></column>
+	<column name="curriculumName" type="String"></column>
+	...
+</entity>
+\end{lstlisting}
+\end{minipage}
+
+Fontos, hogy minden tulajdonság rendelkezzen valamilyen típussal, illetve nélkülözhetetlen az elsődleges kulcsok meghatározása, amelyet a primary="true"-val lehet megtenni.
+
+\subsection{Kapcsolatok definiálása}
+
+Az adatbázisban lévő egyedek más egyedekkel is kapcsolatban állhatnak. A kapcsolatok modellezését adatbázis szinten külső kulcsok segítségével lehet megoldani. Sajnos a Liferay már évek óta nem biztosít lehetőséget külső kulcsok létrehozására, de több módszer is létezik arra, hogy két egyedet össze lehessen benne kapcsolni.
+
+Az egyik módszer, amikor egy új attribútumot vezetünk be a meglévőek mellé, viszont magára az adatbázisbeli táblákra nem kerülnek rá a külső kulcsmegszorítások, ezt kézzel kell majd megtenni. Jó példa erre a tantárgy-mintatanterv kapcsolat. Ebben az esetben egy tantárgy csak egy mintatantervhez, viszont egy mintatantervhez több tantárgy is tartozhat.
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[basicstyle=\small]
+<entity name="Subject" local-service="true">
+	...
+	<column name="curriculumId" type="long"></column>
+	...
+</entity>
+\end{lstlisting}
+\end{minipage}
+
+A másik módszer a kapcsolótábla létrehozása, amelyet M:N számosságú kapcsolatok ábrázolására lehet használni. Erre az egyetlen példa, amelyet a sillabuszkezelő alkalmazás során alkalmaztam
 
 \subsection{Rendezések definiálása}
 
@@ -549,8 +636,27 @@ public class CurriculumCodeException
 \end{lstlisting}
 \end{minipage}
 
-A kivételek ilyen módon történő definiálásának legnagyobb előnye a hibaüzenetekké történő átalakításban rejlik.
+A kivételek ilyen módon történő definiálásának legnagyobb előnye a hibaüzenetekké történő átalakításban rejlik. A Liferay lehetőséget biztosít arra, hogy a kivételekhez szöveges üzenetet társítsunk, amelyeket felugró üzenetként meg tud jeleníteni a felhasználó számára.
 
+A konverzióhoz nem kell mást tenni, mint a liferay-ui:error elemet elhelyezni a megfelelő JSP-ben, illetve a megfelelő kulcs-érték párokat elhelyezni a lokalizációs állományokban. Az alábbi példában az általam definiált CurriculumCodeException osztályt alakítom át szöveges üzenetekké:
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}
+<liferay-ui:error
+	exception="<%=CurriculumCodeException.class%>"
+	message="curriculum-code-exception" />
+\end{lstlisting}
+\end{minipage}
+
+A példához tartozó angol nyelvű lokalizációs állomány egyik sora:
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}
+curriculum-code-exception=Invalid Curriculum Code
+\end{lstlisting}
+\end{minipage}
+
+Tehát, ha a program futása közben CurriculumCodeException váltódik ki, akkor a megfelelő helyen az "Invalid Curriculum Code" hibaüzenet jelenik meg.
 
 A service.xml elkészítése után a \emph{gradlew buildService} parancs hatására lefut a Service Builder és minden szükséges interfészt és osztályt legenerál számunkra. A továbbiakban nincs más dolgunk, mint a szolgáltatások tényleges implementálása.
 

@@ -35,32 +35,37 @@
 \select@language {magyar} \contentsline {section}{\numberline {5.1}Sz\IeC {\'o}jegyz\IeC {\'e}k}{28}{section.5.1}
 \select@language {magyar} \contentsline {section}{\numberline {5.2}Projektstrukt\IeC {\'u}ra kialak\IeC {\'\i }t\IeC {\'a}sa}{28}{section.5.2}
 \select@language {magyar} \contentsline {section}{\numberline {5.3}Liferay Service Builder}{29}{section.5.3}
-\select@language {magyar} \contentsline {subsection}{\numberline {5.3.1}Rendez\IeC {\'e}sek defini\IeC {\'a}l\IeC {\'a}sa}{30}{subsection.5.3.1}
-\select@language {magyar} \contentsline {subsection}{\numberline {5.3.2}Finder met\IeC {\'o}dusok defini\IeC {\'a}l\IeC {\'a}sa}{30}{subsection.5.3.2}
-\select@language {magyar} \contentsline {subsection}{\numberline {5.3.3}Kiv\IeC {\'e}telek defini\IeC {\'a}l\IeC {\'a}sa}{32}{subsection.5.3.3}
-\select@language {magyar} \contentsline {section}{\numberline {5.4}Implement\IeC {\'a}ci\IeC {\'o}s k\IeC {\'e}rd\IeC {\'e}sek}{34}{section.5.4}
-\select@language {magyar} \contentsline {subsection}{\numberline {5.4.1}Fejleszt\IeC {\'e}shez haszn\IeC {\'a}lt eszk\IeC {\"o}z\IeC {\"o}k}{34}{subsection.5.4.1}
-\select@language {magyar} \contentsline {subsubsection}{Eclipse}{34}{section*.5}
-\select@language {magyar} \contentsline {subsubsection}{Gradle}{34}{section*.6}
-\select@language {magyar} \contentsline {subsubsection}{Git}{34}{section*.7}
-\select@language {magyar} \contentsline {subsection}{\numberline {5.4.2}Liferay Service Builder}{34}{subsection.5.4.2}
-\select@language {magyar} \contentsline {subsection}{\numberline {5.4.3}Portlet class-r\IeC {\'o}l le\IeC {\'\i }r\IeC {\'a}s}{34}{subsection.5.4.3}
-\select@language {magyar} \contentsline {subsection}{\numberline {5.4.4}JSP-kr\IeC {\H o}l p\IeC {\'e}lda le\IeC {\'\i }r\IeC {\'a}s}{34}{subsection.5.4.4}
-\select@language {magyar} \contentsline {subsection}{\numberline {5.4.5}Keres\IeC {\H o}integr\IeC {\'a}ci\IeC {\'o}}{34}{subsection.5.4.5}
-\select@language {magyar} \contentsline {subsection}{\numberline {5.4.6}Asset integr\IeC {\'a}ci\IeC {\'o}}{34}{subsection.5.4.6}
-\select@language {magyar} \contentsline {subsection}{\numberline {5.4.7}Workflow}{35}{subsection.5.4.7}
-\select@language {magyar} \contentsline {subsection}{\numberline {5.4.8}Templating}{35}{subsection.5.4.8}
-\select@language {magyar} \contentsline {subsection}{\numberline {5.4.9}Export/Import}{35}{subsection.5.4.9}
-\select@language {magyar} \contentsline {subsection}{\numberline {5.4.10}nyelves\IeC {\'\i }t\IeC {\'e}s}{35}{subsection.5.4.10}
-\select@language {magyar} \contentsline {subsection}{\numberline {5.4.11}WYSIWYG szerkeszt\IeC {\H o}k}{35}{subsection.5.4.11}
-\select@language {magyar} \contentsline {chapter}{\numberline {6}Az alkalmaz\IeC {\'a}s bemutat\IeC {\'a}sa}{36}{chapter.6}
-\select@language {magyar} \contentsline {section}{\numberline {6.1}PanelApp portles cucc ide}{36}{section.6.1}
-\select@language {magyar} \contentsline {section}{\numberline {6.2}Sima instanceable portlet}{36}{section.6.2}
-\select@language {magyar} \contentsline {chapter}{\numberline {7}\IeC {\"O}sszefoglal\IeC {\'a}s}{37}{chapter.7}
-\select@language {magyar} \contentsline {section}{\numberline {7.1}El\IeC {\'e}rt eredm\IeC {\'e}nyek}{37}{section.7.1}
-\select@language {magyar} \contentsline {section}{\numberline {7.2}Tov\IeC {\'a}bbfejleszt\IeC {\'e}si lehet\IeC {\H o}s\IeC {\'e}gek}{37}{section.7.2}
-\select@language {magyar} \contentsline {chapter}{K\IeC {\"o}sz\IeC {\"o}netnyilv\IeC {\'a}n\IeC {\'\i }t\IeC {\'a}s}{38}{section.7.2}
-\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\IeC {\'e}k}{39}{chapter*.8}
-\select@language {magyar} \contentsline {chapter}{\numberline {A}Els\IeC {\H o} f\IeC {\"u}ggel\IeC {\'e}k}{40}{appendix.A}
-\select@language {magyar} \contentsline {section}{\numberline {A.1}le\IeC {\'\i }r\IeC {\'a}s}{40}{section.A.1}
-\select@language {magyar} \contentsline {chapter}{\numberline {B}M\IeC {\'a}sodik f\IeC {\"u}ggel\IeC {\'e}k}{41}{appendix.B}
+\select@language {magyar} \contentsline {subsection}{\numberline {5.3.1}A service.xml \IeC {\'a}llom\IeC {\'a}ny l\IeC {\'e}trehoz\IeC {\'a}sa}{30}{subsection.5.3.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {5.3.2}Glob\IeC {\'a}lis inform\IeC {\'a}ci\IeC {\'o}k megad\IeC {\'a}sa}{30}{subsection.5.3.2}
+\select@language {magyar} \contentsline {subsection}{\numberline {5.3.3}Entit\IeC {\'a}sok defini\IeC {\'a}l\IeC {\'a}sa}{30}{subsection.5.3.3}
+\select@language {magyar} \contentsline {subsection}{\numberline {5.3.4}Tulajdons\IeC {\'a}gok, attrib\IeC {\'u}tumok defini\IeC {\'a}l\IeC {\'a}sa}{31}{subsection.5.3.4}
+\select@language {magyar} \contentsline {subsection}{\numberline {5.3.5}Kapcsolatok defini\IeC {\'a}l\IeC {\'a}sa}{31}{subsection.5.3.5}
+\select@language {magyar} \contentsline {subsection}{\numberline {5.3.6}Rendez\IeC {\'e}sek defini\IeC {\'a}l\IeC {\'a}sa}{32}{subsection.5.3.6}
+\select@language {magyar} \contentsline {subsection}{\numberline {5.3.7}Finder met\IeC {\'o}dusok defini\IeC {\'a}l\IeC {\'a}sa}{32}{subsection.5.3.7}
+\select@language {magyar} \contentsline {subsection}{\numberline {5.3.8}Kiv\IeC {\'e}telek defini\IeC {\'a}l\IeC {\'a}sa}{34}{subsection.5.3.8}
+\select@language {magyar} \contentsline {section}{\numberline {5.4}Implement\IeC {\'a}ci\IeC {\'o}s k\IeC {\'e}rd\IeC {\'e}sek}{36}{section.5.4}
+\select@language {magyar} \contentsline {subsection}{\numberline {5.4.1}Fejleszt\IeC {\'e}shez haszn\IeC {\'a}lt eszk\IeC {\"o}z\IeC {\"o}k}{36}{subsection.5.4.1}
+\select@language {magyar} \contentsline {subsubsection}{Eclipse}{36}{section*.5}
+\select@language {magyar} \contentsline {subsubsection}{Gradle}{36}{section*.6}
+\select@language {magyar} \contentsline {subsubsection}{Git}{36}{section*.7}
+\select@language {magyar} \contentsline {subsection}{\numberline {5.4.2}Liferay Service Builder}{36}{subsection.5.4.2}
+\select@language {magyar} \contentsline {subsection}{\numberline {5.4.3}Portlet class-r\IeC {\'o}l le\IeC {\'\i }r\IeC {\'a}s}{36}{subsection.5.4.3}
+\select@language {magyar} \contentsline {subsection}{\numberline {5.4.4}JSP-kr\IeC {\H o}l p\IeC {\'e}lda le\IeC {\'\i }r\IeC {\'a}s}{36}{subsection.5.4.4}
+\select@language {magyar} \contentsline {subsection}{\numberline {5.4.5}Keres\IeC {\H o}integr\IeC {\'a}ci\IeC {\'o}}{37}{subsection.5.4.5}
+\select@language {magyar} \contentsline {subsection}{\numberline {5.4.6}Asset integr\IeC {\'a}ci\IeC {\'o}}{37}{subsection.5.4.6}
+\select@language {magyar} \contentsline {subsection}{\numberline {5.4.7}Workflow}{37}{subsection.5.4.7}
+\select@language {magyar} \contentsline {subsection}{\numberline {5.4.8}Templating}{37}{subsection.5.4.8}
+\select@language {magyar} \contentsline {subsection}{\numberline {5.4.9}Export/Import}{37}{subsection.5.4.9}
+\select@language {magyar} \contentsline {subsection}{\numberline {5.4.10}nyelves\IeC {\'\i }t\IeC {\'e}s}{37}{subsection.5.4.10}
+\select@language {magyar} \contentsline {subsection}{\numberline {5.4.11}WYSIWYG szerkeszt\IeC {\H o}k}{37}{subsection.5.4.11}
+\select@language {magyar} \contentsline {chapter}{\numberline {6}Az alkalmaz\IeC {\'a}s bemutat\IeC {\'a}sa}{38}{chapter.6}
+\select@language {magyar} \contentsline {section}{\numberline {6.1}PanelApp portles cucc ide}{38}{section.6.1}
+\select@language {magyar} \contentsline {section}{\numberline {6.2}Sima instanceable portlet}{38}{section.6.2}
+\select@language {magyar} \contentsline {chapter}{\numberline {7}\IeC {\"O}sszefoglal\IeC {\'a}s}{39}{chapter.7}
+\select@language {magyar} \contentsline {section}{\numberline {7.1}El\IeC {\'e}rt eredm\IeC {\'e}nyek}{39}{section.7.1}
+\select@language {magyar} \contentsline {section}{\numberline {7.2}Tov\IeC {\'a}bbfejleszt\IeC {\'e}si lehet\IeC {\H o}s\IeC {\'e}gek}{39}{section.7.2}
+\select@language {magyar} \contentsline {chapter}{K\IeC {\"o}sz\IeC {\"o}netnyilv\IeC {\'a}n\IeC {\'\i }t\IeC {\'a}s}{40}{section.7.2}
+\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\IeC {\'e}k}{41}{chapter*.8}
+\select@language {magyar} \contentsline {chapter}{\numberline {A}Els\IeC {\H o} f\IeC {\"u}ggel\IeC {\'e}k}{42}{appendix.A}
+\select@language {magyar} \contentsline {section}{\numberline {A.1}le\IeC {\'\i }r\IeC {\'a}s}{42}{section.A.1}
+\select@language {magyar} \contentsline {chapter}{\numberline {B}M\IeC {\'a}sodik f\IeC {\"u}ggel\IeC {\'e}k}{43}{appendix.B}
