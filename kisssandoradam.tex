@@ -26,6 +26,7 @@
 \usepackage{algorithmic}
 \usepackage{indentfirst}
 \usepackage{listings}
+\usepackage{float}
 \usepackage{graphicx}
 \graphicspath{ {images/} }
 
@@ -346,46 +347,6 @@ Keresőoptimalizálásra azért van szükség, mert ha valaki nem fizet a keres�
 
 % https://static.googleusercontent.com/media/www.google.hu/en/hu/intl/hu/webmasters/docs/search-engine-optimization-starter-guide-hu.pdf
 
-\chapter{Modellezés}
-
-Mielőtt mélyebben belemennék a sillabusz kezelő alkalmazás implementációs részleteibe,  bemutatnék néhány modellt, amelyek az alkalmazásról adnak áttekinthetőbb képet.
-
-\section{Relációs adatmodell}
-
-Liferay esetén, ha új adatbázis táblákat szeretnénk létrehozni és a portál alatt futó adatbázist szeretnénk használni, akkor nincs más dolgunk, mint a Liferay Service Builder segítségével egyedeket, tulajdonságokat és kapcsolatokat definiálni. Ez a megfelelő projektstruktúra létrehozása után a service.xml állomány módosításával tehető meg. A service.xml állományt kétféleképpen lehet módosítani, vagy a Liferay SDK által biztosított fejlesztői eszközök segítségével egy grafikus felhasználói felületen adjuk meg a megfelelő elemeit, vagy egy fapados szöveges állományként szerkesztjük, mint XML dokumentumot.
-
-
-A Liferay Service Builder segítéségével egyedeket kialakítottam
-
-Az alábbi ábrán tekinthető meg az alkalmazás által használt adatbázis modellje....
-
-Itt az adatmodell ne tartalmazza a Liferay specifikus attribútumokat!
-
-\begin{figure}
-    \centering
-	\includegraphics{syllabus_data_model_part1.png}
-\end{figure}
-
-\begin{figure}
-    \centering
-	\includegraphics{syllabus_data_model_part2.png}
-\end{figure}
-
-\begin{figure}
-    \centering
-	\includegraphics{syllabus_data_model_part3.png}
-\end{figure}
-
-\section{ER modell}
-
-kell ez? :(
-
-\section{Rendszermodell}
-
-ezt át kellene helyezni valahova, ahol már konkrétan az osztályok közötti kapcsolatokat mutatom be
-
-\section{Telepítési diagram}
-
 \chapter{A megvalósítás lépései}
 
 \section{Szójegyzék}
@@ -422,7 +383,9 @@ A \emph{syllabus-manager-web} projekten belül található meg az összes megjel
 
 \section{Liferay Service Builder}
 
-Liferay esetén, ha új adatbázis táblákat szeretnénk létrehozni és a portál alatt futó adatbázist szeretnénk az adatok tárolására használni, akkor nincs más dolgunk, mint a Liferay Service Builder segítségével egyedeket, tulajdonságokat és kapcsolatokat definiálni. Mindez a megfelelő projektstruktúra kialakítása után a service.xml állomány létrehozásával, majd pediglen a módosításával tehető meg. A service.xml állományt kétféleképpen lehet módosítani, vagy a Liferay SDK által biztosított grafikus felület segítéségével adjuk meg a megfelelő elemeket, vagy egy átlagos szöveges állományként szerkesztjük úgy, mint egy XML dokumentumot. Bármelyik módszert is használjuk a végeredmény ugyan az lesz.
+Liferay esetén, ha új adatbázis táblákat szeretnénk létrehozni és a portál alatt futó adatbázist szeretnénk az adatok tárolására használni, akkor nincs más dolgunk, mint a Liferay Service Builder segítségével egyedeket, tulajdonságokat és kapcsolatokat definiálni. Mindez a megfelelő projektstruktúra kialakítása után a service.xml állomány létrehozásával, illetve annak módosításával tehető meg. A service.xml állományt kétféleképpen lehet módosítani, vagy a Liferay SDK által biztosított grafikus felület segítéségével adjuk meg a megfelelő elemeket, vagy egy átlagos szöveges állományként szerkesztjük úgy, mint egy valódi XML dokumentumot. Bármelyik módszert is használjuk a végeredmény ugyan az lesz.
+
+A service.xml elkészítése után a \emph{gradlew buildService} parancs hatására lefut a Service Builder és minden szükséges interfészt és osztályt legenerál számunkra. A továbbiakban nincs más dolgunk, mint a szolgáltatások tényleges implementálása.
 
 Maga a service.xml a syllabus-manager-service projekt főkönyvtárában található meg. A dev.liferay.com fejlesztőknek szóló oldala szerint egy ilyen service.xml állományt hét lépésben lehet lehet létrehozni, de én ezt nyolcra egészíteném ki:
 \begin{enumerate}
@@ -457,9 +420,11 @@ A service.xml állományt minden esetben a service projekt főkönyvtárában ke
 \end{lstlisting}
 \end{minipage}
 
+A service-builder elem package-path attribútuma azt határozza meg, hogy mely csomagba kerüljenek a legenerált interfészek és osztályok.
+
 \subsection{Globális információk megadása}
 
-Globális információk alatt a szerző és a névtér nevét kell érteni. Ezt a két információt közvetlenül a service-builder elem gyermekeiként kell megadni. A sillabuszkezelő alkalmazás esetén ez így néz ki:
+Globális információk alatt a szerző és a névtér nevét kell érteni. A szerző általában a fejlesztő cég neve szokott lenni, de mivel én egyedüli fejlesztő voltam, ezért a saját nevemet adtam meg. A névtér név azért fontos, mert az adatbázis táblák nevei előtt ez a karaktersorozat fog megjelenni, így elkerülhető az esetleges táblanév ütközés. Ezt a két információt közvetlenül a service-builder elem első leszármazottaiként kell megadni. A sillabuszkezelő alkalmazás esetén ez így néz ki:
 
 \begin{minipage}{\linewidth}
 \begin{lstlisting}[basicstyle=\small]
@@ -509,9 +474,9 @@ Fontos, hogy minden tulajdonság rendelkezzen valamilyen típussal, illetve nél
 
 \subsection{Kapcsolatok definiálása}
 
-Az adatbázisban lévő egyedek más egyedekkel is kapcsolatban állhatnak. A kapcsolatok modellezését adatbázis szinten külső kulcsok segítségével lehet megoldani. Sajnos a Liferay már évek óta nem biztosít lehetőséget külső kulcsok létrehozására, de több módszer is létezik arra, hogy két egyedet össze lehessen benne kapcsolni.
+Az adatbázisban lévő egyedek más egyedekkel is kapcsolatban állhatnak. A kapcsolatok modellezését adatbázis szinten külső kulcsok segítségével lehet megoldani. Sajnos a Liferay már évek óta nem biztosít lehetőséget külső kulcsok tényleges definiálására, de több módszer is létezik arra, hogy két egyedet össze lehessen benne kapcsolni.
 
-Az egyik módszer, amikor egy új attribútumot vezetünk be a meglévőek mellé, viszont magára az adatbázisbeli táblákra nem kerülnek rá a külső kulcsmegszorítások, ezt kézzel kell majd megtenni. Jó példa erre a tantárgy-mintatanterv kapcsolat. Ebben az esetben egy tantárgy csak egy mintatantervhez, viszont egy mintatantervhez több tantárgy is tartozhat.
+Az egyik módszer, amikor egy új attribútumot vezetünk be a meglévőek mellé, viszont az adatbázisbeli táblákra sajnos nem fognak rákerülni a külső kulcsmegszorítások, ezt kézzel kell majd a fejlesztőknek megtenniük. Jó példa erre a tantárgy-mintatanterv kapcsolat. Ebben az esetben egy tantárgy csak egy mintatantervhez, viszont egy mintatantervhez több tantárgy is tartozhat:
 
 \begin{minipage}{\linewidth}
 \begin{lstlisting}[basicstyle=\small]
@@ -523,7 +488,39 @@ Az egyik módszer, amikor egy új attribútumot vezetünk be a meglévőek mell�
 \end{lstlisting}
 \end{minipage}
 
-A másik módszer a kapcsolótábla létrehozása, amelyet M:N számosságú kapcsolatok ábrázolására lehet használni. Erre az egyetlen példa, amelyet a sillabuszkezelő alkalmazás során alkalmaztam
+A másik módszer a kapcsolótábla létrehozása, amelyet M:N számosságú kapcsolatok ábrázolására lehet használni. Erre az egyetlen példa, amelyet a sillabuszkezelő alkalmazás során alkalmaztam az oktatók és órarendi kurzusok között fennálló viszony. Egy ilyen kurzusnak akármennyi oktatója lehet és egy oktató több kurzust is tarthat. A service.xml-en belül ez úgy jelenik meg, hogy a TimetableCourse entitásnál az alábbi: 
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[basicstyle=\small]
+<entity name="TimetableCourse" local-service="true">
+	...
+	<column name="lecturers"
+		type="Collection"
+		mapping-table="Lecturers_TimetableCourses"
+		entity="Lecturer">
+	</column>
+	...
+</entity>
+\end{lstlisting}
+\end{minipage}
+
+a Lecturer egyednél pedig a következő kódrészlet jelenik meg:
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[basicstyle=\small]
+<entity name="Lecturer" local-service="true">
+	...
+	<column name="timetableCourses"
+		type="Collection"
+		mapping-table="Lecturers_TimetableCourses"
+		entity="TimetableCourse">
+	</column>
+	...
+</entity>
+\end{lstlisting}
+\end{minipage}
+
+Ennek hatására a Liferay tudni fogja, hogy egy újabb tábla létrehozására lesz szükség, melynek két oszlopa lesz. Az egyik oszlop timetableCourseId-ket, a másik pedig lecturerId-ket fog tartalmazni.
 
 \subsection{Rendezések definiálása}
 
@@ -543,10 +540,14 @@ Az előző leírást egyszerűbb megérteni egy példa alapján:
 \end{minipage}
 
 Az előbbi példakód feltételezi, hogy az entitás, amelynél rendezést szeretnénk használni, már rendelkezik a \emph{curriculumCode} és a \emph{curriculumName} nevű attribútumokkal. A példa azt mondja meg, hogy először a curriculumCode, majd azon belül a curriculumName attribútum szerint kell rendezni a lekérdezések eredményét. Olyan ez, mintha egy SQL SELECT esetén az
+\begin{center}
+\begin{tabular}{c}
 \begin{lstlisting}
 ORDER BY curriculumCode, curriculumName
 \end{lstlisting}
-rész is jelen lenne a lekérdezés esetén.
+\end{tabular}
+\end{center}
+rész is jelen lenne a lekérdezés során.
 
 \subsection{Finder metódusok definiálása}
 
@@ -554,18 +555,12 @@ Java alkalmazások esetén azokat a metódusokat, amelyek közvetlenül az adatb
 
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
-public Curriculum findByPrimaryKey(long id) {
-	...
-}
+public abstract Curriculum findByPrimaryKey(long id);
 
-public Curriculum findByCurriculumCode(
-		String curriculumCode) {
-	...
-}
+public abstract Curriculum findByCurriculumCode(
+		String curriculumCode);
 
-public List<Curriculum> findAll() {
-	...
-}
+public abstract List<Curriculum> findAll();
 \end{lstlisting}
 \end{minipage}
 
@@ -587,13 +582,13 @@ Példaként tekintsük meg az alábbi kódot, amelyet a Subject, azaz tantárgy 
 
 A példában a tantárgyak entitáshoz két finder metódust definiáltam.
 
-Az egyik a \emph{curriculumId} és \emph{subjectCode} attribútumok alapján tud lekérdezni egy tantárgyat. A finder elem \emph{unique="true"} attribútumával azt határoztam meg, hogy tegyen unique megszorítást az adatbázisbeli Subject tábla két megfelelő oszlopára, így garantálva az egyedek tényleges egyediségét. Magyarán szólva, minden egyednek a Subject táblán belül egyedinek kell lennie a curriculumId és subjectCode attribútumokat együtt nézve.
+Az egyik a \emph{curriculumId} és \emph{subjectCode} attribútumok alapján tud lekérdezni egy tantárgyat. A finder elem \emph{unique="true"} attribútumával azt határoztam meg, hogy tegyen unique megszorítást az adatbázisbeli Subject tábla két megfelelő oszlopára, így garantálva az egyedek tényleges egyediségét. Magyarán szólva, minden egyednek a Subject táblán belül egyedinek kell lennie a curriculumId és subjectCode attribútumokra nézve.
 
 A második finder Subject entitásokat tartalmazó Java kollekciót tud visszaadni. A visszaadott kollekción belül minden egyed esetén a curriculumId meg fog egyezni a paraméterként átadott azonosítóval, azaz minden olyan tantárgy lekérdezésre kerül, amely az adott mintatantervhez tartozik.
 
 \subsection{Kivételek definiálása}
 
-Liferay esetén a kivételeket nem közvetlenül a java.lang csomagban található Exception és RuntimeException osztályokból szokás származtatni, hanem be kell építeni a Liferay saját kivételosztály hierarchiájába. Erre több módszer is létezik, a legegyszerűbb az, ha a service.xml végén felsoroljuk az általunk szükséges kivétel osztály neveket, hasonlóan, mint ahogyan az a következő példában is látható:
+Liferay esetén a kivételeket nem közvetlenül a java.lang csomagban található Exception és RuntimeException osztályokból szokás származtatni, hanem be kell építeni ezeket a Liferay saját kivételosztály hierarchiájába. Erre több módszer is létezik, a legegyszerűbb az, ha a service.xml végén felsoroljuk az általunk szükséges kivétel osztály neveket, hasonlóan, mint ahogyan az a következő példában is látható:
 
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
@@ -609,56 +604,114 @@ Ennek hatására az alábbi kódrészlethez hasonló programkód fog legenerál�
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
 import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.exception.PortalException;
 
 @ProviderType
 public class CurriculumCodeException
 		extends PortalException {
-
-	public CurriculumCodeException() {
-	}
-
-	public CurriculumCodeException(String msg) {
-		super(msg);
-	}
-
-	public CurriculumCodeException(String msg,
-			Throwable cause) {
-		super(msg, cause);
-	}
-
-	public CurriculumCodeException(Throwable cause) {
-		super(cause);
-	}
-
+	...
 }
 \end{lstlisting}
 \end{minipage}
 
-A kivételek ilyen módon történő definiálásának legnagyobb előnye a hibaüzenetekké történő átalakításban rejlik. A Liferay lehetőséget biztosít arra, hogy a kivételekhez szöveges üzenetet társítsunk, amelyeket felugró üzenetként meg tud jeleníteni a felhasználó számára.
+A kivételek ilyen módon történő definiálásának legnagyobb előnye a hibaüzenetekké történő átalakításban rejlik. A Liferay lehetőséget biztosít arra, hogy a kivételekhez szöveges üzenetet társítsunk, amelyeket felugró üzenetként tud megjeleníteni a felhasználók számára.
 
-A konverzióhoz nem kell mást tenni, mint a liferay-ui:error elemet elhelyezni a megfelelő JSP-ben, illetve a megfelelő kulcs-érték párokat elhelyezni a lokalizációs állományokban. Az alábbi példában az általam definiált CurriculumCodeException osztályt alakítom át szöveges üzenetekké:
+A konverzióhoz nem kell mást tenni, mint a liferay-ui:error elemet elhelyezni a megfelelő JSP-ben, illetve a megfelelő kulcs-érték párokat berakni a lokalizációs állományokba. Az alábbi példában az általam definiált CurriculumCodeException osztályt alakítom át szöveges üzenetekké:
 
 \begin{minipage}{\linewidth}
+\begin{center}
+\begin{tabular}{c}
 \begin{lstlisting}
 <liferay-ui:error
 	exception="<%=CurriculumCodeException.class%>"
 	message="curriculum-code-exception" />
 \end{lstlisting}
+\end{tabular}
+\end{center}
 \end{minipage}
 
+\medskip
 A példához tartozó angol nyelvű lokalizációs állomány egyik sora:
 
 \begin{minipage}{\linewidth}
+\begin{center}
+\begin{tabular}{c}
 \begin{lstlisting}
 curriculum-code-exception=Invalid Curriculum Code
 \end{lstlisting}
+\end{tabular}
+\end{center}
 \end{minipage}
 
+\medskip
 Tehát, ha a program futása közben CurriculumCodeException váltódik ki, akkor a megfelelő helyen az "Invalid Curriculum Code" hibaüzenet jelenik meg.
 
-A service.xml elkészítése után a \emph{gradlew buildService} parancs hatására lefut a Service Builder és minden szükséges interfészt és osztályt legenerál számunkra. A továbbiakban nincs más dolgunk, mint a szolgáltatások tényleges implementálása.
+\section{Modellezés}
+
+Ebben a fejezetben azt szeretném bemutatni, hogy milyen egyedeket hoztam létre a Liferay Service Builder segítségével a sillabusz kezelő alkalmazás számára. A teljes service.xml állomány túl nagy terjedelme miatt az Oracle SQL Developer Data Modeler alkalmazás segítségével készítettem belőle egy relációs modellt, ami egy az egyben megfelel a service.xml-ben leírtaknak. Sajnos a kiexportált diagram minden esetben vagy túl széles vagy pedig túl magas volt, hogy teljes egészében kiférjen egy oldalra, ezért úgy döntöttem, hogy minden egyedet külön ábrán helyezek el.
+
+\subsection{Mintatanterv}
+
+\begin{figure}[H]
+    \centering
+	\includegraphics{curriculum.png}
+\end{figure}
+
+\subsection{Tantárgy}
+
+\begin{figure}[H]
+    \centering
+	\includegraphics{subject.png}
+\end{figure}
+
+\subsection{Kurzus Típus}
+
+\begin{figure}[H]
+    \centering
+	\includegraphics{course_type.png}
+\end{figure}
+
+\subsection{Kurzus}
+
+\begin{figure}[H]
+    \centering
+	\includegraphics{course.png}
+\end{figure}
+
+\subsection{Félév}
+
+\begin{figure}[H]
+    \centering
+	\includegraphics{semester.png}
+\end{figure}
+
+\subsection{Oktató}
+
+\begin{figure}[H]
+    \centering
+	\includegraphics{lecturer.png}
+\end{figure}
+
+\subsection{Órarendi Kurzus}
+
+\begin{figure}[H]
+    \centering
+	\includegraphics{timetable_course.png}
+\end{figure}
+
+\subsection{Oktató - Órarendi Kurzus kapcsolat}
+
+\begin{figure}[H]
+    \centering
+	\includegraphics{lecturer_timetable_course.png}
+\end{figure}
+
+\subsection{Sillabusz}
+
+\begin{figure}[H]
+    \centering
+	\includegraphics{syllabus.png}
+\end{figure}
 
 \section{Implementációs kérdések}
 
