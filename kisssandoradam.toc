@@ -41,36 +41,36 @@
 \select@language {magyar} \contentsline {section}{\numberline {4.4}Modellez\IeC {\'e}s}{31}{section.4.4}
 \select@language {magyar} \contentsline {subsection}{\numberline {4.4.1}Mintatanterv}{31}{subsection.4.4.1}
 \select@language {magyar} \contentsline {subsection}{\numberline {4.4.2}Tant\IeC {\'a}rgy}{32}{subsection.4.4.2}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.3}Kurzus T\IeC {\'\i }pus}{32}{subsection.4.4.3}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.3}Kurzus t\IeC {\'\i }pus}{32}{subsection.4.4.3}
 \select@language {magyar} \contentsline {subsection}{\numberline {4.4.4}Kurzus}{33}{subsection.4.4.4}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.5}F\IeC {\'e}l\IeC {\'e}v}{33}{subsection.4.4.5}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.5}F\IeC {\'e}l\IeC {\'e}v}{34}{subsection.4.4.5}
 \select@language {magyar} \contentsline {subsection}{\numberline {4.4.6}Oktat\IeC {\'o}}{34}{subsection.4.4.6}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.7}\IeC {\'O}rarendi Kurzus}{34}{subsection.4.4.7}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.8}Oktat\IeC {\'o} - \IeC {\'O}rarendi Kurzus kapcsolat}{34}{subsection.4.4.8}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.9}Sillabusz}{35}{subsection.4.4.9}
-\select@language {magyar} \contentsline {section}{\numberline {4.5}Implement\IeC {\'a}ci\IeC {\'o}s k\IeC {\'e}rd\IeC {\'e}sek}{35}{section.4.5}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.5.1}Fejleszt\IeC {\'e}shez haszn\IeC {\'a}lt eszk\IeC {\"o}z\IeC {\"o}k}{35}{subsection.4.5.1}
-\select@language {magyar} \contentsline {subsubsection}{Eclipse}{35}{section*.11}
-\select@language {magyar} \contentsline {subsubsection}{Gradle}{35}{section*.12}
-\select@language {magyar} \contentsline {subsubsection}{Git}{35}{section*.13}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.5.2}Liferay Service Builder}{35}{subsection.4.5.2}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.5.3}Portlet class-r\IeC {\'o}l le\IeC {\'\i }r\IeC {\'a}s}{36}{subsection.4.5.3}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.5.4}JSP-kr\IeC {\H o}l p\IeC {\'e}lda le\IeC {\'\i }r\IeC {\'a}s}{36}{subsection.4.5.4}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.5.5}Keres\IeC {\H o}integr\IeC {\'a}ci\IeC {\'o}}{36}{subsection.4.5.5}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.5.6}Asset integr\IeC {\'a}ci\IeC {\'o}}{36}{subsection.4.5.6}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.5.7}Workflow}{36}{subsection.4.5.7}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.5.8}Templating}{36}{subsection.4.5.8}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.5.9}Export/Import}{36}{subsection.4.5.9}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.5.10}nyelves\IeC {\'\i }t\IeC {\'e}s}{36}{subsection.4.5.10}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.5.11}WYSIWYG szerkeszt\IeC {\H o}k}{37}{subsection.4.5.11}
-\select@language {magyar} \contentsline {chapter}{\numberline {5}Az alkalmaz\IeC {\'a}s bemutat\IeC {\'a}sa}{38}{chapter.5}
-\select@language {magyar} \contentsline {section}{\numberline {5.1}PanelApp portles cucc ide}{38}{section.5.1}
-\select@language {magyar} \contentsline {section}{\numberline {5.2}Sima instanceable portlet}{38}{section.5.2}
-\select@language {magyar} \contentsline {chapter}{\numberline {6}\IeC {\"O}sszefoglal\IeC {\'a}s}{39}{chapter.6}
-\select@language {magyar} \contentsline {section}{\numberline {6.1}El\IeC {\'e}rt eredm\IeC {\'e}nyek}{39}{section.6.1}
-\select@language {magyar} \contentsline {section}{\numberline {6.2}Tov\IeC {\'a}bbfejleszt\IeC {\'e}si lehet\IeC {\H o}s\IeC {\'e}gek}{39}{section.6.2}
-\select@language {magyar} \contentsline {chapter}{K\IeC {\"o}sz\IeC {\"o}netnyilv\IeC {\'a}n\IeC {\'\i }t\IeC {\'a}s}{40}{section.6.2}
-\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\IeC {\'e}k}{41}{chapter*.14}
-\select@language {magyar} \contentsline {chapter}{\numberline {A}Els\IeC {\H o} f\IeC {\"u}ggel\IeC {\'e}k}{42}{appendix.A}
-\select@language {magyar} \contentsline {section}{\numberline {A.1}le\IeC {\'\i }r\IeC {\'a}s}{42}{section.A.1}
-\select@language {magyar} \contentsline {chapter}{\numberline {B}M\IeC {\'a}sodik f\IeC {\"u}ggel\IeC {\'e}k}{43}{appendix.B}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.7}\IeC {\'O}rarendi kurzus}{35}{subsection.4.4.7}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.8}Oktat\IeC {\'o} - \IeC {\'O}rarendi kurzus kapcsolat}{35}{subsection.4.4.8}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.9}Sillabusz}{36}{subsection.4.4.9}
+\select@language {magyar} \contentsline {section}{\numberline {4.5}Implement\IeC {\'a}ci\IeC {\'o}s k\IeC {\'e}rd\IeC {\'e}sek}{36}{section.4.5}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.5.1}Fejleszt\IeC {\'e}shez haszn\IeC {\'a}lt eszk\IeC {\"o}z\IeC {\"o}k}{36}{subsection.4.5.1}
+\select@language {magyar} \contentsline {subsubsection}{Eclipse}{36}{section*.13}
+\select@language {magyar} \contentsline {subsubsection}{Gradle}{36}{section*.14}
+\select@language {magyar} \contentsline {subsubsection}{Git}{36}{section*.15}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.5.2}Liferay Service Builder}{36}{subsection.4.5.2}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.5.3}Portlet class-r\IeC {\'o}l le\IeC {\'\i }r\IeC {\'a}s}{37}{subsection.4.5.3}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.5.4}JSP-kr\IeC {\H o}l p\IeC {\'e}lda le\IeC {\'\i }r\IeC {\'a}s}{37}{subsection.4.5.4}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.5.5}Keres\IeC {\H o}integr\IeC {\'a}ci\IeC {\'o}}{37}{subsection.4.5.5}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.5.6}Asset integr\IeC {\'a}ci\IeC {\'o}}{37}{subsection.4.5.6}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.5.7}Workflow}{37}{subsection.4.5.7}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.5.8}Templating}{37}{subsection.4.5.8}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.5.9}Export/Import}{37}{subsection.4.5.9}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.5.10}nyelves\IeC {\'\i }t\IeC {\'e}s}{37}{subsection.4.5.10}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.5.11}WYSIWYG szerkeszt\IeC {\H o}k}{38}{subsection.4.5.11}
+\select@language {magyar} \contentsline {chapter}{\numberline {5}Az alkalmaz\IeC {\'a}s bemutat\IeC {\'a}sa}{39}{chapter.5}
+\select@language {magyar} \contentsline {section}{\numberline {5.1}PanelApp portles cucc ide}{39}{section.5.1}
+\select@language {magyar} \contentsline {section}{\numberline {5.2}Sima instanceable portlet}{39}{section.5.2}
+\select@language {magyar} \contentsline {chapter}{\numberline {6}\IeC {\"O}sszefoglal\IeC {\'a}s}{40}{chapter.6}
+\select@language {magyar} \contentsline {section}{\numberline {6.1}El\IeC {\'e}rt eredm\IeC {\'e}nyek}{40}{section.6.1}
+\select@language {magyar} \contentsline {section}{\numberline {6.2}Tov\IeC {\'a}bbfejleszt\IeC {\'e}si lehet\IeC {\H o}s\IeC {\'e}gek}{40}{section.6.2}
+\select@language {magyar} \contentsline {chapter}{K\IeC {\"o}sz\IeC {\"o}netnyilv\IeC {\'a}n\IeC {\'\i }t\IeC {\'a}s}{41}{section.6.2}
+\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\IeC {\'e}k}{42}{chapter*.16}
+\select@language {magyar} \contentsline {chapter}{\numberline {A}Els\IeC {\H o} f\IeC {\"u}ggel\IeC {\'e}k}{43}{appendix.A}
+\select@language {magyar} \contentsline {section}{\numberline {A.1}le\IeC {\'\i }r\IeC {\'a}s}{43}{section.A.1}
+\select@language {magyar} \contentsline {chapter}{\numberline {B}M\IeC {\'a}sodik f\IeC {\"u}ggel\IeC {\'e}k}{44}{appendix.B}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6200 64-bit) (preloaded format=pdflatex 2017.1.5)  21 APR 2017 04:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6200 64-bit) (preloaded format=pdflatex 2017.1.5)  22 APR 2017 01:40
 entering extended mode
 **./kisssandoradam.tex
 (kisssandoradam.tex
@@ -1206,179 +1206,178 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 [23
 
 ] [24]
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 410--422
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 412--424
 []$[]$ 
  []
 
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 429--438
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 431--440
 []$[]$ 
  []
 
 [25]
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 443--450
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 445--452
 []$[]$ 
  []
 
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 455--472
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 457--474
 []$[]$ 
  []
 
 [26]
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 481--490
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 483--492
 []$[]$ 
  []
 
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 493--506
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 495--508
 []$[]$ 
  []
 
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 509--522
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 511--524
 []$[]$ 
  []
 
 [27]
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 531--541
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 533--543
 []$[]$ 
  []
 
 [28]
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 556--566
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 558--568
 []$[]$ 
  []
 
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 571--582
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 573--584
 []$[]$ 
  []
 
 [29]
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 593--601
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 595--603
 []$[]$ 
  []
 
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 604--616
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 606--618
 []$[]$ 
  []
 
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 621--632
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 623--634
 []$[]$ 
  []
 
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 636--645
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 638--647
 []$[]$ 
  []
 
-[30] <images/curriculum.png, id=418, 149.05687pt x 140.02313pt>
+[30] <images/curriculum.png, id=437, 149.05687pt x 140.02313pt>
 File: images/curriculum.png Graphic file (type png)
 
 <use images/curriculum.png>
-Package pdftex.def Info: images/curriculum.png used on input line 657.
+Package pdftex.def Info: images/curriculum.png used on input line 677.
 (pdftex.def)             Requested size: 149.0565pt x 140.02278pt.
-
-<images/subject.png, id=420, 174.6525pt x 176.15813pt>
+ [31]
+<images/subject.png, id=444, 174.6525pt x 176.15813pt>
 File: images/subject.png Graphic file (type png)
 
 <use images/subject.png>
-Package pdftex.def Info: images/subject.png used on input line 664.
+Package pdftex.def Info: images/subject.png used on input line 687.
 (pdftex.def)             Requested size: 174.65207pt x 176.15768pt.
- [31 <./images/curriculum.png>]
-<images/course_type.png, id=428, 138.5175pt x 129.48375pt>
+
+<images/course_type.png, id=445, 138.5175pt x 129.48375pt>
 File: images/course_type.png Graphic file (type png)
 
 <use images/course_type.png>
-Package pdftex.def Info: images/course_type.png used on input line 671.
+Package pdftex.def Info: images/course_type.png used on input line 697.
 (pdftex.def)             Requested size: 138.51715pt x 129.48341pt.
-
-<images/course.png, id=429, 166.37157pt x 186.6975pt>
+ [32 <./images/curriculum.png> <./images/subject.png>] <images/course.png, id=4
+54, 166.37157pt x 186.6975pt>
 File: images/course.png Graphic file (type png)
- <use images/course.png>
-Package pdftex.def Info: images/course.png used on input line 678.
+
+<use images/course.png>
+Package pdftex.def Info: images/course.png used on input line 705.
 (pdftex.def)             Requested size: 166.37114pt x 186.69704pt.
 
-[32 <./images/subject.png> <./images/course_type.png>]
-<images/semester.png, id=440, 188.95593pt x 171.64125pt>
+<images/semester.png, id=455, 188.95593pt x 171.64125pt>
 File: images/semester.png Graphic file (type png)
 
 <use images/semester.png>
-Package pdftex.def Info: images/semester.png used on input line 685.
+Package pdftex.def Info: images/semester.png used on input line 713.
 (pdftex.def)             Requested size: 188.95546pt x 171.64081pt.
-
-<images/lecturer.png, id=441, 207.77625pt x 140.02313pt>
+ [33 <./images/course_type.png> <./images/course.png>] <images/lecturer.png, id
+=464, 207.77625pt x 140.02313pt>
 File: images/lecturer.png Graphic file (type png)
 
 <use images/lecturer.png>
-Package pdftex.def Info: images/lecturer.png used on input line 692.
+Package pdftex.def Info: images/lecturer.png used on input line 721.
 (pdftex.def)             Requested size: 207.77573pt x 140.02278pt.
- [33 <./images/course.png> <./images/semester.png>]
-<images/timetable_course.png, id=452, 315.42844pt x 228.855pt>
+
+<images/timetable_course.png, id=465, 315.42844pt x 228.855pt>
 File: images/timetable_course.png Graphic file (type png)
 
 <use images/timetable_course.png>
-Package pdftex.def Info: images/timetable_course.png used on input line 699.
+Package pdftex.def Info: images/timetable_course.png used on input line 729.
 (pdftex.def)             Requested size: 315.42766pt x 228.85443pt.
-
-<images/lecturer_timetable_course.png, id=453, 278.54062pt x 81.30376pt>
+ [34 <./images/semester.png> <./images/lecturer.png>]
+<images/lecturer_timetable_course.png, id=474, 278.54062pt x 81.30376pt>
 File: images/lecturer_timetable_course.png Graphic file (type png)
 
 <use images/lecturer_timetable_course.png>
 Package pdftex.def Info: images/lecturer_timetable_course.png used on input lin
-e 706.
+e 737.
 (pdftex.def)             Requested size: 278.53993pt x 81.30354pt.
 
-<images/syllabus.png, id=454, 207.77625pt x 239.39438pt>
+<images/syllabus.png, id=475, 207.77625pt x 239.39438pt>
 File: images/syllabus.png Graphic file (type png)
 
 <use images/syllabus.png>
-Package pdftex.def Info: images/syllabus.png used on input line 713.
+Package pdftex.def Info: images/syllabus.png used on input line 745.
 (pdftex.def)             Requested size: 207.77573pt x 239.39378pt.
- [34 <./images/lecturer.png> <./images/timetable_course.png> <./images/lecturer
-_timetable_course.png>] [35 <./images/syllabus.png>]
-[36] [37]
+ [35 <./images/timetable_course.png> <./images/lecturer_timetable_course.png>] 
+[36 <./images/syllabus.png>] [37] [38]
 5. fejezet.
-[38
+[39
 
 ]
 6. fejezet.
-[39
+[40
 
-] [40
+] [41
 
 
 ]
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 819.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 852.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [41
+) [42
 
 
 ]
 A. f\"uggel\'ek.
-[42
-
-]
-B. f\"uggel\'ek.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 841.
 [43
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 841.
+B. f\"uggel\'ek.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 874.
+[44
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 874.
  (kisssandoradam.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 841.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 841.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 841.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 874.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 874.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 874.
  ) 
 Here is how much of TeX's memory you used:
- 17846 strings out of 493329
- 259859 string characters out of 3139064
+ 17852 strings out of 493329
+ 259942 string characters out of 3139064
  346449 words of memory out of 3000000
- 20819 multiletter control sequences out of 15000+200000
+ 20822 multiletter control sequences out of 15000+200000
  47017 words of font info for 75 fonts, out of 3000000 for 9000
  1142 hyphenation exceptions out of 8191
  53i,16n,92p,1647b,1188s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1387,9 +1386,9 @@ KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/ur
 w/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pf
 b><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on kisssandoradam.pdf (44 pages, 322070 bytes).
+Output written on kisssandoradam.pdf (45 pages, 331300 bytes).
 PDF statistics:
- 821 PDF objects out of 1000 (max. 8388607)
- 277 named destinations out of 1000 (max. 500000)
+ 836 PDF objects out of 1000 (max. 8388607)
+ 280 named destinations out of 1000 (max. 500000)
  630 words of extra memory for PDF output out of 10000 (max. 10000000)
 

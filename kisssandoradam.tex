@@ -353,19 +353,21 @@ Keresőoptimalizálásra azért van szükség, mert ha valaki nem fizet a keres�
 
 Mielőtt belemennék bármilyen konkrét dologba, fontosnak tartom, hogy a későbbi fejezetekben megjelenő leggyakoribb szavakat előre bevezessem magyar és angol nyelven egyaránt:
 
-\medskip
+%\medskip
 
-\begin{tabular}{ l | l }
-Mintatanterv & Curriculum \\
-Tantárgy & Subject \\
-Kurzus Típus & Course Type \\
-Kurzus & Course \\
-Félév & Semester \\
-Órarendi Kurzus & Timetable Course \\
-Oktató & Lecturer \\
-Sillabusz & Syllabus
+\begin{table}[H]
+	\centering
+	\begin{tabular}{ l | l }
+	Mintatanterv & Curriculum \\
+	Tantárgy & Subject \\
+	Kurzus Típus & Course Type \\
+	Kurzus & Course \\
+	Félév & Semester \\
+	Órarendi Kurzus & Timetable Course \\
+	Oktató & Lecturer \\
+	Sillabusz & Syllabus
 \end{tabular}
-
+\end{table}
 
 \section{Projektstruktúra kialakítása}
 
@@ -648,27 +650,52 @@ Tehát, ha a program futása közben CurriculumCodeException váltódik ki, akko
 
 \section{Modellezés}
 
-Ebben a fejezetben azt szeretném bemutatni, hogy milyen egyedeket hoztam létre a Liferay Service Builder segítségével a sillabusz kezelő alkalmazás számára. A teljes service.xml állomány túl nagy terjedelme miatt az Oracle SQL Developer Data Modeler alkalmazás segítségével készítettem belőle egy relációs modellt, ami egy az egyben megfelel a service.xml-ben leírtaknak. Sajnos a kiexportált diagram minden esetben vagy túl széles vagy pedig túl magas volt, hogy teljes egészében kiférjen egy oldalra, ezért úgy döntöttem, hogy minden egyedet külön ábrán helyezek el.
+Ebben a fejezetben azt szeretném bemutatni, hogy milyen egyedeket hoztam létre a Liferay Service Builder segítségével a sillabusz kezelő alkalmazás számára. A teljes service.xml állomány túl nagy terjedelme miatt az Oracle SQL Developer Data Modeler alkalmazás segítségével készítettem belőle egy olyan relációs modellt, amely egy az egyben megfelel a service.xml-ben leírtaknak. Sajnos a kiexportált diagram minden esetben vagy túl széles vagy pedig túl magas volt, így teljes egészében nem fért ki egy oldalra, ezért minden egyedet külön ábrán helyeztem el.
+
+Az alfejezetekben lévő diagramokon észre lehet venni, hogy minden tábla rendelkezik az alábbi attribútumok mindegyikével:
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{ l | l }
+	groupId & Egy szervezet vagy webhely azonosítója \\
+	companyId & Egy portál példány azonosítója \\
+	userId & A tulajdonos egyedi felhasználói azonosítója \\
+	username & A tulajdonos felhasználóneve \\
+	createDate & Létrehozás dátuma \\
+	modifiedDate & Utolsó módosítás dátuma
+\end{tabular}
+\end{table}
+
+A \emph{groupId} és \emph{companyId} attribútumokon kívül mindegyik jelentése egyértelmű. A \emph{groupId} egy szervezet vagy egy webhely azonosítója lehet. A Liferay lehetőséged ad az adminisztrátorok számára, hogy különböző szervezeteket és webhelyeket definiáljanak és ezen mindegyikéhez automatikus létrejön egy-egy azonosító. Ha a Liferay portálból egyszerre több virtuális példány is fut, akkor a \emph{companyId} alapján lehet eldönteni, hogy melyik egyed, melyik példányhoz tartozik, ezáltal minden példány csak a saját egyedeihez férhet hozzá.
 
 \subsection{Mintatanterv}
+
+Egy mintatanterv két fontos információval rendelkezik, mindig van egy egyedi kódja és egy neve. Például: IMN\_PTI\_07 - Programtervező informatikus MSc nappali 2007
 
 \begin{figure}[H]
     \centering
 	\includegraphics{curriculum.png}
+	\caption{A mintatanterv egyed táblája}
 \end{figure}
 
 \subsection{Tantárgy}
 
+Egy tantárgy mindig egy adott mintatantervhez kötődik. Három fontos attribútummal rendelkezik: tantárgykód, név és kredit érték.
+
 \begin{figure}[H]
     \centering
 	\includegraphics{subject.png}
+	\caption{A tantárgy egyed táblája}
 \end{figure}
 
-\subsection{Kurzus Típus}
+\subsection{Kurzus típus}
+
+A kurzus típus egyed bevezetésére azért volt szükség, mert egy kurzusból többféle is létezhet és nem akartuk, hogy a forráskódot kelljen módosítani újabb típusok bevezetése esetén. Tipikusan elmélet, gyakorlat, labor vagy vizsgakurzus típusokat reprezentál.
 
 \begin{figure}[H]
     \centering
 	\includegraphics{course_type.png}
+	\caption{A kurzus típus egyed táblája}
 \end{figure}
 
 \subsection{Kurzus}
@@ -676,6 +703,7 @@ Ebben a fejezetben azt szeretném bemutatni, hogy milyen egyedeket hoztam létre
 \begin{figure}[H]
     \centering
 	\includegraphics{course.png}
+	\caption{A kurzus egyed táblája}
 \end{figure}
 
 \subsection{Félév}
@@ -683,6 +711,7 @@ Ebben a fejezetben azt szeretném bemutatni, hogy milyen egyedeket hoztam létre
 \begin{figure}[H]
     \centering
 	\includegraphics{semester.png}
+	\caption{A félév egyed táblája}
 \end{figure}
 
 \subsection{Oktató}
@@ -690,20 +719,23 @@ Ebben a fejezetben azt szeretném bemutatni, hogy milyen egyedeket hoztam létre
 \begin{figure}[H]
     \centering
 	\includegraphics{lecturer.png}
+	\caption{Az oktató egyed táblája}
 \end{figure}
 
-\subsection{Órarendi Kurzus}
+\subsection{Órarendi kurzus}
 
 \begin{figure}[H]
     \centering
 	\includegraphics{timetable_course.png}
+	\caption{Az órarendi kurzus egyed táblája}
 \end{figure}
 
-\subsection{Oktató - Órarendi Kurzus kapcsolat}
+\subsection{Oktató - Órarendi kurzus kapcsolat}
 
 \begin{figure}[H]
     \centering
 	\includegraphics{lecturer_timetable_course.png}
+	\caption{Az oktató és órarendi kurzus egyedeket összekapcsoló tábla}
 \end{figure}
 
 \subsection{Sillabusz}
@@ -711,6 +743,7 @@ Ebben a fejezetben azt szeretném bemutatni, hogy milyen egyedeket hoztam létre
 \begin{figure}[H]
     \centering
 	\includegraphics{syllabus.png}
+	\caption{A sillabusz egyed táblája}
 \end{figure}
 
 \section{Implementációs kérdések}
