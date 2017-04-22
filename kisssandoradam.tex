@@ -12,7 +12,6 @@
 \usepackage{commath}
 \usepackage[normalem]{ulem}
 \usepackage{enumitem}
-\usepackage{arydshln}
 \usepackage{caption}
 \usepackage{subfigure}
 \usepackage{relsize}
@@ -22,10 +21,10 @@
 \usepackage{bookmark}
 \usepackage{booktabs}
 \usepackage{makecell}
-\usepackage{longtable}
 \usepackage{algorithmic}
 \usepackage{indentfirst}
 \usepackage{listings}
+\usepackage{arydshln}
 \usepackage{float}
 \usepackage{graphicx}
 \graphicspath{ {images/} }
@@ -357,15 +356,26 @@ Mielőtt belemennék bármilyen konkrét dologba, fontosnak tartom, hogy a kés�
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{ l | l }
+	\begin{tabular}{| l | l |}
+	\hline
+	\textbf{Magyarul} & \textbf{Angolul} \\
+	\hline
 	Mintatanterv & Curriculum \\
+	\hline
 	Tantárgy & Subject \\
+	\hline
 	Kurzus Típus & Course Type \\
+	\hline
 	Kurzus & Course \\
+	\hline
 	Félév & Semester \\
+	\hline
 	Órarendi Kurzus & Timetable Course \\
+	\hline
 	Oktató & Lecturer \\
-	Sillabusz & Syllabus
+	\hline
+	Sillabusz & Syllabus \\
+	\hline
 \end{tabular}
 \end{table}
 
@@ -386,8 +396,6 @@ A \emph{syllabus-manager-web} projekten belül található meg az összes megjel
 \section{Liferay Service Builder}
 
 Liferay esetén, ha új adatbázis táblákat szeretnénk létrehozni és a portál alatt futó adatbázist szeretnénk az adatok tárolására használni, akkor nincs más dolgunk, mint a Liferay Service Builder segítségével egyedeket, tulajdonságokat és kapcsolatokat definiálni. Mindez a megfelelő projektstruktúra kialakítása után a service.xml állomány létrehozásával, illetve annak módosításával tehető meg. A service.xml állományt kétféleképpen lehet módosítani, vagy a Liferay SDK által biztosított grafikus felület segítéségével adjuk meg a megfelelő elemeket, vagy egy átlagos szöveges állományként szerkesztjük úgy, mint egy valódi XML dokumentumot. Bármelyik módszert is használjuk a végeredmény ugyan az lesz.
-
-A service.xml elkészítése után a \emph{gradlew buildService} parancs hatására lefut a Service Builder és minden szükséges interfészt és osztályt legenerál számunkra. A továbbiakban nincs más dolgunk, mint a szolgáltatások tényleges implementálása.
 
 Maga a service.xml a syllabus-manager-service projekt főkönyvtárában található meg. A dev.liferay.com fejlesztőknek szóló oldala szerint egy ilyen service.xml állományt hét lépésben lehet lehet létrehozni, de én ezt nyolcra egészíteném ki:
 \begin{enumerate}
@@ -648,34 +656,56 @@ curriculum-code-exception=Invalid Curriculum Code
 \medskip
 Tehát, ha a program futása közben CurriculumCodeException váltódik ki, akkor a megfelelő helyen az "Invalid Curriculum Code" hibaüzenet jelenik meg.
 
-\section{Modellezés}
+\section{Relációs adatmodell}
 
-Ebben a fejezetben azt szeretném bemutatni, hogy milyen egyedeket hoztam létre a Liferay Service Builder segítségével a sillabusz kezelő alkalmazás számára. A teljes service.xml állomány túl nagy terjedelme miatt az Oracle SQL Developer Data Modeler alkalmazás segítségével készítettem belőle egy olyan relációs modellt, amely egy az egyben megfelel a service.xml-ben leírtaknak. Sajnos a kiexportált diagram minden esetben vagy túl széles vagy pedig túl magas volt, így teljes egészében nem fért ki egy oldalra, ezért minden egyedet külön ábrán helyeztem el.
+Ebben a fejezetben azt szeretném bemutatni, hogy milyen egyedeket hoztam létre a Liferay Service Builder segítségével a sillabusz kezelő alkalmazás számára. A teljes service.xml állomány túl nagy terjedelme miatt az Oracle SQL Developer Data Modeler alkalmazás segítségével készítettem belőle egy olyan relációs modellt, amely egy az egyben megfelel a service.xml-ben leírtaknak. Sajnos a kiexportált diagram minden esetben vagy túl széles vagy pedig túl magas volt, így teljes egészében nem fért volna ki, ezért minden egyedet külön ábrán helyeztem el.
 
 Az alfejezetekben lévő diagramokon észre lehet venni, hogy minden tábla rendelkezik az alábbi attribútumok mindegyikével:
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{ l | l }
+	\begin{tabular}{| l | l |}
+	\hline
+	\textbf{Attribútum neve} & \textbf{Leírás} \\
+	\hline
 	groupId & Egy szervezet vagy webhely azonosítója \\
+	\hline
 	companyId & Egy portál példány azonosítója \\
+	\hline
 	userId & A tulajdonos egyedi felhasználói azonosítója \\
+	\hline
 	username & A tulajdonos felhasználóneve \\
+	\hline
 	createDate & Létrehozás dátuma \\
-	modifiedDate & Utolsó módosítás dátuma
+	\hline
+	modifiedDate & Utolsó módosítás dátuma \\
+	\hline
 \end{tabular}
 \end{table}
 
-A \emph{groupId} és \emph{companyId} attribútumokon kívül mindegyik jelentése egyértelmű. A \emph{groupId} egy szervezet vagy egy webhely azonosítója lehet. A Liferay lehetőséged ad az adminisztrátorok számára, hogy különböző szervezeteket és webhelyeket definiáljanak és ezen mindegyikéhez automatikus létrejön egy-egy azonosító. Ha a Liferay portálból egyszerre több virtuális példány is fut, akkor a \emph{companyId} alapján lehet eldönteni, hogy melyik egyed, melyik példányhoz tartozik, ezáltal minden példány csak a saját egyedeihez férhet hozzá.
+A \emph{groupId} és \emph{companyId} attribútumokon kívül mindegyik jelentése egyértelmű. A \emph{groupId} egy szervezet vagy egy webhely azonosítója lehet. A Liferay lehetőséged ad az adminisztrátorok számára, hogy különböző szervezeteket és webhelyeket definiáljanak és ezen mindegyikéhez automatikusan létrejön egy-egy azonosító, amelyet \emph{groupId}-nek neveztek el. Ha a Liferay portálból egyszerre több virtuális példány is fut, akkor a \emph{companyId} alapján lehet eldönteni, hogy melyik egyed, melyik példányhoz tartozik, ezáltal minden virtuális példány csak a saját egyedeihez férhet hozzá.
 
 \subsection{Mintatanterv}
 
-Egy mintatanterv két fontos információval rendelkezik, mindig van egy egyedi kódja és egy neve. Például: IMN\_PTI\_07 - Programtervező informatikus MSc nappali 2007
+Egy mintatanterv két fontos információval rendelkezik, mindig van egy egyedi kódja és egy neve. Például:
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{| l | l |}
+	\hline
+	\textbf{Mintatanterv kódja} & \textbf{Mintatanterv neve} \\
+	\hline
+	IBN\_PTI\_07 & Programtervező Informatikus BSc nappali 2007 \\
+	\hline
+	IMN\_PTI\_07 & Programtervező Informatikus MSc nappali 2007 \\
+	\hline
+\end{tabular}
+\end{table}
 
 \begin{figure}[H]
     \centering
 	\includegraphics{curriculum.png}
-	\caption{A mintatanterv egyed táblája}
+	\caption{A mintatanterv tábla}
 \end{figure}
 
 \subsection{Tantárgy}
@@ -685,127 +715,207 @@ Egy tantárgy mindig egy adott mintatantervhez kötődik. Három fontos attribú
 \begin{figure}[H]
     \centering
 	\includegraphics{subject.png}
-	\caption{A tantárgy egyed táblája}
+	\caption{A tantárgy tábla}
 \end{figure}
 
-\subsection{Kurzus típus}
+\subsection{Kurzus Típus}
 
 A kurzus típus egyed bevezetésére azért volt szükség, mert egy kurzusból többféle is létezhet és nem akartuk, hogy a forráskódot kelljen módosítani újabb típusok bevezetése esetén. Tipikusan elmélet, gyakorlat, labor vagy vizsgakurzus típusokat reprezentál.
 
 \begin{figure}[H]
     \centering
 	\includegraphics{course_type.png}
-	\caption{A kurzus típus egyed táblája}
+	\caption{A kurzus típus tábla}
 \end{figure}
 
 \subsection{Kurzus}
 
+Egy kurzus mindig egy tantárgyhoz és egy kurzus típushoz kötődik. A tantárgyhoz a kurzus adja meg a heti és féléves óraszámokat.
+
 \begin{figure}[H]
     \centering
 	\includegraphics{course.png}
-	\caption{A kurzus egyed táblája}
+	\caption{A kurzus tábla}
 \end{figure}
 
 \subsection{Félév}
 
+A félév egyed, ahogyan azt a neve is sugallja egy egyetemi félévet reprezentál.
+
 \begin{figure}[H]
     \centering
 	\includegraphics{semester.png}
-	\caption{A félév egyed táblája}
+	\caption{A félév tábla}
 \end{figure}
 
 \subsection{Oktató}
 
+Az oktató egyed bevezetésére azért volt szükség, mert nem biztos, hogy egy oktató azt a nevet szeretné megjeleníteni egy sillabuszban, mint amellyel a Liferay-es felhasználói fiókja is rendelkezik.
+
 \begin{figure}[H]
     \centering
 	\includegraphics{lecturer.png}
-	\caption{Az oktató egyed táblája}
+	\caption{Az oktató tábla}
 \end{figure}
 
-\subsection{Órarendi kurzus}
+\subsection{Órarendi Kurzus}
+
+Egy órarendi kurzus akkor jön létre, amikor egy adott félévben egy adott kurzust meghirdetnek a hallgatók számára.
 
 \begin{figure}[H]
     \centering
 	\includegraphics{timetable_course.png}
-	\caption{Az órarendi kurzus egyed táblája}
+	\caption{Az órarendi kurzus tábla}
 \end{figure}
 
-\subsection{Oktató - Órarendi kurzus kapcsolat}
+\subsection{Oktató - Órarendi Kurzus kapcsolat}
+
+Ez az a tábla, amely képes eltárolni, hogy mely oktató, mely órarendi kurzushoz tartozik. Erre azért volt szükség, mert egy ilyen kurzusnak akármennyi oktatója lehet  és egy oktató is akármennyi kurzust tarthat egyszerre egy félévben.
 
 \begin{figure}[H]
     \centering
 	\includegraphics{lecturer_timetable_course.png}
-	\caption{Az oktató és órarendi kurzus egyedeket összekapcsoló tábla}
+	\caption{Az oktatókat és órarendi kurzusokat összekapcsoló tábla}
 \end{figure}
 
 \subsection{Sillabusz}
 
+Egy sillabusz mindig egy órarendi kurzushoz tartozik. Ez a tábla tartalmazza azon adatokat, amelyek félévente változhatnak egy újabb sillabusz kiadásakor.
+
 \begin{figure}[H]
     \centering
 	\includegraphics{syllabus.png}
-	\caption{A sillabusz egyed táblája}
+	\caption{A sillabusz tábla}
 \end{figure}
+
+\section{Szolgáltatások kialakítása}
+
+A service.xml elkészítése után a \emph{gradlew buildService} parancs hatására lefut a Service Builder és minden szükséges interfészt és osztályt legenerál számunkra. A továbbiakban nincs más dolgunk, mint a szükséges szolgáltatások implementálása.
+
+Liferay esetén kétféle szolgáltatást különböztetünk meg: helyi szolgáltatásokat és webszolgáltatásokat. Általában a webszolgáltatások csak egy interfészt nyújtanak a külvilág számára a helyi szolgáltatások elérésére, ezért én csak a helyi szolgáltatások létrehozását mutatom be.
+
+Az egyes egyedekhez a \emph{hu.unideb.inf.service.impl} csomagban találhatóak meg azok az osztályok, melyeket újabb metódussal lehet bővíteni. Ebben a csomagban minden egyedhez két osztály tartozik: egy ServiceImpl és egy LocalServiceImpl nevekre végződő osztályok. Az előbbire a webszolgáltatások, az utóbbira pedig a helyi szolgáltatások miatt van szükség.
+
+Az egyszerűség kedvéért az összes szolgáltatás közül csak a CurriculumLocalServiceImpl osztály lényeges részeit szeretném bemutatni.
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[basicstyle=\small]
+@ProviderType
+public class CurriculumLocalServiceImpl
+		extends CurriculumLocalServiceBaseImpl {
+	
+	public Curriculum getCurriculumByCode(
+		String curriculumCode)
+		throws SystemException,
+			NoSuchCurriculumException {...}
+
+	public Curriculum fetchCurriculumByCode(
+		String curriculumCode)
+		throws SystemException {...}
+
+	public Curriculum addCurriculum(
+		String curriculumCode, String curriculumName,
+		ServiceContext serviceContext)
+		throws PortalException, SystemException {...}
+
+	public Curriculum updateCurriculum(
+		long userId,
+		long curriculumId,
+		String curriculumCode,
+		String curriculumName,
+		ServiceContext serviceContext)
+		throws PortalException, SystemException {...}
+
+	public Curriculum deleteCurriculum(
+		long curriculumId,
+		ServiceContext serviceContext)
+		throws PortalException, SystemException {...}
+}
+\end{lstlisting}
+\end{minipage}
+
+A getCurriculumByCode(...) metódus egy mintatanterv kódja alapján vissza tudja adni a megfelelő mintatantervet, viszont ha nincs a kódnak megfelelő adat az adatbázisban, akkor NoSuchCurriculumException fog kiváltódni.
+
+A fetchCurriculumByCode(...) metódus ugyan azt csinálja, mint a getCurriculumByCode(...), mindössze annyi a különbség a kettő között, hogy ez a metódus null értékkel tér vissza abban az esetben, ha az adatbázisban nem található meg a megfelelő mintatanterv.
+
+Az addCurriculum(...) segítségével új mintatantervet lehet hozzáadni az adatbázishoz, az updateCurriculum(...) metódussal frissíteni lehet egy létező mintatanterv adatait, a deleteCurriculum(...) meghívásával pedig törölni lehet egy mintatantervet az adatbázisból. Ha törlés során kiderülne, hogy a törlendő mintatantervhez legalább egy tantárgy is kapcsolódik, akkor DeleteSubjectsFirstException kivétel váltódik ki és a törlés nem hajtódik végre.
+
+Az add és update metódusok validációt is végrehajtanak. Abban az esetben, ha a létrehozandó vagy módosítani egyed egyik attribútuma nem megfelelő értékkel rendelkezik, akkor szintén kivétel dobódik és a művelet végrehajtása megszakad, amely hatására hibaüzenetet lehet megjeleníteni a felhasználói felületen.
+
+A CurriculumServiceImpl osztályon belül szinte minden metódus először azt ellenőrzi, hogy a felhasználó rendelkezik-e a megfelelő jogosultsággal a művelet végrehajtására. Ha igen, akkor a CurriculumLocalServiceImpl osztályon belül található megfelelő metódust hívódik meg, ha viszont valamilyen oknál fogva a felhasználó nem rendelkezne a megfelelő jogosultsággal, akkor PrincipalException váltódik ki és biztonsági okokból a művelet végrehajtása el sem kezdődik.
+
+A szolgáltatások implementálása után újra kel generáltatni a Service Builder által létrehozott többi forráskódot.
 
 \section{Implementációs kérdések}
 
-4. lépés implementáció. Konkrét kódrészletek jönnek ide! Egy sima entity hozzáadás (pl.: Syllabus Entity) hogyan lett elkészítve.
+\subsection{Portlet létrehozása}
 
-\subsection{Fejlesztéshez használt eszközök}
+A szolgáltatások kialakítása utána már csak egy felhasználói interfész létrehozására volt szükség. Követelményként az volt meghatározva, hogy legyen egy adminisztrációs felület, ahol a tantárgyak alapadatait meg lehet adni. A sillabusz kezelő alkalmazás adminisztráció felületét ott helyeztem el, ahol a többi alkalmazás adminisztrációs felülete is megtalálható, azaz az Liferay 7.0-ban a régi vezérlőpultot felváltó oldalsáv "Tartalom" menüpontja alatt.
 
-\subsubsection{Eclipse}
+A felület létrehozására mindössze egy portlet létrehozására, a megfelelő műveletek definiálására és a megjelenítő oldalak kialakítására volt szükség. A technikai részletekbe nem szeretnék belemenni, mert a teljes diplomamunka is kevés lenne minden elmagyarázására, ezért csak néhány dolgot említenék meg a felület kialakításával kapcsolatban.
 
-\subsubsection{Gradle}
+\subsection{Jogosultságkezelés}
 
-\subsubsection{Git}
+A kialakított felületen minden elem esetén ellenőrizve van, hogy a felhasználó rendelkezik-e a megfelelő jogosultságokkal, annak használatára. Ha nem rendelkezik, akkor az elem vagy akár az egész oldal egyszerűen nem jelenik meg, még hibaüzenet sem jelenik meg arról, hogy nincs meg a felhasználónak a megfelelő joga, mert ezzel csak a biztonságosság szintjét csökkentettem volna.
 
-\subsection{Liferay Service Builder}
+A jogosultságkezelés kialakításához a következő dolgokra volt szükség:
 
-Mi ez? Mire jó? Mit nem csinál? Mit csinál?
-Hogyan épülnek egymásra a rétegek? Megemlíteni a diagramon is!
+\begin{enumerate}
+\item Jogosultságok definiálása
+\item Jogosultság ellenőrző osztályok kialakítása
+\item Jogosultság ellenőrzés a szükséges helyeken
+\end{enumerate}
 
-Service builderben:
-companyId
-groupId
-egyébId-k
+\subsubsection{Jogosultságok definiálása}
 
-\subsection{Portlet class-ról leírás}
+A sillabusz kezelő alkalmazás esetén minden jogosultságot a syllabus-manager-service projekten belül az src/main/resources/META-INF/resource-actions/default.xml állományon belül definiáltam. A Liferay két szintű jogosultságokat különböztet meg: felsőbb szintű (top level) és erőforrás szintű jogosultságokat. Felsőbb szintű akkor lesz egy jogosultság, ha nem tartozik semmilyen erőforráshoz. Példa jogosultságokra:
 
-\subsection{JSP-kről példa leírás}
+\begin{table}[H]
+	\caption{Példák felsőbb szintű jogosultságokra}
+	\centering
+	\begin{tabular}{| l | l | l |}
+	\hline
+	\textbf{Jogosultság neve} & \textbf{Leírás} \\
+	\hline
+	ADD\_CURRICULUM & Mintatanterv hozzáadási jog \\
+	\hline
+	DELETE\_CURRICULUMS & Csoportos mintatanterv törlési jog \\
+	\hline
+\end{tabular}
+\end{table}
 
-Alloy UI http://proliferay.com/liferay-alloy-ui-basics/
+\begin{table}[H]
+	\caption{Példák mintatanterv esetén erőforrás szintű jogosultságokra}
+	\centering
+	\begin{tabular}{| l | l | l |}
+	\hline
+	\textbf{Jogosultság neve} & \textbf{Leírás} \\
+	\hline
+	DELETE & Egyéni törlési jog egy adott mintatantervre \\
+	\hline
+	VIEW & Megtekintési jog egy adott mintatantervre \\
+	\hline
+\end{tabular}
+\end{table}
 
-Ide jöhet még az AJAX-os dependent dropbdown lista a syllabus hozzáadása példával, mert az jó hosszú.
+\subsubsection{Jogosultság ellenőrző osztályok kialakítása}
 
-\subsection{Keresőintegráció}
+Ezeket az osztályokat a kódismétlés csökkentése érdekében kellett kialakítanom. Mindegyik tartalmaz egy check és contains nevű metódust. A check metódus PrincipalException kivételt dob minden olyan esetben, amikor a felhasználó nem rendelkezik adott jogosultsággal, a contains pedig igaz/hamis értékkel tér vissza annak függvényében, hogy a felhasználó rendelkezik-e a megfelelő jogosultságokkal.
 
-Mire jó ez? Hogyan lett megvalósítva?
+Ezek a jogosultságokat ellenőrző osztályok a \emph{hu.unideb.inf.service.permission} csomagon belül lettek elhelyezve. Felsőbb szintű jogosultságok ellenőrzésére a ModelPermission osztályt, az erőforrás szintűekre pedig a minden egyednek külön létrehozott osztályokat lehet használni.
 
-\subsection{Asset integráció}
+\subsubsection{Jogosultság ellenőrzés a szükséges helyeken}
 
-Mi az az Asset Framework Liferay-en belül? Mire jó? Hogyan kell megvalósítani? (megemlíteni a két *Asset* osztályt.
-Libreoffice-szal konfigurálva mire jó? Export/import.
+A jogosultság ellenőrzése úgy történik, hogy a megfelelő helyen a megfelelő jogosultság ellenőrző osztály megfelelő metódusa a megfelelő paraméterekkel meghívódik. Jó példa erre a sillabuszok listázásánál végzett erőforrás szintű ellenőrzés:
 
-\subsection{Workflow}
-
-Létrehozok egy syllabuszt, ezután vagy elfogadja valaki vagy elutasítja. Csak akkor látható a nagyvilág számára, ha el lett fogadva. Mindez a Liferay beépített workflow kezelésével lett elérve.
-
-\subsection{Templating}
-
-Apache Velocity, Apache Freemarker-t itt meg lehetne említeni, hogy mit lehetett volna elérni vele.
-
-\subsection{Export/Import}
-
-Lehessen importálni az adatokat csv fájlból és persze exportálni is.
-
-OpenCSV megfelel az RFC csv-nek. Leírni mi az az rfc, hivatkozni rá, stb...
-
-\subsection{nyelvesítés}
-
-Hogyan lett megvalósítva? Konkrét liferay-es példákkal lesz majd leírva.
-
-\subsection{WYSIWYG szerkesztők}
-
-Mi ez? Hol van ez használva? Mire jó?
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[basicstyle=\small]
+<c:if test='<%=SyllabusPermission.contains(
+	permissionChecker, syllabus.getSyllabusId(), "VIEW")%>'>
+	...
+</c:if>
+\end{lstlisting}
+\end{minipage}
 
 \chapter{Az alkalmazás bemutatása}
 

@@ -3,26 +3,8 @@ Diplomamunkám címe "Java EE alkalmazásfejlesztés" nagyon sok mindent foglalh
 
 Leírni, hogy mi az a Java EE.
 
-
-jó lenne valami kulcsszó magyarázat
-Curriculum - Mintatanterv
-Subject - Tantárgy
-stb...
-
 tapasztalat diplomamunkába leírni
 =================================
-
-
-webalkalmazások fejlesztésének problémkörei
-===========================================
-komplex tudást igényel
-egyedi saját alkalmazás vagy portálra építve?
-állandó változás
-böngésző kompatibilitás
-biztonsági kérdések (authorizáció)
-input validáció
-reszponzivitiás
-
 
 mi a webalkalmazás
 portlet kifejtése jsr szabvány
@@ -32,9 +14,11 @@ migrációs probléma 6.2 7.0
 sok idő migrálni
 
 design pattern
+==============
 role object pattern
 dao pattern localservice-eknél
 mvc -> portlet nem ugyan az
+
 
 irdoalomjegyzékbe könyv
 
