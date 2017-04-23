@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6200 64-bit) (preloaded format=pdflatex 2017.1.5)  23 APR 2017 00:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6200 64-bit) (preloaded format=pdflatex 2017.1.5)  23 APR 2017 03:18
 entering extended mode
 **./kisssandoradam.tex
 (kisssandoradam.tex
@@ -1252,55 +1252,55 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 646--655
 []$[]$ 
  []
 
-[30] [31] <images/curriculum.png, id=450, 149.05687pt x 140.02313pt>
+[30] [31] <images/curriculum.png, id=424, 149.05687pt x 140.02313pt>
 File: images/curriculum.png Graphic file (type png)
 
 <use images/curriculum.png>
 Package pdftex.def Info: images/curriculum.png used on input line 707.
 (pdftex.def)             Requested size: 149.0565pt x 140.02278pt.
 
-<images/subject.png, id=452, 174.6525pt x 176.15813pt>
+<images/subject.png, id=426, 174.6525pt x 176.15813pt>
 File: images/subject.png Graphic file (type png)
 
 <use images/subject.png>
 Package pdftex.def Info: images/subject.png used on input line 717.
 (pdftex.def)             Requested size: 174.65207pt x 176.15768pt.
  [32 <./images/curriculum.png> <./images/subject.png>]
-<images/course_type.png, id=462, 138.5175pt x 129.48375pt>
+<images/course_type.png, id=436, 138.5175pt x 129.48375pt>
 File: images/course_type.png Graphic file (type png)
 
 <use images/course_type.png>
 Package pdftex.def Info: images/course_type.png used on input line 727.
 (pdftex.def)             Requested size: 138.51715pt x 129.48341pt.
 
-<images/course.png, id=463, 166.37157pt x 186.6975pt>
+<images/course.png, id=437, 166.37157pt x 186.6975pt>
 File: images/course.png Graphic file (type png)
  <use images/course.png>
 Package pdftex.def Info: images/course.png used on input line 737.
 (pdftex.def)             Requested size: 166.37114pt x 186.69704pt.
 
-<images/semester.png, id=464, 188.95593pt x 171.64125pt>
+<images/semester.png, id=438, 188.95593pt x 171.64125pt>
 File: images/semester.png Graphic file (type png)
 
 <use images/semester.png>
 Package pdftex.def Info: images/semester.png used on input line 747.
 (pdftex.def)             Requested size: 188.95546pt x 171.64081pt.
  [33 <./images/course_type.png> <./images/course.png>] <images/lecturer.png, id
-=473, 207.77625pt x 140.02313pt>
+=447, 207.77625pt x 140.02313pt>
 File: images/lecturer.png Graphic file (type png)
 
 <use images/lecturer.png>
 Package pdftex.def Info: images/lecturer.png used on input line 757.
 (pdftex.def)             Requested size: 207.77573pt x 140.02278pt.
 
-<images/timetable_course.png, id=474, 315.42844pt x 228.855pt>
+<images/timetable_course.png, id=448, 315.42844pt x 228.855pt>
 File: images/timetable_course.png Graphic file (type png)
 
 <use images/timetable_course.png>
 Package pdftex.def Info: images/timetable_course.png used on input line 767.
 (pdftex.def)             Requested size: 315.42766pt x 228.85443pt.
  [34 <./images/semester.png> <./images/lecturer.png>]
-<images/lecturer_timetable_course.png, id=483, 278.54062pt x 81.30376pt>
+<images/lecturer_timetable_course.png, id=457, 278.54062pt x 81.30376pt>
 File: images/lecturer_timetable_course.png Graphic file (type png)
 
 <use images/lecturer_timetable_course.png>
@@ -1308,7 +1308,7 @@ Package pdftex.def Info: images/lecturer_timetable_course.png used on input lin
 e 777.
 (pdftex.def)             Requested size: 278.53993pt x 81.30354pt.
 
-<images/syllabus.png, id=484, 207.77625pt x 239.39438pt>
+<images/syllabus.png, id=458, 207.77625pt x 239.39438pt>
 File: images/syllabus.png Graphic file (type png)
 
 <use images/syllabus.png>
@@ -1320,99 +1320,146 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 801--836
  []
 
 [36 <./images/syllabus.png>] [37] [38] [39]
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 911--919
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 918--926
 []$[]$ 
  []
 
-[40]
+[40] [41] [42]
 5. fejezet.
-[41
+<images/sm_main_page.png, id=553, 1027.84pt x 503.8825pt>
+File: images/sm_main_page.png Graphic file (type png)
 
-]
+<use images/sm_main_page.png>
+Package pdftex.def Info: images/sm_main_page.png used on input line 977.
+(pdftex.def)             Requested size: 455.24411pt x 223.1775pt.
+
+<images/sm_curriculum_list.png, id=554, 1027.84pt x 503.8825pt>
+File: images/sm_curriculum_list.png Graphic file (type png)
+
+<use images/sm_curriculum_list.png>
+Package pdftex.def Info: images/sm_curriculum_list.png used on input line 983.
+(pdftex.def)             Requested size: 455.24411pt x 223.1775pt.
+ [43
+
+ <./images/sm_main_page.png>]
+<images/sm_subject_list.png, id=561, 1027.84pt x 503.8825pt>
+File: images/sm_subject_list.png Graphic file (type png)
+
+<use images/sm_subject_list.png>
+Package pdftex.def Info: images/sm_subject_list.png used on input line 989.
+(pdftex.def)             Requested size: 455.24411pt x 223.1775pt.
+
+<images/sm_course_list.png, id=562, 924.45375pt x 452.69125pt>
+File: images/sm_course_list.png Graphic file (type png)
+
+<use images/sm_course_list.png>
+Package pdftex.def Info: images/sm_course_list.png used on input line 995.
+(pdftex.def)             Requested size: 455.24411pt x 222.92584pt.
+ [44 <./images/sm_curriculum_list.png> <./images/sm_subject_list.png>]
+<images/sm_timetable_course_list.png, id=571, 924.45375pt x 452.69125pt>
+File: images/sm_timetable_course_list.png Graphic file (type png)
+
+<use images/sm_timetable_course_list.png>
+Package pdftex.def Info: images/sm_timetable_course_list.png used on input line
+ 1001.
+(pdftex.def)             Requested size: 455.24411pt x 222.92584pt.
+
+<images/sm_syllabus_list.png, id=572, 924.45375pt x 452.69125pt>
+File: images/sm_syllabus_list.png Graphic file (type png)
+
+<use images/sm_syllabus_list.png>
+Package pdftex.def Info: images/sm_syllabus_list.png used on input line 1007.
+(pdftex.def)             Requested size: 455.24411pt x 222.92584pt.
+ [45 <./images/sm_course_list.png> <./images/sm_timetable_course_list.png>]
+<images/sm_list_actions.png, id=581, 1027.84pt x 454.69875pt>
+File: images/sm_list_actions.png Graphic file (type png)
+
+<use images/sm_list_actions.png>
+Package pdftex.def Info: images/sm_list_actions.png used on input line 1013.
+(pdftex.def)             Requested size: 455.24411pt x 201.39325pt.
+
+<images/sm_syllabus_add_1.png, id=582, 1027.84pt x 562.1pt>
+File: images/sm_syllabus_add_1.png Graphic file (type png)
+
+<use images/sm_syllabus_add_1.png>
+Package pdftex.def Info: images/sm_syllabus_add_1.png used on input line 1019.
+(pdftex.def)             Requested size: 455.24411pt x 248.96297pt.
+ [46 <./images/sm_syllabus_list.png> <./images/sm_list_actions.png>]
+<images/sm_syllabus_add_2.png, id=591, 1027.84pt x 562.1pt>
+File: images/sm_syllabus_add_2.png Graphic file (type png)
+
+<use images/sm_syllabus_add_2.png>
+Package pdftex.def Info: images/sm_syllabus_add_2.png used on input line 1025.
+(pdftex.def)             Requested size: 455.24411pt x 248.96297pt.
+
+<images/sm_syllabus_add_3.png, id=592, 1027.84pt x 562.1pt>
+File: images/sm_syllabus_add_3.png Graphic file (type png)
+
+<use images/sm_syllabus_add_3.png>
+Package pdftex.def Info: images/sm_syllabus_add_3.png used on input line 1031.
+(pdftex.def)             Requested size: 455.24411pt x 248.96297pt.
+ [47 <./images/sm_syllabus_add_1.png> <./images/sm_syllabus_add_2.png>]
+<images/sm_syllabus_add_4.png, id=601, 1027.84pt x 562.1pt>
+File: images/sm_syllabus_add_4.png Graphic file (type png)
+
+<use images/sm_syllabus_add_4.png>
+Package pdftex.def Info: images/sm_syllabus_add_4.png used on input line 1037.
+(pdftex.def)             Requested size: 455.24411pt x 248.96297pt.
+
+<images/sm_import_export.png, id=602, 924.45375pt x 631.35875pt>
+File: images/sm_import_export.png Graphic file (type png)
+
+<use images/sm_import_export.png>
+Package pdftex.def Info: images/sm_import_export.png used on input line 1043.
+(pdftex.def)             Requested size: 455.24411pt x 310.9099pt.
+ [48 <./images/sm_syllabus_add_3.png> <./images/sm_syllabus_add_4.png>] [49 <./
+images/sm_import_export.png>]
 6. fejezet.
-[42
+[50
 
-] [43
+] [51
 
 
 ]
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 962.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 1077.
+
  ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [44
+) [52
 
 
 ]
 A. f\"uggel\'ek.
-[45
+[53
 
 ]
 B. f\"uggel\'ek.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 984.
-[46
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1099.
+[54
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 984.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1099.
  (kisssandoradam.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 984.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 984.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 984.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1099.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1099.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1099.
  ) 
 Here is how much of TeX's memory you used:
- 17788 strings out of 493329
- 259153 string characters out of 3139064
+ 17866 strings out of 493329
+ 261140 string characters out of 3139064
  345008 words of memory out of 3000000
- 20713 multiletter control sequences out of 15000+200000
+ 20764 multiletter control sequences out of 15000+200000
  47017 words of font info for 75 fonts, out of 3000000 for 9000
  1142 hyphenation exceptions out of 8191
  53i,17n,92p,1647b,1199s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{chapter*.22} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.7.11} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.7.10} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.7.9} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.7.8} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.7.7} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.7.6} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.7.5} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.7.4} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.7.3} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.7.2} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.7.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.4.7} has been referenced but does not exist
-, replaced by a fixed one
-
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/
-times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb>
-<C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on kisssandoradam.pdf (47 pages, 354393 bytes).
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/ur
+w/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on kisssandoradam.pdf (55 pages, 799390 bytes).
 PDF statistics:
- 882 PDF objects out of 1000 (max. 8388607)
- 330 named destinations out of 1000 (max. 500000)
- 566 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 934 PDF objects out of 1000 (max. 8388607)
+ 345 named destinations out of 1000 (max. 500000)
+ 618 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -852,14 +852,21 @@ A szolgáltatások implementálása után újra kel generáltatni a Service Buil
 
 A szolgáltatások kialakítása utána már csak egy felhasználói interfész létrehozására volt szükség. Követelményként az volt meghatározva, hogy legyen egy adminisztrációs felület, ahol a tantárgyak alapadatait meg lehet adni. A sillabusz kezelő alkalmazás adminisztráció felületét ott helyeztem el, ahol a többi alkalmazás adminisztrációs felülete is megtalálható, azaz az Liferay 7.0-ban a régi vezérlőpultot felváltó oldalsáv "Tartalom" menüpontja alatt.
 
-A felület létrehozására mindössze egy portlet létrehozására, a megfelelő műveletek definiálására és a megjelenítő oldalak kialakítására volt szükség. A technikai részletekbe nem szeretnék belemenni, mert a teljes diplomamunka is kevés lenne minden elmagyarázására, ezért csak néhány dolgot említenék meg a felület kialakításával kapcsolatban.
+A felület létrehozására mindössze egy portlet létrehozására, a megfelelő műveletek definiálására és a megjelenítő oldalak kialakítására volt szükség. A technikai részletekbe nem szeretnék belemenni, mert a teljes diplomamunka is kevés lenne mindezek elmagyarázására.
 
 \subsection{Jogosultságkezelés}
 
 A kialakított felületen minden elem esetén ellenőrizve van, hogy a felhasználó rendelkezik-e a megfelelő jogosultságokkal, annak használatára. Ha nem rendelkezik, akkor az elem vagy akár az egész oldal egyszerűen nem jelenik meg, még hibaüzenet sem jelenik meg arról, hogy nincs meg a felhasználónak a megfelelő joga, mert ezzel csak a biztonságosság szintjét csökkentettem volna.
 
-A jogosultságkezelés kialakításához a következő dolgokra volt szükség:
+A Liferay támogatja a szerepkör alapú jogosultságkezelést. A portál három különböző típusú szerepkört különít el:
+\begin{itemize}
+\item normál,
+\item webhely,
+\item szervezet
+\end{itemize}
+szerepkörök. A jogosultságkezelés beállításához mindössze egy megfelelő típusú szerepkört kell létrehozni és magára a szerepkörre kell meghatározni, hogy mely jogosultságokkal rendelkezik. Ezután a szerepkört hozzá lehet rendelni egy felhasználóhoz és máris rendelkezik a megfelelő jogosultságokkal. Sok helyen az ilyen fajta jogosultságkezelésre "Role Object Pattern" névként szokás hivatkozni, amely egy széles körben elfogadott tervezési minta.
 
+Forráskód szinten a jogosultságkezelés kialakításához a következő dolgokra volt szükségem:
 \begin{enumerate}
 \item Jogosultságok definiálása
 \item Jogosultság ellenőrző osztályok kialakítása
@@ -917,17 +924,125 @@ A jogosultság ellenőrzése úgy történik, hogy a megfelelő helyen a megfele
 \end{lstlisting}
 \end{minipage}
 
+\subsection{Munkafolyamat támogatás}
+
+Az egyik legfontosabb követelmény a munkafolyamat támogatása volt. Ezt a portálba épített keretrendszer segítségével tettem lehetővé. A munkafolyamat kialakítása egyszerű folyamatnak tűnik:
+\begin{enumerate}
+\item Asset integráció
+\item Új attribútumok felvétele
+\item Service réteg módosítása
+\item WorkflowHandler osztály létrehozása
+\end{enumerate}
+
+\subsubsection{Asset integráció}
+
+Asset integráció alatt azt kell érteni, hogy egy entitás kezelhetővé válik az Asset Publisher nevű portleten keresztül. Erre a részre amúgy is szükség lett volna, mert követelményként volt meghatározva, hogy egy sillabuszt az Asset Publisher-en keresztül kell tudni létrehozni, módosítani és legfőképpen megjeleníteni.
+
+\subsubsection{Új attribútumok felvétele}
+
+A sillabusz egyed esetén négy új attribútum felvételére volt szükség:
+\begin{table}[H]
+	\centering
+	\begin{tabular}{| l | l | l |}
+	\hline
+	\textbf{Attribútum neve} & \textbf{Leírás} \\
+	\hline
+	status & Az egyed munkafolyamatbeli állapotát jelzi \\
+	\hline
+	statusByUserId & Az egyedet létrehozó felhasználó azonosítója \\
+	\hline
+	statusByUserName & Az egyedet létrehozó felhasználóneve \\
+	\hline
+	statusDate & Az egyed munkafolyamatbeli állapotának utolsó módosítási dátuma \\
+	\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Service réteg módosítása}
+
+A SyllabusLocalServiceImpl osztályon belül található metódusokat úgy kellett módosítani, hogy hozzáadáskor és frissítéskor elindítsa a munkafolyamatot, törléskor pedig szüntesse azt meg.
+
+Ugyan ebben az osztályban még szükség volt egy újabb, updateStatus(...) nevű metódus bevezetésére is. A metódus megelelő paraméterekkel történő meghívásával lehet állítani a sillabuszok munkafolyamatbeli állapotát.
+
+\subsubsection{WorkflowHandler komponens létrehozása}
+
+A Liferay a 7.0 verzió megjelenése óta komponensekkel és modulokkal dolgozik. Mindezt az OSGI keretrendszer implementálása tette lehetővé. Munkafolyamat kezelésnél nekem is egy újabb komponenst kellett létrehoznom, annak érdekében, hogy az OSGI futtatórendszer tudomást szerezzen arról, hogy a sillabusz egyedek is támogatják a portálba munkafolyamat keretrendszerét.
+
 \chapter{Az alkalmazás bemutatása}
 
-Az alábbiak során felhasználói szemszögből fogom bemutatni az elkészült alkalmazást.
+Számtalan képet lehetne elhelyezni arról, hogy hogyan is néz ki a sillabusz kezelő alkalmazás, de az oldalakkal való takarékosság érdekében csak a leglényegesebb funkciókat szeretném bemutatni felhasználói szemszögből.
 
-\section{PanelApp portles cucc ide}
+\begin{figure}[H]
+    \centering
+	\includegraphics[width=\textwidth]{sm_main_page.png}
+	\caption{A sillabusz kezelő portlet főoldala}
+\end{figure}
 
-ControlPanel volt régen, de most már PanelApp van 7.0 óta.
+\begin{figure}[H]
+    \centering
+	\includegraphics[width=\textwidth]{sm_curriculum_list.png}
+	\caption{A mintatanterv listázó}
+\end{figure}
 
-\section{Sima instanceable portlet}
+\begin{figure}[H]
+    \centering
+	\includegraphics[width=\textwidth]{sm_subject_list.png}
+	\caption{A tantárgy listázó}
+\end{figure}
 
-Ez az a portlet, amely a weboldalakra lesz kihelyezve, instanceable=true és konfigurálható, hogy mit mutasson. (Akár félév halapján, akár egyesével konfigurálható).
+\begin{figure}[H]
+    \centering
+	\includegraphics[width=\textwidth]{sm_course_list.png}
+	\caption{A kurzus listázó}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+	\includegraphics[width=\textwidth]{sm_timetable_course_list.png}
+	\caption{Az órarendi kurzus listázó}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+	\includegraphics[width=\textwidth]{sm_syllabus_list.png}
+	\caption{A sillabusz listázó}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+	\includegraphics[width=\textwidth]{sm_list_actions.png}
+	\caption{Egy listázó műveletei}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+	\includegraphics[width=\textwidth]{sm_syllabus_add_1.png}
+	\caption{Egy sillabusz létrehozása 1/4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+	\includegraphics[width=\textwidth]{sm_syllabus_add_2.png}
+	\caption{Egy sillabusz létrehozása 2/4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+	\includegraphics[width=\textwidth]{sm_syllabus_add_3.png}
+	\caption{Egy sillabusz létrehozása 3/4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+	\includegraphics[width=\textwidth]{sm_syllabus_add_4.png}
+	\caption{Egy sillabusz létrehozása 4/4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+	\includegraphics[width=\textwidth]{sm_import_export.png}
+	\caption{Az importálás/exportálás oldala}
+\end{figure}
 
 \chapter{Összefoglalás}
 

@@ -55,14 +55,17 @@
 \select@language {magyar} \contentsline {subsubsection}{Jogosults\IeC {\'a}gok defini\IeC {\'a}l\IeC {\'a}sa}{39}{section*.14}
 \select@language {magyar} \contentsline {subsubsection}{Jogosults\IeC {\'a}g ellen\IeC {\H o}rz\IeC {\H o} oszt\IeC {\'a}lyok kialak\IeC {\'\i }t\IeC {\'a}sa}{40}{section*.17}
 \select@language {magyar} \contentsline {subsubsection}{Jogosults\IeC {\'a}g ellen\IeC {\H o}rz\IeC {\'e}s a sz\IeC {\"u}ks\IeC {\'e}ges helyeken}{40}{section*.18}
-\select@language {magyar} \contentsline {chapter}{\numberline {5}Az alkalmaz\IeC {\'a}s bemutat\IeC {\'a}sa}{41}{chapter.5}
-\select@language {magyar} \contentsline {section}{\numberline {5.1}PanelApp portles cucc ide}{41}{section.5.1}
-\select@language {magyar} \contentsline {section}{\numberline {5.2}Sima instanceable portlet}{41}{section.5.2}
-\select@language {magyar} \contentsline {chapter}{\numberline {6}\IeC {\"O}sszefoglal\IeC {\'a}s}{42}{chapter.6}
-\select@language {magyar} \contentsline {section}{\numberline {6.1}El\IeC {\'e}rt eredm\IeC {\'e}nyek}{42}{section.6.1}
-\select@language {magyar} \contentsline {section}{\numberline {6.2}Tov\IeC {\'a}bbfejleszt\IeC {\'e}si lehet\IeC {\H o}s\IeC {\'e}gek}{42}{section.6.2}
-\select@language {magyar} \contentsline {chapter}{K\IeC {\"o}sz\IeC {\"o}netnyilv\IeC {\'a}n\IeC {\'\i }t\IeC {\'a}s}{43}{section.6.2}
-\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\IeC {\'e}k}{44}{chapter*.19}
-\select@language {magyar} \contentsline {chapter}{\numberline {A}Els\IeC {\H o} f\IeC {\"u}ggel\IeC {\'e}k}{45}{appendix.A}
-\select@language {magyar} \contentsline {section}{\numberline {A.1}le\IeC {\'\i }r\IeC {\'a}s}{45}{section.A.1}
-\select@language {magyar} \contentsline {chapter}{\numberline {B}M\IeC {\'a}sodik f\IeC {\"u}ggel\IeC {\'e}k}{46}{appendix.B}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.6.3}Munkafolyamat t\IeC {\'a}mogat\IeC {\'a}s}{41}{subsection.4.6.3}
+\select@language {magyar} \contentsline {subsubsection}{Asset integr\IeC {\'a}ci\IeC {\'o}}{41}{section*.19}
+\select@language {magyar} \contentsline {subsubsection}{\IeC {\'U}j attrib\IeC {\'u}tumok felv\IeC {\'e}tele}{41}{section*.20}
+\select@language {magyar} \contentsline {subsubsection}{Service r\IeC {\'e}teg m\IeC {\'o}dos\IeC {\'\i }t\IeC {\'a}sa}{41}{section*.22}
+\select@language {magyar} \contentsline {subsubsection}{WorkflowHandler komponens l\IeC {\'e}trehoz\IeC {\'a}sa}{42}{section*.23}
+\select@language {magyar} \contentsline {chapter}{\numberline {5}Az alkalmaz\IeC {\'a}s bemutat\IeC {\'a}sa}{43}{chapter.5}
+\select@language {magyar} \contentsline {chapter}{\numberline {6}\IeC {\"O}sszefoglal\IeC {\'a}s}{50}{chapter.6}
+\select@language {magyar} \contentsline {section}{\numberline {6.1}El\IeC {\'e}rt eredm\IeC {\'e}nyek}{50}{section.6.1}
+\select@language {magyar} \contentsline {section}{\numberline {6.2}Tov\IeC {\'a}bbfejleszt\IeC {\'e}si lehet\IeC {\H o}s\IeC {\'e}gek}{50}{section.6.2}
+\select@language {magyar} \contentsline {chapter}{K\IeC {\"o}sz\IeC {\"o}netnyilv\IeC {\'a}n\IeC {\'\i }t\IeC {\'a}s}{51}{section.6.2}
+\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\IeC {\'e}k}{52}{chapter*.36}
+\select@language {magyar} \contentsline {chapter}{\numberline {A}Els\IeC {\H o} f\IeC {\"u}ggel\IeC {\'e}k}{53}{appendix.A}
+\select@language {magyar} \contentsline {section}{\numberline {A.1}le\IeC {\'\i }r\IeC {\'a}s}{53}{section.A.1}
+\select@language {magyar} \contentsline {chapter}{\numberline {B}M\IeC {\'a}sodik f\IeC {\"u}ggel\IeC {\'e}k}{54}{appendix.B}
