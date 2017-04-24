@@ -295,7 +295,7 @@ A tartalomkezelő rendszerek közötti különbségek szemléltetésére igen cs
 
 A mai világban szinte semmi sem változik olyan gyorsan, mint az informatikai rendszerek. Az internet robbanásszerű elterjedése alapjaiban változtatta meg az emberek életét. Az internet hajnalán a webet olvasott webnek nevezték, de a technológia fejlődésnek köszönhetően igen hamar eljutottunk az írott-olvasott webhez, amelyre web 2.0-ként szokás hivatkozni. A web 2.0 megjelenésével egy időben számos cég fogott tartalomkezelő rendszer fejlesztésébe, köztük a Liferay első verziója is ekkora tehető.
 
-Az elmúlt 17 évben a Liferay is óriási változásokon ment keresztül. A számomra is érzékelhető legnagyobb változások a 6.2 és a 7.0 verziók közötti különbségekben mutatkoznak meg. Eredetileg a sillabusz kezelő alkalmazás Liferay 6.2-re lett tervezve és a fejlesztést is ezen kezdtem el, mert akkor még távol volt az új 7.0 verzió megjelenése. Közel egy évnyi fejlesztés után megjelent az új főverzió a portálból. A portlet migrálása és az új portállal történő kompatibilitás kialakítása majdnem egy teljes hónapot vett igénybe még egy ilyen kis méretű alkalmazás esetén is. Számos új fejlesztői eszköz használatát kellett megtanulnom, köztük a Gradle és a Blade CLI programok használatát is, mert korábban csak az Apache Ant és az Apache Maven volt támogatott a Liferay által, mint a fordítási folyamatot támogató eszközök. Az eszközök használata mellett a Liferay SDK is alapvetően megváltozott, nem is beszélve a rengeteg egyik napról a másikra \emph{Deprecated}, azaz elavult API-ra.
+Az elmúlt tizenhét évben a Liferay is óriási változásokon ment keresztül. A számomra is érzékelhető legnagyobb változások a 6.2 és a 7.0 verziók közötti különbségekben mutatkoznak meg. Eredetileg a sillabusz kezelő alkalmazás Liferay 6.2-re lett tervezve és a fejlesztést is ezen kezdtem el, mert akkor még távol volt az új 7.0 verzió megjelenése. Közel egy évnyi fejlesztés után megjelent az új főverzió a portálból. A portlet migrálása és az új portállal történő kompatibilitás kialakítása majdnem egy teljes hónapot vett igénybe még egy ilyen kis méretű alkalmazás esetén is. Számos új fejlesztői eszköz használatát kellett megtanulnom, köztük a Gradle \cite{gradle} és a Blade CLI \cite{blade-cli} programok használatát is, mert korábban csak az Apache Ant \cite{apache-ant} és az Apache Maven \cite{apache-maven} volt támogatott a Liferay által, mint a fordítási folyamatot támogató eszközök. Az eszközök használata mellett a Liferay SDK is alapvetően megváltozott, nem is beszélve a rengeteg egyik napról a másikra \emph{Deprecated}, azaz elavult API-ra.
 
 % flash, silverlight -> html5, css3, javascript
 
@@ -305,11 +305,11 @@ Nem létezik olyan webfejlesztő aki ne találkozott volna kompatibilitási prob
 
 Az alkalmazás fejlesztése közben számtalanszor találkoztam kompatibilitási problémákkal. Az egyik ilyen hiba a JavaScript-hez és az Internet Explorer-hez volt köthető. Nem is olyan régen egy oldalon képfeltöltés funkciót próbáltam bevezetni, majd mikor azt láttam, hogy Google Chrome és Mozilla Firefox alatt a funkció hibátlanul működik, akkor kipróbáltam Internet Explorer 11 alatt is. Egy viszonylag kis méretű teszt kép feltöltése során szinte azonnal összeomlott a teljes böngésző és az egészet újra kellett indítani. Nem sokkal később kiderült, hogy az Internet Explorer nem rendelkezik egy általam használt JavaScript függvény implementációjával és erre a teljes böngésző összeomlásával reagált. A hibát úgy sikerült kijavítanom, hogy külön feltételben vizsgáltam meg a böngésző típusát és ha az elágazásnál Internet Explorer-t érzékel a program, akkor más módszert használ a képfeltöltés funkcióra, mint amilyet a többi böngésző használ.
 
-A sillabusz kezelő alkalmazás fejlesztése közben is találkoztam hasonló hibával, szerencsére itt nem kellett az Internet Explorer kompatibilitással törődnöm, elég volt csak a Google Chrome-ra és a Mozilla Firefox-ra optimalizálnom. Az egyik ilyen hiba az egymástól függő legördülő menüknél volt megfigyelhető. Valamilyen oknál fogva Chrome esetén ha kiválasztottam egy elemet az első legördülő listában és nem tartozott hozzá elem a második listában, akkor a második lista tartalma módosult a DOM-on belül, de a böngésző rosszul jelenítette meg, továbbra is a régi elemeket listázta ki. A hiba pontos okát sosem sikerült kiderítenem, egyszer csak egy Chrome frissítés után elkezdett jól működni, így nem fordítottam különösebb figyelmet rá. Ha a hiba nem szűnt volna meg magától, akkor igen nehéz dolgom lett volna a hibajavítás során, ugyanis két JavaScript keretrendszert is használtam, az egyik a jQuery a másik pedig a Liferay által is erőszeretettel használt Alloy UI volt.
+A sillabusz kezelő alkalmazás fejlesztése közben is találkoztam hasonló hibával, szerencsére itt nem kellett az Internet Explorer kompatibilitással törődnöm, elég volt csak a Google Chrome-ra és a Mozilla Firefox-ra optimalizálnom. Az egyik ilyen hiba az egymástól függő legördülő menüknél volt megfigyelhető. Valamilyen oknál fogva Chrome esetén ha kiválasztottam egy elemet az első legördülő listában és nem tartozott hozzá elem a második listában, akkor a második lista tartalma módosult a DOM-on belül, de a böngésző rosszul jelenítette meg, továbbra is a régi elemeket listázta ki. A hiba pontos okát sosem sikerült kiderítenem, egyszer csak egy Chrome frissítés után elkezdett jól működni, így nem fordítottam különösebb figyelmet rá. Ha a hiba nem szűnt volna meg magától, akkor igen nehéz dolgom lett volna a hibajavítás során, ugyanis két JavaScript keretrendszert is használtam, az egyik a jQuery \cite{jquery} a másik pedig a Liferay által is erőszeretettel használt Alloy UI \cite{alloyui} volt.
 
 \section{Biztonsági kérdések}
 
-Egy weboldal esetén mindig kulcsfontosságú kérdés a biztonságosság. Szinte minden évben lehet olyan hírekről hallani, amelyek arról szólnak, hogy több millió személyes adatot loptak el vagy csaltak ki egy oldal felhasználóitól. Jó példa erre a 2011-ben történt Playstation hálózat feltörése vagy a legutoljára nagy port kavaró veszprémi pizzéria weboldala, ahol nem is a weboldalt törték fel, hanem az alkalmazást futtató szervert.
+Egy weboldal esetén mindig kulcsfontosságú kérdés a biztonságosság. Szinte minden évben lehet olyan hírekről hallani, amelyek arról szólnak, hogy több millió személyes adatot loptak el vagy csaltak ki egy oldal felhasználóitól. Jó példa erre a 2011-ben történt PlayStation hálózat feltörése vagy a legutoljára nagy port kavaró veszprémi pizzéria weboldala, ahol nem is a weboldalt törték fel, hanem az alkalmazást futtató szervert és ezáltal minden adathoz hozzá tudtak férni, amely a pizzériával volt kapcsolatos.
 
 Számtalan oka lehet annak, hogy hogyan lehet illetéktelen adatokhoz jutni, most csak néhányat sorolnék fel ezen lehetőségek közül:
 \begin{enumerate}
@@ -328,7 +328,7 @@ A jogosultságkezelés szorosan összefügg a biztonságosság kérdéskörével
 
 \section{Megjelenítés}
 
-Mindenki számára egyértelmű, hogy ha a felhasználói felület rosszul van megtervezve, akkor a felhasználók nem fogják használatba venni az oldalt. Manapság elengedhetetlen, hogy nem csak funkcionalitásban, hanem megjelenítésben is megfelelő legyen egy-egy webalkalmazás. Rossz felhasználói felületre rengeteg példa létezik, mégis szerintem az egyik legjobb példa a nemrég bevezetett Ügyfélkapu. Rengeteg funkciója van, de az ember többször is elgondolkozik azon, hogy tényleg használja-e vagy inkább elmenjen a legközelebbi Önkormányzati Hivatalba az egyszerűbb ügyintézés érdekében.
+Mindenki számára egyértelmű, hogy ha a felhasználói felület rosszul van megtervezve, akkor a felhasználók nem fogják használatba venni az oldalt. Manapság elengedhetetlen, hogy nem csak funkcionalitásban, hanem megjelenítésben is megfelelő legyen egy-egy webalkalmazás. Rossz felhasználói felületre rengeteg példa létezik, mégis szerintem az egyik legjobb példa a nemrég bevezetett Ügyfélkapu rendszere. Rengeteg funkciója van, de az ember többször is elgondolkozik azon, hogy tényleg használja-e vagy inkább elmenjen a legközelebbi Önkormányzati Hivatalba az egyszerűbb ügyintézés érdekében.
 
 Az okos eszközök széles körben történő elterjedése óta állandó követelmény, hogy minden weboldal legyen megtekinthető kis méretű eszközökön is. Az okostelefonok közel tíz éve robbantak be a köztudatba, azóta folyamatosan fejlődtek, velük együtt a rajtuk futó operációs rendszerek is hatalmas változásokon mentek keresztül, éppen ezért nem meglepő, hogy a StatCounter \cite{statcounter} weboldal szerint 2017 márciusában az Android operációs rendszert futtató eszközök száma meghaladta a Windowst futtató számítógépek számát.
 
@@ -350,7 +350,7 @@ Keresőoptimalizálásra azért van szükség, mert ha valaki nem fizet a keres�
 
 \section{Szójegyzék}
 
-Mielőtt belemennék bármilyen konkrét dologba, fontosnak tartom, hogy a későbbi fejezetekben megjelenő leggyakoribb szavakat előre bevezessem magyar és angol nyelven egyaránt:
+Mielőtt belemennék bármilyen konkrét megvalósítással kapcsolatos dologba, fontosnak tartom, hogy a későbbi fejezetekben megjelenő leggyakoribb egyedek neveit előre bevezessem magyar és angol nyelven egyaránt:
 
 %\medskip
 
@@ -844,7 +844,7 @@ Az add és update metódusok validációt is végrehajtanak. Abban az esetben, h
 
 A CurriculumServiceImpl osztályon belül szinte minden metódus először azt ellenőrzi, hogy a felhasználó rendelkezik-e a megfelelő jogosultsággal a művelet végrehajtására. Ha igen, akkor a CurriculumLocalServiceImpl osztályon belül található megfelelő metódust hívódik meg, ha viszont valamilyen oknál fogva a felhasználó nem rendelkezne a megfelelő jogosultsággal, akkor PrincipalException váltódik ki és biztonsági okokból a művelet végrehajtása el sem kezdődik.
 
-A szolgáltatások implementálása után újra kel generáltatni a Service Builder által létrehozott többi forráskódot.
+A szolgáltatások implementálása után újra kell generáltatni a Service Builder által létrehozott többi forráskódot.
 
 \section{Implementációs kérdések}
 
@@ -864,7 +864,7 @@ A Liferay támogatja a szerepkör alapú jogosultságkezelést. A portál három
 \item webhely,
 \item szervezet
 \end{itemize}
-szerepkörök. A jogosultságkezelés beállításához mindössze egy megfelelő típusú szerepkört kell létrehozni és magára a szerepkörre kell meghatározni, hogy mely jogosultságokkal rendelkezik. Ezután a szerepkört hozzá lehet rendelni egy felhasználóhoz és máris rendelkezik a megfelelő jogosultságokkal. Sok helyen az ilyen fajta jogosultságkezelésre "Role Object Pattern" névként szokás hivatkozni, amely egy széles körben elfogadott tervezési minta.
+típusú szerepköröket. A jogosultságkezelés beállításához mindössze egy megfelelő típusú szerepkört kell létrehozni és magára a szerepkörre kell meghatározni, hogy mely jogosultságokkal rendelkezik. Ezután a szerepkört hozzá lehet rendelni egy felhasználóhoz és máris rendelkezik a szükséges jogosultságokkal. Sok helyen az ilyen fajta jogosultságkezelésre "Role Object Pattern" névként szokás hivatkozni, amely egy széles körben elfogadott tervezési mintának felel meg.
 
 Forráskód szinten a jogosultságkezelés kialakításához a következő dolgokra volt szükségem:
 \begin{enumerate}
@@ -875,7 +875,7 @@ Forráskód szinten a jogosultságkezelés kialakításához a következő dolgo
 
 \subsubsection{Jogosultságok definiálása}
 
-A sillabusz kezelő alkalmazás esetén minden jogosultságot a syllabus-manager-service projekten belül az src/main/resources/META-INF/resource-actions/default.xml állományon belül definiáltam. A Liferay két szintű jogosultságokat különböztet meg: felsőbb szintű (top level) és erőforrás szintű jogosultságokat. Felsőbb szintű akkor lesz egy jogosultság, ha nem tartozik semmilyen erőforráshoz. Példa jogosultságokra:
+A sillabusz kezelő alkalmazás esetén minden jogosultságot a syllabus-manager-service projekten belül az \emph{src/main/resources/META-INF/resource-actions/default.xml} állományon belül definiáltam. A Liferay két szintű jogosultságokat különböztet meg: felsőbb szintű (top level) és erőforrás szintű jogosultságokat. Felsőbb szintű akkor lesz egy jogosultság, ha nem tartozik semmilyen erőforráshoz. Előfordulhat, hogy egyes helyeken a felsőbb szintű jogosultságokra a magyar nyelvben általános jogosultságokként hivatkoznak. Példa jogosultságokra:
 
 \begin{table}[H]
 	\caption{Példák felsőbb szintű jogosultságokra}
@@ -930,7 +930,7 @@ Az egyik legfontosabb követelmény a munkafolyamat támogatása volt. Ezt a por
 \begin{enumerate}
 \item Asset integráció
 \item Új attribútumok felvétele
-\item Service réteg módosítása
+\item Szolgáltatások módosítása
 \item WorkflowHandler osztály létrehozása
 \end{enumerate}
 
@@ -958,24 +958,48 @@ A sillabusz egyed esetén négy új attribútum felvételére volt szükség:
 \end{tabular}
 \end{table}
 
-\subsubsection{Service réteg módosítása}
+\subsubsection{Szolgáltatások módosítása}
 
-A SyllabusLocalServiceImpl osztályon belül található metódusokat úgy kellett módosítani, hogy hozzáadáskor és frissítéskor elindítsa a munkafolyamatot, törléskor pedig szüntesse azt meg.
+A SyllabusLocalServiceImpl osztályon belül található metódusokat úgy kellett módosítani, hogy hozzáadáskor és frissítéskor új munkafolyamat induljon el, törléskor pedig szűnjenek meg.
 
-Ugyan ebben az osztályban még szükség volt egy újabb, updateStatus(...) nevű metódus bevezetésére is. A metódus megelelő paraméterekkel történő meghívásával lehet állítani a sillabuszok munkafolyamatbeli állapotát.
+Ugyan ebben az osztályban szükség volt még egy újabb, updateStatus(...) nevű metódus bevezetésére is. A metódus megfelelő paraméterekkel történő meghívásával lehet állítani az egyes sillabuszok munkafolyamatbeli állapotait.
 
 \subsubsection{WorkflowHandler komponens létrehozása}
 
-A Liferay a 7.0 verzió megjelenése óta komponensekkel és modulokkal dolgozik. Mindezt az OSGI keretrendszer implementálása tette lehetővé. Munkafolyamat kezelésnél nekem is egy újabb komponenst kellett létrehoznom, annak érdekében, hogy az OSGI futtatórendszer tudomást szerezzen arról, hogy a sillabusz egyedek is támogatják a portálba munkafolyamat keretrendszerét.
+A Liferay a 7.0 verzió megjelenése óta komponensekkel és modulokkal dolgozik. Mindezt az OSGI keretrendszer bevezetése tette lehetővé. Munkafolyamat kezelésnél nekem is egy újabb komponenst kellett létrehoznom, annak érdekében, hogy az OSGI futtatórendszer tudomást szerezzen arról, hogy a sillabusz egyedek is támogatják a portálba épített munkafolyamat keretrendszert.
 
 \chapter{Az alkalmazás bemutatása}
 
-Számtalan képet lehetne elhelyezni arról, hogy hogyan is néz ki a sillabusz kezelő alkalmazás, de az oldalakkal való takarékosság érdekében csak a leglényegesebb funkciókat szeretném bemutatni felhasználói szemszögből.
+Számtalan képet lehetne itt elhelyezni arról, hogy hogyan is néz ki a valóságban a sillabusz kezelő alkalmazás, de az oldalakkal való takarékosság érdekében csak a leglényegesebb funkciókat szeretném bemutatni felhasználói szemszögből.
+
+\subsection{Főoldal}
+
+A főoldal egész egyszerű felépítést kapott. Ezen az oldalon mindössze egy menüsor és egy breadcrumb található meg. A képen jól látszik a bal oldali oldalsáv és a benne elhelyezett \emph{Sillabusz Adminisztráció} menüpont, amely a régi vezérlőpultot váltotta fel. A menüsor és breadcrumb szinte az összes oldalon ugyan így néz ki, értelem szerűen az utóbbi egyes helyeken több elemet is tartalmaz, nem csak egyet, mint ahogyan az a főoldalon is látható.
+
+A menüsor \emph{Megtekintés} menüpontja alatt négy elem található: \emph{Mintatantervek}, \emph{Kurzus típusok}, \emph{Félévek} és \emph{Oktatók}.
+
+Az \emph{Új} menüpont alatt minden egyed felsorolásra került. A megfelelő egyed kiválasztása után a rendszer lehetőséget biztosít egy új elem hozzáadására.
+
+A \emph{Veszélyzóna} menüpont olyan műveleteket foglal magában, amelyek az egész rendszer működését befolyásolhatják. Jelenleg két almenüpont tartozik hozzá: \emph{Adatbázis törlése} és \emph{Exportálás / Importálás}.
+
+A menüsor utolsó eleme egy halványszürke, áthúzott betűkkel megjelenített \emph{Importálás} menüpont. Ez azért így jelenik meg, mert használata erősen ellenjavallott, erre csak az eredetileg az egyetemtől kapott adatok betöltése során volt szükségem.
 
 \begin{figure}[H]
     \centering
 	\includegraphics[width=\textwidth]{sm_main_page.png}
 	\caption{A sillabusz kezelő portlet főoldala}
+\end{figure}
+
+\subsection{Listázó oldalak}
+
+Minden általam definiált egyedhez külön-külön listázó oldalt hoztam létre. A kialakítás során törekedtem egyfajta hierarchikus megjelenítésre, azaz a mintatantervből, illetve a félévekből kiindulva el lehet jutni a sillabuszok megjelenítéséig.
+
+Minden listázó oldalon minden egyes bejegyzés mellett található egy \emph{Műveletek} menüpont. Ez egyetlen egy esetet kivéve minden egyed esetén három elemet tartalmaz: \emph{Szerkesztés}, \emph{Jogosultságok} és \emph{Törlés}. Az egyetlen kivétel ez alól az órarendi kurzusok, ahol megtalálható egy negyedik elem is, a \emph{Megtekintés} menüpont. Ezt a menüpontot kiválasztva lehet eljutni az adott órarendi kurzushoz tartozó sillabusz listázó oldalra.
+
+\begin{figure}[H]
+    \centering
+	\includegraphics{sm_list_actions_timetable_course.png}
+	\caption{Egy listázóban található elem lehetséges műveletei}
 \end{figure}
 
 \begin{figure}[H]
@@ -1008,11 +1032,13 @@ Számtalan képet lehetne elhelyezni arról, hogy hogyan is néz ki a sillabusz 
 	\caption{A sillabusz listázó}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-	\includegraphics[width=\textwidth]{sm_list_actions.png}
-	\caption{Egy listázó műveletei}
-\end{figure}
+\section{Sillabusz létrehozása}
+
+Egy sillabusz hozzáadása során az első lépés mindig az alapinformációk megadása. Az adatok megadása alatt a megfelelő egyedek kiválasztását kell érteni. Az oldalon elhelyezett legördülő menük tartalma az eggyel felette lévő menü értékétől függ, kivéve a legelső esetben, tehát például csak azon tantárgyak kerülnek kilistázásra, amelyek a kiválasztott mintatantervhez tartoznak.
+
+Az alapinformációk meghatározása után szöveges beviteli mezők találhatóak. Ezek mindegyike kötelező mező, azaz, ha egyiket valaki nem töltené ki, akkor hiba üzentet küld a rendszer arról, hogy a mező tartalma üres. A legutolsó szöveges beviteli mező egy WYSIWYG szerkesztő.
+
+A szöveges beviteli mezők után még megtalálható egy utolsó rész, amely a Liferay Asset Publisher miatt jelenik meg. Itt lehet címkéket és kapcsolódó tartalmakat hozzárendelni a létrehozandó sillabuszhoz. Az Asset Publisher számos beállítási lehetőséggel rendelkezik, a címkék alapján történő szűrés az egyik leggyakrabban használt funkciója.
 
 \begin{figure}[H]
     \centering
@@ -1038,6 +1064,10 @@ Számtalan képet lehetne elhelyezni arról, hogy hogyan is néz ki a sillabusz 
 	\caption{Egy sillabusz létrehozása 4/4}
 \end{figure}
 
+\section{Importálás / Exportálás}
+
+Az alkalmazás képes az összes általa tárolt adat exportálására és ezen exportált adatok újbóli importálására is. Jelenleg a rendszer támogatja mind az XML, mind a CSV formátumú állományok kezelését. A sillabuszok exportálása gombok esetén, nem csak a sillabuszok, hanem az összes mintatanterv, tantárgy, kurzus és órarendi kurzus is exportálódik, ezért nincs külön gomb ezekre az egyedekre elhelyezve az oldalon.
+
 \begin{figure}[H]
     \centering
 	\includegraphics[width=\textwidth]{sm_import_export.png}
@@ -1046,17 +1076,27 @@ Számtalan képet lehetne elhelyezni arról, hogy hogyan is néz ki a sillabusz 
 
 \chapter{Összefoglalás}
 
-Röviden, tömören és világosan ismertetni kell a fontosabb megállapításokat és következtetéseket. Bátran és egyértelműen közölni kell, ha valamely célkitűzést nem sikerült megvalósítani. (Megfelelő indoklás mellett ez egyáltalán nem csökkenti a diplomadolgozat értékét!)
+Büszkén jelenthetem ki, hogy az elkészült sillabusz kezelő alkalmazás teljes egészében megfelel az összes vele szemben támasztott követelménynek. Az alkalmazás fejlesztése közben sikerült elérnem egy olyan szoros integrációt magával a Liferay tartalomkezelő rendszerrel, hogy az alkalmazás telepítése után szinte senki sem tudná megmondani, hogy az alkalmazás nem beépített portlet volna.
 
-\section{Elért eredmények}
+Az alkalmazás fejlesztése közben számtalan új tudásra tettem szert. Egyrészt megtanultam egy mindenki által elismert, már több mint tizenhét éve a piacon lévő és széles körben használt tartalomkezelő rendszer használatát és a rendszerre történő fejlesztés különböző módszereit, másrészt pedig olyan problémákkal találtam szemben magamat az elmúlt két évben, amelyekkel éles körülmények között is találkoznak a szoftverfejlesztők. A legnagyobb probléma, amelyet le kellett küzdenem a verziómigráció volt, ugyanis mire megtanultam a Liferay 6.2-re való fejlesztés folyamatát és otthon éreztem magam benne, addigra megjelent a 7.0 verzió rengeteg újítással, ezért egy csomó mindent újra kellett írnom az alapvető változtatások miatt. Ennek köszönhetően megtanultam használni a Gradle, a Blade CLI eszközöket, elsajátítottam az Apache Velocity és Apache FreeMarker templating motorok \cite{apache-velocity} használatát, jobban megértettem, hogy miért van szükség egy szolgáltatásokat nyújtó interfész kialakítására egy ilyen vagy ehhez hasonló alkalmazások esetén, otthonosabban érzem magam JavaScript kódok írása közben, jobban rálátok a biztonsági kérdésekre, illetve elsajátítottam az Alloy UI keretrendszer \cite{alloyui} használatának alapjait.
 
-\section{Továbbfejlesztési lehetőségek}
+Természetesen, mint minden alkalmazás ez sem teljes. Mindig mindent tovább lehet fejleszteni, ez igaz a sillabusz kezelő alkalmazásra is. Talán az egyik lehetséges továbbfejlesztési lehetőség az Application Display Template-ek (ADT) támogatása lenne, amely lehetővé tenné, hogy az Asset Publisher-en keresztül megjelenített sillabuszok kinézetét futás időben, az oldal adminisztrátorai határoznák meg egy egyszerű script nyelv segítségével. Az ADT támogatja mind az Apache Velocity, mind az Apache FreeMarker templating motorokat, így mindenki tetszés szerint azt használhatja megjelenítő sablonok készítésére, amelyik szimpatikusabb számára.
+
+Egy másik továbbfejlesztési lehetőség a portálba épített keresőmotor integráció lehet. Ahhoz, hogy a tartalmak között keresni lehessen, az adatbázisban lévő adatok megfelelő módon történő indexelésére van szükség, amelyre a Liferay szintén egy saját fejlesztésű keretrendszert biztosít a fejlesztők számára.
+
+Harmadik továbbfejlesztési lehetőségként az általam kialakított webszolgáltatások esetén a jogosultságkezelés átalakítását tudom javasolni. Jelenleg van olyan része a szolgáltatásoknak, amelyek akkor is meghívhatóak, amikor a szolgáltatást megszólító felhasználó nincs feljogosítva a szolgáltatás használatára. A szolgáltatások esetén az egyedek hozzáadása, frissítése és törlése minden esetben le van védve az illetéktelen hozzáférés ellen, viszont az adatok lekérdezésére szolgálató interfészek során csak egy részük esetén lett jogosultságkezelés kialakítva. Amikor még ezeket a szolgáltatások alakítottam ki, még úgy gondoltam, hogy ilyen tantárgyi adatok lekérdezéséből nem lehet baj, de mivel a felhasználói felület esetén minden esetben megtörténik az összes jogosultság ellenőrzése, ezért ma már jobbnak látom, ha a szolgáltatások esetén is mindenhol ellenőrzésre kerülnének ezen hozzáférési jogok.
 
 \clearpage
 \addcontentsline{toc}{chapter}{Köszönetnyilvánítás}
 \chapter*{Köszönetnyilvánítás}
 
-Köszönet: család, barátok, egyetemnek, témavezetőmnek és a Liferay Hungary Kft. képzésének???
+Ez a diplomamunka nem jöhetett volna létre a családom, a barátaim, az egyetem, a témavezetőm, illetve a Liferay Hungary Kft. támogatása nélkül, ezért szeretném megragadni az alkalmat, hogy mindenkinek köszönetet mondjak, aki az elmúlt években mellettem állt és lehetőséget teremtett arra, hogy ez a diplomamunka elkészülhessen.
+
+Köszönöm a családomnak, amiért az elmúlt két évben mindent meg tettek azért, hogy idáig eljuthassak az életben, illetve mindazért, amiért mindvégig kitartottak mellettem.
+
+Köszönöm a barátaimnak is, közülük legfőképpen László Zsoltnak, aki néhány évvel ezelőtt bevezetett a \LaTeX szövegformázó rendszer használatába és rendelkezésemre bocsátotta egy általa készített korábbi dokumentum vázlatát.
+
+Végül szeretném megköszönni témavezetőmnek, Dr. Adamkó Attilának, amiért lehetőséget teremtett arra, hogy díjmentesen részt vehessek a Liferay Hungary Kft. által tartott \emph{Developing for the Liferay Platform 1} című képzésen, illetve köszönet illeti mindazért a maradék támogatásáért is, amit az elmúlt néhány évben nyújtott számomra.
 
 % Ábrajegyzék (nem kell, helyette van függelék!)
 % \listoffigures
@@ -1079,7 +1119,15 @@ Köszönet: család, barátok, egyetemnek, témavezetőmnek és a Liferay Hungar
 \bibitem{sillabusz} Sillabusz \\ \small\url{https://hu.wiktionary.org/wiki/sillabusz}
 \bibitem{liferay-dev-1} Developing for the Liferay Platform 1 \\ \small\url{https://www.liferay.com/services/training/6.2/topics/developer-1}
 \bibitem{redmine} Redmine \\ \small\url{http://www.redmine.org/}
-\bibitem{statcounter} StatCounter \small\url{http://gs.statcounter.com/os-market-share}
+\bibitem{statcounter} StatCounter \\ \small\url{http://gs.statcounter.com/os-market-share}
+\bibitem{gradle} Gradle \\ \small\url{https://gradle.org/}
+\bibitem{blade-cli} Blade CLI \\ \small\url{https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/blade-cli}
+\bibitem{apache-ant} Apache Ant \\ \small\url{http://ant.apache.org/}
+\bibitem{apache-maven} Apache Maven \\ \small\url{https://maven.apache.org/}
+\bibitem{apache-velocity} Apache Velocity \\ \small\url{http://velocity.apache.org/}
+\bibitem{apache-freemarker} Apache FreeMarker \\ \small\url{http://freemarker.org/}
+\bibitem{jquery} jQuery \\ \small\url{https://jquery.com/}
+\bibitem{alloyui} Alloy UI \\ \small\url{http://alloyui.com/}
 
 \end{thebibliography}
 
