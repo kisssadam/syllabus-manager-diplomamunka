@@ -24,7 +24,7 @@
 \select@language {magyar} \contentsline {section}{\numberline {3.4}\IeC {\'A}lland\IeC {\'o} v\IeC {\'a}ltoz\IeC {\'a}s}{18}{section.3.4}
 \select@language {magyar} \contentsline {section}{\numberline {3.5}B\IeC {\"o}ng\IeC {\'e}sz\IeC {\H o} inkompatibilit\IeC {\'a}s}{19}{section.3.5}
 \select@language {magyar} \contentsline {section}{\numberline {3.6}Biztons\IeC {\'a}gi k\IeC {\'e}rd\IeC {\'e}sek}{20}{section.3.6}
-\select@language {magyar} \contentsline {section}{\numberline {3.7}Megjelen\IeC {\'\i }t\IeC {\'e}s}{20}{section.3.7}
+\select@language {magyar} \contentsline {section}{\numberline {3.7}Megjelen\IeC {\'\i }t\IeC {\'e}s}{21}{section.3.7}
 \select@language {magyar} \contentsline {section}{\numberline {3.8}Keres\IeC {\H o}optimaliz\IeC {\'a}l\IeC {\'a}s}{22}{section.3.8}
 \select@language {magyar} \contentsline {chapter}{\numberline {4}A megval\IeC {\'o}s\IeC {\'\i }t\IeC {\'a}s l\IeC {\'e}p\IeC {\'e}sei}{23}{chapter.4}
 \select@language {magyar} \contentsline {section}{\numberline {4.1}Sz\IeC {\'o}jegyz\IeC {\'e}k}{23}{section.4.1}
@@ -45,21 +45,20 @@
 \select@language {magyar} \contentsline {subsection}{\numberline {4.4.4}Kurzus}{33}{subsection.4.4.4}
 \select@language {magyar} \contentsline {subsection}{\numberline {4.4.5}F\IeC {\'e}l\IeC {\'e}v}{34}{subsection.4.4.5}
 \select@language {magyar} \contentsline {subsection}{\numberline {4.4.6}Oktat\IeC {\'o}}{34}{subsection.4.4.6}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.7}\IeC {\'O}rarendi Kurzus}{34}{subsection.4.4.7}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.7}\IeC {\'O}rarendi Kurzus}{35}{subsection.4.4.7}
 \select@language {magyar} \contentsline {subsection}{\numberline {4.4.8}Oktat\IeC {\'o} - \IeC {\'O}rarendi Kurzus kapcsolat}{35}{subsection.4.4.8}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.9}Sillabusz}{35}{subsection.4.4.9}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.9}Sillabusz}{36}{subsection.4.4.9}
 \select@language {magyar} \contentsline {section}{\numberline {4.5}Szolg\IeC {\'a}ltat\IeC {\'a}sok kialak\IeC {\'\i }t\IeC {\'a}sa}{36}{section.4.5}
-\select@language {magyar} \contentsline {section}{\numberline {4.6}Implement\IeC {\'a}ci\IeC {\'o}s k\IeC {\'e}rd\IeC {\'e}sek}{38}{section.4.6}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.6.1}Portlet l\IeC {\'e}trehoz\IeC {\'a}sa}{38}{subsection.4.6.1}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.6.2}Jogosults\IeC {\'a}gkezel\IeC {\'e}s}{39}{subsection.4.6.2}
-\select@language {magyar} \contentsline {subsubsection}{Jogosults\IeC {\'a}gok defini\IeC {\'a}l\IeC {\'a}sa}{39}{section*.14}
-\select@language {magyar} \contentsline {subsubsection}{Jogosults\IeC {\'a}g ellen\IeC {\H o}rz\IeC {\H o} oszt\IeC {\'a}lyok kialak\IeC {\'\i }t\IeC {\'a}sa}{40}{section*.17}
-\select@language {magyar} \contentsline {subsubsection}{Jogosults\IeC {\'a}g ellen\IeC {\H o}rz\IeC {\'e}s a sz\IeC {\"u}ks\IeC {\'e}ges helyeken}{40}{section*.18}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.6.3}Munkafolyamat t\IeC {\'a}mogat\IeC {\'a}s}{41}{subsection.4.6.3}
-\select@language {magyar} \contentsline {subsubsection}{Asset integr\IeC {\'a}ci\IeC {\'o}}{41}{section*.19}
-\select@language {magyar} \contentsline {subsubsection}{\IeC {\'U}j attrib\IeC {\'u}tumok felv\IeC {\'e}tele}{41}{section*.20}
-\select@language {magyar} \contentsline {subsubsection}{Szolg\IeC {\'a}ltat\IeC {\'a}sok m\IeC {\'o}dos\IeC {\'\i }t\IeC {\'a}sa}{41}{section*.22}
-\select@language {magyar} \contentsline {subsubsection}{WorkflowHandler komponens l\IeC {\'e}trehoz\IeC {\'a}sa}{42}{section*.23}
+\select@language {magyar} \contentsline {section}{\numberline {4.6}Portlet l\IeC {\'e}trehoz\IeC {\'a}sa}{38}{section.4.6}
+\select@language {magyar} \contentsline {section}{\numberline {4.7}Jogosults\IeC {\'a}gkezel\IeC {\'e}s}{39}{section.4.7}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.7.1}Jogosults\IeC {\'a}gok defini\IeC {\'a}l\IeC {\'a}sa}{39}{subsection.4.7.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.7.2}Jogosults\IeC {\'a}g ellen\IeC {\H o}rz\IeC {\H o} oszt\IeC {\'a}lyok kialak\IeC {\'\i }t\IeC {\'a}sa}{40}{subsection.4.7.2}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.7.3}Jogosults\IeC {\'a}g ellen\IeC {\H o}rz\IeC {\'e}s a sz\IeC {\"u}ks\IeC {\'e}ges helyeken}{40}{subsection.4.7.3}
+\select@language {magyar} \contentsline {section}{\numberline {4.8}Munkafolyamat t\IeC {\'a}mogat\IeC {\'a}s}{40}{section.4.8}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.8.1}Asset integr\IeC {\'a}ci\IeC {\'o}}{41}{subsection.4.8.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.8.2}\IeC {\'U}j attrib\IeC {\'u}tumok felv\IeC {\'e}tele}{41}{subsection.4.8.2}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.8.3}Szolg\IeC {\'a}ltat\IeC {\'a}sok m\IeC {\'o}dos\IeC {\'\i }t\IeC {\'a}sa}{41}{subsection.4.8.3}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.8.4}WorkflowHandler komponens l\IeC {\'e}trehoz\IeC {\'a}sa}{42}{subsection.4.8.4}
 \select@language {magyar} \contentsline {chapter}{\numberline {5}Az alkalmaz\IeC {\'a}s bemutat\IeC {\'a}sa}{43}{chapter.5}
 \select@language {magyar} \contentsline {section}{\numberline {5.1}F\IeC {\H o}oldal}{43}{section.5.1}
 \select@language {magyar} \contentsline {section}{\numberline {5.2}List\IeC {\'a}z\IeC {\'o} oldalak}{44}{section.5.2}
@@ -67,7 +66,4 @@
 \select@language {magyar} \contentsline {section}{\numberline {5.4}Import\IeC {\'a}l\IeC {\'a}s / Export\IeC {\'a}l\IeC {\'a}s}{50}{section.5.4}
 \select@language {magyar} \contentsline {chapter}{\numberline {6}\IeC {\"O}sszefoglal\IeC {\'a}s}{52}{chapter.6}
 \select@language {magyar} \contentsline {chapter}{K\IeC {\"o}sz\IeC {\"o}netnyilv\IeC {\'a}n\IeC {\'\i }t\IeC {\'a}s}{54}{chapter.6}
-\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\IeC {\'e}k}{55}{chapter*.36}
-\select@language {magyar} \contentsline {chapter}{\numberline {A}Els\IeC {\H o} f\IeC {\"u}ggel\IeC {\'e}k}{57}{appendix.A}
-\select@language {magyar} \contentsline {section}{\numberline {A.1}le\IeC {\'\i }r\IeC {\'a}s}{57}{section.A.1}
-\select@language {magyar} \contentsline {chapter}{\numberline {B}M\IeC {\'a}sodik f\IeC {\"u}ggel\IeC {\'e}k}{58}{appendix.B}
+\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\IeC {\'e}k}{55}{chapter*.29}
