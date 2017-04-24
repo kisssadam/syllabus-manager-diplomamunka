@@ -775,8 +775,7 @@ Az egyes egyedekhez a \emph{hu.unideb.inf.service.impl} csomagban találhatóak 
 
 Az egyszerűség kedvéért az összes szolgáltatás közül csak a CurriculumLocalServiceImpl osztály lényeges részeit szeretném bemutatni.
 
-\begin{minipage}{\linewidth}
-\begin{lstlisting}[basicstyle=\small]
+\begin{lstlisting}[style=customjava]
 @ProviderType
 public class CurriculumLocalServiceImpl
 		extends CurriculumLocalServiceBaseImpl {
@@ -809,7 +808,6 @@ public class CurriculumLocalServiceImpl
 		throws PortalException, SystemException {...}
 }
 \end{lstlisting}
-\end{minipage}
 
 A getCurriculumByCode(...) metódus egy mintatanterv kódja alapján vissza tudja adni a megfelelő mintatantervet, viszont ha nincs a kódnak megfelelő adat az adatbázisban, akkor NoSuchCurriculumException kivételt fog dobni.
 
@@ -882,14 +880,12 @@ Ezek a jogosultságokat ellenőrző osztályok a \emph{hu.unideb.inf.service.per
 
 A jogosultság ellenőrzése úgy történik, hogy a szükséges helyen a megfelelő jogosultság ellenőrző osztály megfelelő metódusa a megfelelő paraméterekkel hívódik meg. Jó példa erre a sillabuszok listázásánál végzett erőforrás szintű ellenőrzés:
 
-\begin{minipage}{\linewidth}
-\begin{lstlisting}[basicstyle=\small]
+\begin{lstlisting}[style=customxml]
 <c:if test='<%=SyllabusPermission.contains(
 	permissionChecker, syllabus.getSyllabusId(), "VIEW")%>'>
 	...
 </c:if>
 \end{lstlisting}
-\end{minipage}
 
 \noindent A példában szereplő kód azt ellenőrzi, hogy a felhasználó fel van-e jogosítva az adott sillabusz megtekintésére vagy sem.
 

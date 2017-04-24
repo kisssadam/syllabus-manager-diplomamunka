@@ -49,7 +49,7 @@
 \select@language {magyar} \contentsline {subsection}{\numberline {4.4.9}Sillabusz}{35}{subsection.4.4.9}
 \select@language {magyar} \contentsline {section}{\numberline {4.5}Szolg\IeC {\'a}ltat\IeC {\'a}sok kialak\IeC {\'\i }t\IeC {\'a}sa}{36}{section.4.5}
 \select@language {magyar} \contentsline {section}{\numberline {4.6}Portlet l\IeC {\'e}trehoz\IeC {\'a}sa}{38}{section.4.6}
-\select@language {magyar} \contentsline {section}{\numberline {4.7}Jogosults\IeC {\'a}gkezel\IeC {\'e}s}{39}{section.4.7}
+\select@language {magyar} \contentsline {section}{\numberline {4.7}Jogosults\IeC {\'a}gkezel\IeC {\'e}s}{38}{section.4.7}
 \select@language {magyar} \contentsline {subsection}{\numberline {4.7.1}Jogosults\IeC {\'a}gok defini\IeC {\'a}l\IeC {\'a}sa}{39}{subsection.4.7.1}
 \select@language {magyar} \contentsline {subsection}{\numberline {4.7.2}Jogosults\IeC {\'a}g ellen\IeC {\H o}rz\IeC {\H o} oszt\IeC {\'a}lyok kialak\IeC {\'\i }t\IeC {\'a}sa}{40}{subsection.4.7.2}
 \select@language {magyar} \contentsline {subsection}{\numberline {4.7.3}Jogosults\IeC {\'a}g ellen\IeC {\H o}rz\IeC {\'e}s a sz\IeC {\"u}ks\IeC {\'e}ges helyeken}{40}{subsection.4.7.3}
