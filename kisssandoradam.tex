@@ -17,6 +17,7 @@
 \usepackage{relsize}
 \usepackage{listings}
 \usepackage{color}
+\usepackage{xcolor}
 \usepackage{url}
 \usepackage{bookmark}
 \usepackage{booktabs}
@@ -27,6 +28,40 @@
 \usepackage{float}
 \usepackage{graphicx}
 \graphicspath{ {images/} }
+
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstdefinestyle{customxml}{
+  backgroundcolor=\color{white!90!black},
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=xml,
+  showstringspaces=false,
+  basicstyle=\small\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{mymauve},
+  numbers=left
+}
+
+\lstdefinestyle{customjava}{
+  backgroundcolor=\color{white!90!black},
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=java,
+  showstringspaces=false,
+  basicstyle=\small\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{mymauve},
+  numbers=left
+}
 
 \setlength{\footskip}{60pt}
 
@@ -402,8 +437,7 @@ A további alfejezetekben ezt a nyolc lépést magyarázom el példákkal együt
 
 A service.xml állományt minden esetben a service projekt főkönyvtárában kell elhelyezni a következő tartalommal:
 
-\begin{minipage}{\linewidth}
-\begin{lstlisting}[basicstyle=\small]
+\begin{lstlisting}[style=customxml]
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE service-builder PUBLIC
 "-//Liferay//DTD Service Builder 7.0.0//EN"
@@ -413,7 +447,6 @@ A service.xml állományt minden esetben a service projekt főkönyvtárában ke
 ...
 </service-builder>
 \end{lstlisting}
-\end{minipage}
 
 \noindent A \emph{service-builder} elem \emph{package-path} attribútuma azt határozza meg, hogy mely csomagba kerüljenek a legenerált interfészek és osztályok.
 
@@ -421,34 +454,29 @@ A service.xml állományt minden esetben a service projekt főkönyvtárában ke
 
 Globális információk alatt a szerző és a névtér nevét kell érteni. A szerző általában a fejlesztő cég neve szokott lenni, de mivel én egyedüli fejlesztő voltam, ezért a saját nevemet adtam meg. A névtér név azért fontos, mert az adatbázis táblák nevei előtt ez a karaktersorozat fog megjelenni, így elkerülhető az esetleges táblanév ütközés. Ezt a két információt közvetlenül a service-builder elem első leszármazott elemeiként lehet megadni. A sillabuszkezelő alkalmazás esetén ez így néz ki:
 
-\begin{minipage}{\linewidth}
-\begin{lstlisting}[basicstyle=\small]
+\begin{lstlisting}[style=customxml]
 <service-builder package-path="hu.unideb.inf">
 	<author>Adam Kiss</author>
 	<namespace>syllabus_manager</namespace>
 	...
 </service-builder>
 \end{lstlisting}
-\end{minipage}
 
 \subsection{Entitások definiálása}
 
 Az entitások definiálása közvetlenül a namespace elem után lehetséges. A következő példában a Curriculum entitást definiáltam:
 
-\begin{minipage}{\linewidth}
-\begin{lstlisting}[basicstyle=\small]
+\begin{lstlisting}[style=customxml]
 <entity name="Curriculum" local-service="true">
 ...
 </entity>
 \end{lstlisting}
-\end{minipage}
 
 \subsection{Tulajdonságok, attribútumok definiálása}
 
 Egy entitásból adatbázisbeli tábla lesz, tulajdonságaiból pedig oszlopnevek. A Curriculum entitás attribútumainak definiálása az alábbi példában tekinthető meg:
 
-\begin{minipage}{\linewidth}
-\begin{lstlisting}[basicstyle=\small]
+\begin{lstlisting}[style=customxml]
 <entity name="Curriculum" local-service="true">
 	<column name="curriculumId" type="long"
 		primary="true"></column>
@@ -463,7 +491,6 @@ Egy entitásból adatbázisbeli tábla lesz, tulajdonságaiból pedig oszlopneve
 	...
 </entity>
 \end{lstlisting}
-\end{minipage}
 
 \noindent Fontos, hogy minden tulajdonság rendelkezzen valamilyen típussal, illetve nélkülözhetetlen az elsődleges kulcsok meghatározása, amelyet a \emph{primary="true"}-val lehet megtenni.
 
@@ -473,20 +500,17 @@ Az adatbázisban lévő egyedek más egyedekkel is kapcsolatban állhatnak. A ka
 
 Az egyik módszer, amikor egy új attribútumot vezetünk be a meglévőek mellé, viszont az adatbázisbeli táblákra sajnos nem fognak rákerülni a külső kulcsmegszorítások, ezt kézzel kell majd a fejlesztőknek megtenniük. Jó példa erre a tantárgy-mintatanterv kapcsolat. Ebben az esetben egy tantárgy csak egy mintatantervhez, viszont egy mintatantervhez több tantárgy is tartozhat:
 
-\begin{minipage}{\linewidth}
-\begin{lstlisting}[basicstyle=\small]
+\begin{lstlisting}[style=customxml]
 <entity name="Subject" local-service="true">
 	...
 	<column name="curriculumId" type="long"></column>
 	...
 </entity>
 \end{lstlisting}
-\end{minipage}
 
 A másik módszer a kapcsolótábla létrehozása, amelyet M:N számosságú kapcsolatok ábrázolására lehet használni. Erre az egyetlen példa, amelyet a sillabuszkezelő alkalmazás során alkalmaztam az oktatók és órarendi kurzusok között fennálló viszony. Egy ilyen kurzusnak akármennyi oktatója lehet és egy oktató több kurzust is tarthat. A service.xml-en belül ez úgy jelenik meg, hogy a TimetableCourse entitásnál az alábbi: 
 
-\begin{minipage}{\linewidth}
-\begin{lstlisting}[basicstyle=\small]
+\begin{lstlisting}[style=customxml]
 <entity name="TimetableCourse" local-service="true">
 	...
 	<column name="lecturers"
@@ -497,12 +521,10 @@ A másik módszer a kapcsolótábla létrehozása, amelyet M:N számosságú kap
 	...
 </entity>
 \end{lstlisting}
-\end{minipage}
 
 \noindent a Lecturer egyednél pedig a következő kódrészlet jelenik meg:
 
-\begin{minipage}{\linewidth}
-\begin{lstlisting}[basicstyle=\small]
+\begin{lstlisting}[style=customxml]
 <entity name="Lecturer" local-service="true">
 	...
 	<column name="timetableCourses"
@@ -513,7 +535,6 @@ A másik módszer a kapcsolótábla létrehozása, amelyet M:N számosságú kap
 	...
 </entity>
 \end{lstlisting}
-\end{minipage}
 
 \noindent Ennek hatására a Liferay tudni fogja, hogy egy újabb tábla létrehozására lesz szükség, melynek két oszlopa lesz. Az egyik oszlop \emph{timetableCourseId}-ket, a másik pedig \emph{lecturerId}-ket fog tartalmazni.
 
@@ -523,8 +544,7 @@ Rendezések definiálása alatt azt kell érteni, hogy a service.xml-en belül k
 
 Az előző leírást egyszerűbb megérteni egy példa alapján:
 
-\begin{minipage}{\linewidth}
-\begin{lstlisting}
+\begin{lstlisting}[style=customxml]
 <order by="asc">
 	<order-column name="curriculumCode"
 		order-by="asc"></order-column>
@@ -532,24 +552,18 @@ Az előző leírást egyszerűbb megérteni egy példa alapján:
 		order-by="asc"></order-column>
 </order>
 \end{lstlisting}
-\end{minipage}
 
-Az előbbi példakód feltételezi, hogy az entitás, amelynél rendezést szeretnénk használni, már rendelkezik a \emph{curriculumCode} és a \emph{curriculumName} nevű attribútumokkal. A példa azt mondja meg, hogy először a \emph{curriculumCode}, majd azon belül a \emph{curriculumName} attribútum szerint kell rendezni a lekérdezések eredményét. Olyan ez, mintha egy SQL SELECT esetén az
-\begin{center}
-\begin{tabular}{c}
-\begin{lstlisting}
+\noindent Az előbbi példakód feltételezi, hogy az entitás, amelynél rendezést szeretnénk használni, már rendelkezik a \emph{curriculumCode} és a \emph{curriculumName} nevű attribútumokkal. A példa azt mondja meg, hogy először a \emph{curriculumCode}, majd azon belül a \emph{curriculumName} attribútum szerint kell rendezni a lekérdezések eredményét. Olyan ez, mintha egy SQL SELECT esetén az
+\begin{lstlisting}[style=customjava]
 ORDER BY curriculumCode, curriculumName
 \end{lstlisting}
-\end{tabular}
-\end{center}
 rész is jelen lenne a lekérdezés során.
 
 \subsection{Finder metódusok definiálása}
 
 Java EE alapú alkalmazások esetén azokat a metódusokat, amelyek közvetlenül az adatbázisból nyernek ki információkat, tipikusan a "find" metódusnév előtaggal szoktuk ellátni. Például:
 
-\begin{minipage}{\linewidth}
-\begin{lstlisting}
+\begin{lstlisting}[style=customjava]
 public abstract Curriculum findByPrimaryKey(long id);
 
 public abstract Curriculum findByCurriculumCode(
@@ -557,14 +571,12 @@ public abstract Curriculum findByCurriculumCode(
 
 public abstract List<Curriculum> findAll();
 \end{lstlisting}
-\end{minipage}
 
 A Service Builder használata esetén ezen finder metódusok automatikusan legenerálódnak, fejlesztőként mindössze csak annyit kell tudni megmondani, hogy mely entitás esetén, mely attribútumok alapján, milyen visszatérési értékekkel jöjjenek létre a szükséges metódusok. Magától értetődik, hogy ezt is a service.xml-en belül lehet megtenni.
 
 Példaként tekintsük meg az alábbi kódot, amelyet a Subject, azaz tantárgy entitás esetén használtam:
 
-\begin{minipage}{\linewidth}
-\begin{lstlisting}
+\begin{lstlisting}[style=customxml]
 <finder name="C_S" return-type="Subject" unique="true">
 	<finder-column name="curriculumId"></finder-column>
 	<finder-column name="subjectCode"></finder-column>
@@ -573,7 +585,6 @@ Példaként tekintsük meg az alábbi kódot, amelyet a Subject, azaz tantárgy 
 	<finder-column name="curriculumId"></finder-column>
 </finder>
 \end{lstlisting}
-\end{minipage}
 
 A példában a tantárgyak entitáshoz két finder metódust definiáltam.
 
@@ -585,55 +596,42 @@ A második finder, Subject entitásokat tartalmazó Java kollekciót tud visszaa
 
 A Liferay platformra történő fejlesztés esetén a saját magunk által definiált kivételeket nem közvetlenül a \emph{java.lang} csomagban található Exception és RuntimeException osztályokból szokás származtatni, hanem be kell építeni ezeket a Liferay saját kivételosztály hierarchiájába. Erre több módszer is létezik, a legegyszerűbb az, ha a service.xml végén felsoroljuk az általunk szükséges kivétel osztály neveket, hasonlóan, mint ahogyan az a következő példában is látható:
 
-\begin{minipage}{\linewidth}
-\begin{lstlisting}
+\begin{lstlisting}[style=customxml]
 <exceptions>
 	<exception>CurriculumCode</exception>
 	<exception>CurriculumName</exception>
 </exceptions>
 \end{lstlisting}
-\end{minipage}
 
 Ennek hatására az alábbi kódrészlethez hasonló programkód fog legenerálódni:
 
-\begin{minipage}{\linewidth}
-\begin{lstlisting}
+\begin{lstlisting}[style=customjava]
 import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.exception.PortalException;
 
 @ProviderType
-public class CurriculumCodeException
-		extends PortalException {
+public class CurriculumCodeException extends PortalException {
 	...
 }
 \end{lstlisting}
-\end{minipage}
 
 A kivételek ilyen módon történő definiálásának legnagyobb előnye a hibaüzenetekké történő átalakításban rejlik. A Liferay lehetőséget biztosít arra, hogy a kivételekhez szöveges üzenetet társítsunk, amelyeket felugró üzenetként tud megjeleníteni a felhasználók számára.
 
 A konverzióhoz nem kell mást tenni, mint a liferay-ui:error elemet elhelyezni a megfelelő JSP-ben, illetve a megfelelő kulcs-érték párokat berakni a lokalizációs állományokba. Az alábbi példában az általam definiált CurriculumCodeException osztályt alakítom át szöveges üzenetekké:
 
-\begin{minipage}{\linewidth}
-\begin{center}
-\begin{lstlisting}[basicstyle=\small]
+\begin{lstlisting}[style=customxml]
 <liferay-ui:error
 	exception="<%=CurriculumCodeException.class%>"
 	message="curriculum-code-exception" />
 \end{lstlisting}
-\end{center}
-\end{minipage}
 
 \noindent A példához tartozó angol nyelvű lokalizációs állomány egyik sora:
 
-\begin{minipage}{\linewidth}
-\begin{center}
-\begin{lstlisting}[basicstyle=\small]
+\begin{lstlisting}[style=customjava]
 curriculum-code-exception=Invalid Curriculum Code
 \end{lstlisting}
-\end{center}
-\end{minipage}
 
-\noindent Tehát, ha a program futása közben CurriculumCodeException váltódik ki, akkor felhasználói felület megfelelő helyén az "Invalid Curriculum Code" hibaüzenet jelenik meg.
+\noindent Tehát, ha a program futása közben CurriculumCodeException váltódik ki, akkor felhasználói felület megfelelő helyén az ,,Invalid Curriculum Code'' hibaüzenet jelenik meg.
 
 \section{Relációs adatmodell}
 

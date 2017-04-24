@@ -35,18 +35,18 @@
 \select@language {magyar} \contentsline {subsection}{\numberline {4.3.4}Tulajdons\IeC {\'a}gok, attrib\IeC {\'u}tumok defini\IeC {\'a}l\IeC {\'a}sa}{26}{subsection.4.3.4}
 \select@language {magyar} \contentsline {subsection}{\numberline {4.3.5}Kapcsolatok defini\IeC {\'a}l\IeC {\'a}sa}{27}{subsection.4.3.5}
 \select@language {magyar} \contentsline {subsection}{\numberline {4.3.6}Rendez\IeC {\'e}sek defini\IeC {\'a}l\IeC {\'a}sa}{28}{subsection.4.3.6}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.3.7}Finder met\IeC {\'o}dusok defini\IeC {\'a}l\IeC {\'a}sa}{29}{subsection.4.3.7}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.3.8}Kiv\IeC {\'e}telek defini\IeC {\'a}l\IeC {\'a}sa}{30}{subsection.4.3.8}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.3.7}Finder met\IeC {\'o}dusok defini\IeC {\'a}l\IeC {\'a}sa}{28}{subsection.4.3.7}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.3.8}Kiv\IeC {\'e}telek defini\IeC {\'a}l\IeC {\'a}sa}{29}{subsection.4.3.8}
 \select@language {magyar} \contentsline {section}{\numberline {4.4}Rel\IeC {\'a}ci\IeC {\'o}s adatmodell}{31}{section.4.4}
 \select@language {magyar} \contentsline {subsection}{\numberline {4.4.1}Mintatanterv}{31}{subsection.4.4.1}
 \select@language {magyar} \contentsline {subsection}{\numberline {4.4.2}Tant\IeC {\'a}rgy}{32}{subsection.4.4.2}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.3}Kurzus T\IeC {\'\i }pus}{33}{subsection.4.4.3}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.3}Kurzus T\IeC {\'\i }pus}{32}{subsection.4.4.3}
 \select@language {magyar} \contentsline {subsection}{\numberline {4.4.4}Kurzus}{33}{subsection.4.4.4}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.5}F\IeC {\'e}l\IeC {\'e}v}{34}{subsection.4.4.5}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.5}F\IeC {\'e}l\IeC {\'e}v}{33}{subsection.4.4.5}
 \select@language {magyar} \contentsline {subsection}{\numberline {4.4.6}Oktat\IeC {\'o}}{34}{subsection.4.4.6}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.7}\IeC {\'O}rarendi Kurzus}{35}{subsection.4.4.7}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.7}\IeC {\'O}rarendi Kurzus}{34}{subsection.4.4.7}
 \select@language {magyar} \contentsline {subsection}{\numberline {4.4.8}Oktat\IeC {\'o} - \IeC {\'O}rarendi Kurzus kapcsolat}{35}{subsection.4.4.8}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.9}Sillabusz}{36}{subsection.4.4.9}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.9}Sillabusz}{35}{subsection.4.4.9}
 \select@language {magyar} \contentsline {section}{\numberline {4.5}Szolg\IeC {\'a}ltat\IeC {\'a}sok kialak\IeC {\'\i }t\IeC {\'a}sa}{36}{section.4.5}
 \select@language {magyar} \contentsline {section}{\numberline {4.6}Portlet l\IeC {\'e}trehoz\IeC {\'a}sa}{38}{section.4.6}
 \select@language {magyar} \contentsline {section}{\numberline {4.7}Jogosults\IeC {\'a}gkezel\IeC {\'e}s}{39}{section.4.7}
